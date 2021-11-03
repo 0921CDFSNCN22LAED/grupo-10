@@ -9,6 +9,8 @@ Hola, soy Seba, tengo 21 años y mi hobby es jugar videojuegos. Desde que soy ch
 Hace un año me surgió el interés de estudiar algo relacionado con la tecnología y me gustó la parte relacionada al desarrollo web.
 ### Cristian Ramos
 Soy Cristian Ramos, tengo 19 años, mi hobby es jugar en la pc, cuando me toco entrar a la facultad no sabia que carrera seguir, me gustó mucho la programacion con lo poco que aprendí en el colegio y decidí buscar algun curso, para poder trabajar de esto.
+## Tablero de Trello
+https://trello.com/b/N3O69dSW/proyecto-integrador-grupo-10
 ## Páginas web de referencia
 https://www.walmart.com.ar/ - Si bien no es específico del rubro que elegimos, tiene un diseño sencillo y ameno para el usuario a la hora de realizar una compra.
 
