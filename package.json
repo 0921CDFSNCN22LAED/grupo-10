@@ -1,0 +1,26 @@
+{
+  "name": "grupo-10",
+  "version": "1.0.0",
+  "description": "Nuestra página web será un e-commerce de computadoras gamer y todo lo relacionado a ellas. Será propiedad de los vendedores (no será un marketplace). Su público objetivo serán justamente los gamers, en su mayoría varones jóvenes, de 10-38 años. Como las computadoras gamer tienen un precio elevado, el público objetivo también requerirá un poder adquisitivo suficiente (ingresos de clase media en adelante).\r ## Integrantes\r ### Sebastián Torn\r Hola, soy Seba, tengo 21 años y mi hobby es jugar videojuegos. Desde que soy chico paso mucho tiempo en la computadora y muchas veces pensé en la posibilidad de estudiar programación, pero nunca empecé hasta hace poco. Ahora estoy maravillado con JavaScript, tengo ganas de saber más y estoy entusiasmado por poder trabajar de esto.\r ### Esteban Ponce\r ¡Hola! Soy Esteban de 30 años. Soy Baterista, tec. en Finanzas y también de RRHH. \r Hace un año me surgió el interés de estudiar algo relacionado con la tecnología y me gustó la parte relacionada al desarrollo web.\r ### Cristian Ramos\r Soy Cristian Ramos, tengo 19 años, mi hobby es jugar en la pc, cuando me toco entrar a la facultad no sabia que carrera seguir, me gustó mucho la programacion con lo poco que aprendí en el colegio y decidí buscar algun curso, para poder trabajar de esto.\r ## Páginas web de referencia\r https://www.walmart.com.ar/ - Si bien no es específico del rubro que elegimos, tiene un diseño sencillo y ameno para el usuario a la hora de realizar una compra.",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0921CDFSNCN22LAED/grupo-10.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0921CDFSNCN22LAED/grupo-10/issues"
+  },
+  "homepage": "https://github.com/0921CDFSNCN22LAED/grupo-10#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
