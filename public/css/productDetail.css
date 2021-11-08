@@ -50,6 +50,12 @@
 }
 .contenedor-info-producto p {
     color: #4caf50;
+    padding: 4px;
+    text-align: center;
+
+}
+.contenedor-info-producto p i {
+    padding: 3px;
 }
 .boton-compra, .boton-carrito {
     display: block;
