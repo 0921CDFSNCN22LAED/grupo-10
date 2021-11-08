@@ -12,10 +12,10 @@ app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, "views/index.html"));
 });
 app.get('/detalle-producto', (req, res) => {
-  res.sendFile(path.resolve(__dirname, "views/detalle-producto.html"));
+  res.sendFile(path.resolve(__dirname, "views/productDetail.html"));
 });
-app.get('/carrito-producto', (req, res) => {
-  res.sendFile(path.resolve(__dirname, "views/carrito-producto.html"));
+app.get('/carrito', (req, res) => {
+  res.sendFile(path.resolve(__dirname, "views/productCart.html"));
 });
 app.get('/login', (req, res) => {
   res.sendFile(path.resolve(__dirname, "views/login.html"));
