@@ -1,0 +1,79 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.w-50{
+    width:50%
+}
+.bg-color-black{
+    background-color: black;
+}
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+}
+body {
+    font-family: 'Titillium Web', sans-serif;
+    font-size:12px;
+    background-color:#ebebeb;
+}
+.style-user{
+    border:none;
+    background-color: black;
+    color: white;
+}
+.style-cart{
+    border:none;
+    background-color: black;
+    color: white;
+}
+main{
+    width: 90%;
+    margin: 0 auto;
+}
+.title{
+    font-size: 18px;
+}
+.producto{
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.style-footer{
+    background-color: black;
+    color:white
+}
+.title-footer{
+    text-align: center;
+}
+.style-contact{
+    display: flex;
+    justify-content: center;
+}
+.style-icon-contact{
+    padding:10px
+}
+.producto-contenido{
+    position: relative;
+}
+.style-arrow-left{
+    font-size: 16px;
+    color: #39b54a;
+    padding: 5px;
+    position: absolute;
+    right: 0px;
+    width: 318px;
+    height: 30px;
+    top: -170px;
+}
+.style-arrow-right{
+    font-size: 16px;
+    color: #39b54a;
+    padding: 5px;
+    position: absolute;
+    right: 0px;
+    width: 20px;
+    height: 30px;
+    top: -170px; 
+}
