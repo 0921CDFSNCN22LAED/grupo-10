@@ -44,7 +44,11 @@ main{
 }
 .style-footer{
     background-color: black;
-    color:white
+    color:white;
+    text-align: center;
+}
+.footer-b {
+    margin-bottom: 15px;
 }
 .title-footer{
     text-align: center;
