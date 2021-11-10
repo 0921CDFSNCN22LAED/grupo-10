@@ -22,11 +22,15 @@ body {
     border:none;
     background-color: black;
     color: white;
+    font-size: 20px;
+    padding-right: 15px;
 }
 .style-cart{
     border:none;
     background-color: black;
     color: white;
+    font-size: 20px;
+    padding-right: 15px;
 
 }
 main{
@@ -69,7 +73,7 @@ main{
     padding: 5px;
     position: absolute;
     right: 0px;
-    width: 480px;
+    width: 295px;
     height: 30px;
     top: -170px;
 }
@@ -112,7 +116,28 @@ main{
 }
 .right-nav{
     width: 50%;
+    text-align: end;
 }
 .left-nav{
     width: 50%;
+}
+.style-left-nav{
+    font-size: 11px;
+}
+.style-header{
+    border-top: 1px solid black
+}
+.style-wpp{
+    bottom: 18pt;
+    display: inline;
+    position: fixed;
+    right: 68pt;
+    top: auto;
+    width: 0;
+}
+.style-wasap{
+    color: #fff;
+    font-size: 37px;
+    background: #25d366;
+    border-radius: 50px;
 }
