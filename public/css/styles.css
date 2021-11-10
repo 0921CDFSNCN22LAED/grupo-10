@@ -85,29 +85,34 @@ main{
 }
 .navbar ul li{
     list-style: none;
-    margin: 5px;
+    margin: 4px;
 }
 .navbar ul{
     display: flex;
 
 }
 .pos-search{
-    position: relative;
-    top: 40px;
-    right: 100px;
     display: flex;
     height: 20px;
-}
-.style-header{
-    display: flex;
+    justify-content: center;
 }
 .style-search{
     border-bottom: 1px solid black;
     border-left: none;
     border-right: 1px solid black;
-    border-top: 2px solid;
+    border-top: 1px solid;
+    background-color: white;
 }
 .logo{
     background-color: black;
     border-bottom: 1px solid
+}
+.navbar{
+    display: flex;
+}
+.right-nav{
+    width: 50%;
+}
+.left-nav{
+    width: 50%;
 }

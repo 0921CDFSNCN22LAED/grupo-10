@@ -1,0 +1,21 @@
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.buttons h4 {
+  background-color: rgb(103, 103, 255);
+  width: 70px;
+}
+
+.button {
+  background-color: lightblue;
+  width: 136px;
+  padding: 3px;
+  border-radius: 7px;
+}
+
+.product {
+  width: 70%;
+}
