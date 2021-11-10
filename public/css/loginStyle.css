@@ -10,28 +10,32 @@
 .form-login {
   text-align: center;
   padding: 10px;
-  background-color:rgb(226, 226, 226)
+  background-color:rgb(226, 226, 226);
 }
 .titulo-login {
   text-align: center;
   margin: 10px;
 }
 .contenedores-login {
-  margin: 15px;
+  margin: 15px 0;
 }
 .input-login1 {
-  padding: 10px;
+  padding: 20px;
   height: 30px;
+  width: 65%;
   text-align: center;
   border: none;
   border-radius: 5px;
 }
 .boton-enviar {
-  height: 30px;
+  margin: 15px 0;
+  height: 37px;
   width: 35%;
+  min-width: 125px;
+  max-width: 225px;
   padding: 5px;
   border: none;
-  border-radius: 3px;
+  border-radius: 5px;
   background-color: #039fd3;
   color: white;
   font-weight: bolder;
@@ -39,7 +43,7 @@
 }
 .login-google {
   position: relative;
-  height: 30px;
+  height: 35px;
   right: 10px;
   padding: 5px;
   border: none;
@@ -51,7 +55,7 @@
 .login-facebook {
   position: relative;
   left: 10px;
-  height: 30px;
+  height: 35px;
   padding: 5px;
   border: none;
   border-radius: 3px;
