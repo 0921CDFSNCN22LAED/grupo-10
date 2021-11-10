@@ -3,6 +3,8 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+
 .body-login {
   background-color:rgba(244, 244, 245, 0.425);
 }
@@ -11,7 +13,7 @@
   margin: 0 auto;
 }
 .form-login {
-  margin: 10px;
+  margin: 5px;
   text-align: center;
   padding: 10px;
   background-color:rgb(75, 75, 75);
