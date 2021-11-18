@@ -7,6 +7,7 @@ app.use(express.static(publicPath));
 app.listen(3000, () => {
   console.log('Server running on port 3000.');
 });
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, "views/index.html"));
