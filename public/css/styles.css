@@ -8,15 +8,24 @@
 }
 .bg-color-black{
     background-color: black;
+    padding-bottom: 5px;
 }
 .navbar ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+    font-size: large;
 }
+.navbar ul li a:hover {
+    background-color:#ca0505;
+}
+
 body {
     font-family: 'Titillium Web', sans-serif;
     font-size:12px;
-    background-color:#ebebeb;
+    background-color:rgb(75, 75, 75);
+    box-shadow: 0 0px 20px rgb(19, 18, 18);
+    border-radius: 3px;
 }
 .style-user{
     border:none;
@@ -41,10 +50,21 @@ main{
 .title{
     font-size: 18px;
 }
+
+.art-destacados, .ultima-visita-ofertas {
+    text-align: center;
+    font-size: 24px;
+    padding-bottom: 17px;
+    padding-top: 15px;
+    color: white;
+}
+
 .producto{
     padding: 15px;
     margin-bottom: 10px;
     background-color: white;
+    box-shadow: 0 0px 20px rgb(19, 18, 18);
+    border-radius: 10px;
 }
 .style-footer{
     background-color: black;
@@ -52,7 +72,8 @@ main{
     text-align: center;
 }
 .footer-b {
-    margin-bottom: 15px;
+    padding-top: 15px;
+    margin-top: 15px;
 }
 .title-footer{
     text-align: center;
@@ -92,13 +113,16 @@ main{
     margin: 4px;
 }
 .navbar ul{
-    display: flex;
+    display: block;
+    text-align: center;
+
 
 }
 .pos-search{
     display: flex;
     height: 20px;
     justify-content: center;
+    margin-top: 10px;
 }
 .style-search{
     border-bottom: 1px solid black;
@@ -111,21 +135,19 @@ main{
     background-color: black;
     border-bottom: 1px solid
 }
-.navbar{
-    display: flex;
-}
+
 .right-nav{
-    width: 50%;
     text-align: end;
 }
 .left-nav{
-    width: 50%;
+    
 }
 .style-left-nav{
     font-size: 11px;
 }
 .style-header{
-    border-top: 1px solid black
+    border-top: 1px solid black;
+    padding-bottom: 5px;
 }
 .style-wpp{
     bottom: 18pt;
@@ -135,11 +157,12 @@ main{
     top: auto;
     width: 0;
 }
-.style-wasap{
+.style-wasap i{
     color: #fff;
     font-size: 37px;
     background: #25d366;
     border-radius: 50px;
+    padding: 5px;
 }
 .style-recordar{
     color: white;
