@@ -40,7 +40,6 @@
   border-radius: 3px;
   color: white;
   background-color: rgb(39, 39, 39);
-  
 }
 .boton-enviar {
   height: 37px;
@@ -53,7 +52,6 @@
   background-color: rgb(31, 134, 182);
   color: white;
   font-weight: bolder;
-  
 }
 .login-google {
   width: 80%;
