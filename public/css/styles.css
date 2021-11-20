@@ -6,6 +6,7 @@
 .w-50{
     width:50%
 }
+
 .bg-color-black{
     background-color: black;
     padding-bottom: 5px;
@@ -28,21 +29,13 @@ body {
     border-radius: 3px;
     color: white;
 }
-.style-user{
+.style-user, .style-cart{
     border:none;
-    background-color: black;
     color: white;
     font-size: 20px;
-    padding-right: 15px;
+    padding: 5px;
 }
-.style-cart{
-    border:none;
-    background-color: black;
-    color: white;
-    font-size: 20px;
-    padding-right: 15px;
 
-}
 main{
     width: 90%;
     margin: 0 auto;
@@ -146,15 +139,15 @@ img {
 }
 .logo{
     background-color: black;
-    border-bottom: 1px solid
+    border-bottom: 1px solid;
 }
 
 .right-nav{
     text-align: end;
+    padding-top: 20px;
+    margin-right: 10px;
 }
-.left-nav{
-    
-}
+
 .style-left-nav{
     font-size: 11px;
 }
@@ -179,4 +172,27 @@ img {
 }
 .style-recordar{
     color: white;
+}
+
+@media (min-width: 768px) {
+    footer section {
+        display: flex;
+    }
+    .footer-b {
+        margin: 10px;
+    }
+    .navbar ul {
+        display: flex;
+        justify-content: center;
+    }
+    .navbar ul li a {
+        padding: 10px;
+    }
+    .pos-search {
+        height: 27px;
+    }
+    .pos-search input {
+        width: 29%;
+        max-width: 250px;
+    }
 }
