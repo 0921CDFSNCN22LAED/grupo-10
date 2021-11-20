@@ -54,7 +54,7 @@ main{
 
 .producto{
     padding: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     background-color: #272728d1;
     box-shadow: 0 0px 20px rgb(19, 18, 18);
     border-radius: 10px;
@@ -92,6 +92,7 @@ main{
 }
 img {
     border-radius: 5px;
+    width: 100%;
 }
 
 .style-arrow-left{
@@ -194,5 +195,31 @@ img {
     .pos-search input {
         width: 29%;
         max-width: 250px;
+    }
+    .section1-index {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    img {
+        width: 300px;
+    }
+    .section2-index {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .producto .title {
+        text-align: center;
+        font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .producto .producto-contenido {
+        justify-content: center;
+    }
+}
+@media (min-width: 992px) {
+    .section1-index {
+        flex-wrap: nowrap;
     }
 }

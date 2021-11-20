@@ -102,10 +102,6 @@ body {
     border-bottom: solid 2px rgb(75, 75, 75);
     padding: 10px;
 }
-.img-producto-interes {
-    width: 50%;
-    margin: 0 auto;
-}
 .contenedor-infoproducto-interes {
     display: flex;
     padding-top: 10px;
@@ -122,22 +118,28 @@ body {
 
 .section1, .section2, .section3 {
     box-shadow: 0 0px 20px rgb(19, 18, 18);
-    border-radius: 3px;
+    border-radius: 5px;
     background-color: #272728d1;
     margin: 25px 0;
+}
+.section1 {
+    text-align: center;
 }
 
 
 @media (min-width: 768px) {
     .section1, .section2{
         display: inline-block;
-        width: 45%;
+        width: 48%;
     }
     .productos-de-interes {
         flex-wrap: nowrap;
     }
-    .section2 {
-        position: relative;
-        bottom: 22px;
+    .flex-section1y2 {
+        display: flex;
+        justify-content: space-around;
+    }
+    .productos-de-interes {
+        flex-wrap: wrap;
     }
 }
