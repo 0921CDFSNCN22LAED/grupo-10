@@ -87,6 +87,7 @@ main{
 }
 .producto-contenido{
     display: flex;
+    text-align: center;
 }
 .producto-contenido p {
     align-self: center;
