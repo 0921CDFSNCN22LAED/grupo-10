@@ -212,7 +212,7 @@ img {
     .producto .title {
         text-align: center;
         font-size: 20px;
-        margin-bottom: 5px;
+        
     }
     .producto .producto-contenido {
         justify-content: center;
@@ -220,6 +220,6 @@ img {
 }
 @media (min-width: 992px) {
     .section1-index {
-        flex-wrap: nowrap;
+        justify-content: space-between;
     }
 }
