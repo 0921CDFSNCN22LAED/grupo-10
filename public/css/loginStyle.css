@@ -63,6 +63,7 @@
   color: white;
   font-weight: bolder;
   margin-bottom: 2.5px;
+  max-width: 375px;
 }
 .login-facebook {
   width: 80%;
@@ -73,6 +74,7 @@
   background-color: #3b5998;
   color: white;
   font-weight: bolder;
+  max-width: 375px;
 }
 .contenedor-gg-fb {
   margin: 14px 0;
