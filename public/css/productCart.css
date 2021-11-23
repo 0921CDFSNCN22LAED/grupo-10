@@ -7,17 +7,43 @@
   border-bottom: solid 2px rgb(226, 226, 226);
 }
 .tabla-misproductos {
+  width: 100%;
   margin: auto;
   font-size: 16px;
   padding-bottom: 10px;
+  
 }
+th, td {
+  text-align: left;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  padding: 0.3em;
+}
+th {
+  text-align: center;
+}
+
+#id-cantidad-prod {
+  max-width: 40%;
+  margin-right: 5px;
+
+}
+.td-cantidad {
+  text-align: center;
+}
+.td-cantidad i {
+  padding: 2px;
+}
+
 #tacho-tabla {
   color: #ff2929;
   font-size: 18px;
+  padding: 3px;
+  display: block;
+  text-align: center;
 }
-td {
-  padding:5px;
-}
+
+
 .th-precio, .td-precio {
   display: none;
 }
