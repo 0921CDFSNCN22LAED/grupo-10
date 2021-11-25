@@ -11,6 +11,18 @@ module.exports = {
     res.render("productCart");
   },
 
+  carritoEntrega: (req, res) => {
+    res.render("productCart2");
+  },
+
+  carritoPago: (req, res) => {
+    res.render("productCart3");
+  },
+
+  carritoConfirmacion: (req, res) => {
+    res.render("productCart4");
+  },
+
   login: (req, res) => {
     res.render("login");
   },
