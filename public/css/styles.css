@@ -220,7 +220,5 @@ img {
     }
 }
 @media (min-width: 992px) {
-    .section1-index {
-        justify-content: space-between;
-    }
+    
 }
