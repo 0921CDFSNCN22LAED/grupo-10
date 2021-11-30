@@ -12,3 +12,4 @@ app.set('view engine', 'ejs');
 
 const mainRouter = require('./routers/mainRouter.js');
 app.use('/', mainRouter);
+
