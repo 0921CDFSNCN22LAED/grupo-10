@@ -146,7 +146,6 @@ img {
 
 .right-nav{
     text-align: end;
-    padding-top: 20px;
     margin-right: 10px;
 }
 
@@ -222,5 +221,8 @@ img {
 @media (min-width: 992px) {
     .section1-index {
         justify-content: space-between;
+    }
+    .style-wpp{
+        bottom: 130px;
     }
 }
