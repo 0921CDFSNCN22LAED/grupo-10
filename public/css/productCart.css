@@ -54,9 +54,9 @@ th {
   padding-top: 15px;
   padding-bottom: 15px;
 }
-#submit-siguiente {
+#submit-siguiente, #submit-anterior {
   display: block;
-  margin: 0 auto;
+  margin: 6px;
   height: 37px;
   width: 50%;
   min-width: 125px;
@@ -67,4 +67,7 @@ th {
   background-color: rgb(31, 134, 182);
   color: white;
   font-weight: bolder;
+}
+.box-button-entrega {
+  display: flex;
 }

@@ -10,20 +10,24 @@
         <i class="fas fa-truck"></i>
         Mi Entrega
       </h2>
+      <div>
       <label for="label-Pickup">
-        <input type="radio" name="label-envio" id="label-Pickup">
-        <p>PickUp Point</p>
-        <p>(Retiro por Av. Independencia 3485)</p>
-        <span class="">Gratis!</span>
+        <input type="radio" name="label-envio" id="label-Pickup">PickUp Point
       </label>
+      <p>(Retiro por Av. Independencia 3485)</p>
+      <span class="">Gratis!</span>
+      </div>
+      <div>
       <label for="label-envio">
-        <input type="radio" name="label-envio" id="label-envio">
-        <p>Envío a domicilio</p>
-        <p>(Válido para todo el país)</p>
-        <span class="">Calcular envío</span>
+        <input type="radio" name="label-envio" id="label-envio">Envío a domicilio
       </label>
+      <p>(Válido para todo el país)</p>
+      <span class="">Calcular envío</span>
+      </div>
+      <div class="box-button-entrega">
       <button type="submit" name="submit-anterior" id="submit-anterior">ANTERIOR</button>
       <button type="submit" name="submit-siguiente" id="submit-siguiente">SIGUIENTE</button>
+      </div>
     </main>
     <%- include("./partials/footer") %>
   </body>
