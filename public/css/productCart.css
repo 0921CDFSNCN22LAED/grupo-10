@@ -64,7 +64,7 @@ th {
   height: 37px;
   width: 50%;
   min-width: 125px;
-  max-width: 400px;
+  max-width: 275px;
   padding: 5px;
   border: none;
   border-radius: 3px;
@@ -75,6 +75,7 @@ th {
 
 .box-button-entrega {
   display: flex;
+  justify-content: center;
 }
 .box-label-entrega {
   margin: 20px 0px;
