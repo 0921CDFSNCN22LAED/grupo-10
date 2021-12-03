@@ -8,6 +8,9 @@
 .body-login {
   background-color:rgba(244, 244, 245, 0.425);
 }
+main {
+  font-size: 15px;
+}
 .main-login {
   width: 95%;
   margin: 15px auto;

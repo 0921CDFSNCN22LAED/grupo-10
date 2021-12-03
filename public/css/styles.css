@@ -95,27 +95,6 @@ img {
     border-radius: 5px;
     width: 100%;
 }
-
-.style-arrow-left{
-    font-size: 16px;
-    color: #39b54a;
-    padding: 5px;
-    position: absolute;
-    right: 0px;
-    width: 295px;
-    height: 30px;
-    top: -170px;
-}
-.style-arrow-right{
-    font-size: 16px;
-    color: #39b54a;
-    padding: 5px;
-    position: absolute;
-    right: 0px;
-    width: 20px;
-    height: 30px;
-    top: -170px; 
-}
 .navbar ul li{
     list-style: none;
     margin: 4px;
@@ -174,6 +153,12 @@ img {
 .style-recordar{
     color: white;
 }
+.style-arrow-left{
+    display: none;
+}
+.style-arrow-right{
+    display: none;
+}
 
 @media (min-width: 768px) {
     footer section {
@@ -217,10 +202,41 @@ img {
     .producto .producto-contenido {
         justify-content: center;
     }
+    .style-wpp{
+        bottom: 130px;
+    }
+    .style-arrow-left{
+        display: none;
+    }
+    .style-arrow-right{
+        display: none;
+    }
 }
 @media (min-width: 992px) {
     .style-wpp{
         bottom: 130px;
+    }
+    .style-arrow-right{
+        display: block;
+        font-size: 30px;
+        color:black;
+        padding: 5px;
+        border: none;
+        background: none;
+        position: absolute;
+        right: 30px;
+        bottom: -500px;
+    }
+    .style-arrow-left{
+        display: block;
+        font-size: 30px;
+        color:black;
+        padding: 5px;
+        border: none;
+        background: none;
+        position: absolute;
+        left: 30px;
+        bottom: -500px;
     }
     
 }
