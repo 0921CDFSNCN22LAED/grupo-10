@@ -6,6 +6,10 @@
   font-size: 1.5rem;
   border-bottom: solid 2px rgb(226, 226, 226);
 }
+
+.subtitulo-micompra {
+  text-align: center;
+}
 .tabla-misproductos {
   width: 100%;
   margin: auto;
@@ -68,6 +72,19 @@ th {
   color: white;
   font-weight: bolder;
 }
+
 .box-button-entrega {
   display: flex;
+}
+.box-label-entrega {
+  margin: 20px 0px;
+  font-size: 16px;
+  text-align: center;
+}
+.box-label-entrega span {
+
+}
+
+#label-Pickup, #label-envio {
+  margin: 0px 3px;
 }
