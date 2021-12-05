@@ -57,9 +57,12 @@ th {
   font-size: 1.2rem;
   padding-top: 15px;
   padding-bottom: 15px;
+  margin: 0 6px;
 }
-#submit-siguiente, #submit-anterior {
+.botones-proceso-compra {
   display: block;
+  text-decoration: none;
+  text-align: center;
   margin: 6px;
   height: 37px;
   width: 50%;
@@ -77,6 +80,10 @@ th {
   display: flex;
   justify-content: center;
 }
+.btn-carrito-siguienteA {
+  display: flex;
+  justify-content: right;
+}
 .box-label-entrega {
   margin: 20px 0px;
   font-size: 16px;
@@ -88,4 +95,12 @@ th {
 
 #label-Pickup, #label-envio {
   margin: 0px 3px;
+}
+.box-contenidoMiPago {
+  margin: 15px;
+  text-align: center;
+  font-size: 16px;
+}
+.box-contenidoMiPago div {
+  margin: 7.5px 0;
 }
