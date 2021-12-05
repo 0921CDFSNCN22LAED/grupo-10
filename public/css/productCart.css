@@ -79,6 +79,7 @@ th {
 .box-button-entrega {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 .btn-carrito-siguienteA {
   display: flex;
@@ -89,9 +90,7 @@ th {
   font-size: 16px;
   text-align: center;
 }
-.box-label-entrega span {
 
-}
 
 #label-Pickup, #label-envio {
   margin: 0px 3px;
@@ -104,3 +103,23 @@ th {
 .box-contenidoMiPago div {
   margin: 7.5px 0;
 }
+
+.box-conf-entrega, .box-conf-precio {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+.box-conf-precio p {
+  font-weight: bolder;
+  color: #58ff82;
+}
+
+.titulo-confirmacion-entrega {
+  font-size: 1.2rem;
+}
+.box-conf-entrega p, .box-conf-precio p {
+  place-self: flex-end;
+  padding-left: 3px;
+  font-size: 1.2rem;
+}
+
