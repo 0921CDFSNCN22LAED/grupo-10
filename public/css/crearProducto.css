@@ -1,0 +1,10 @@
+.input-crearProducto {
+  padding: 20px;
+  height: 30px;
+  width: 80%;
+  max-width: 400px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(39, 39, 39);
+}
