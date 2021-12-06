@@ -1,54 +1,53 @@
 [
-    {
-        "id": 1,
-        "name":"Mouse Logitech GPRO",
-        "description":"ybreiuyvrebyive",
-        "price":"$10.000",
-        "category":"Art-Destacado",
-        "image":"mouse.jfif"
-
-    },
-    {
-        "id": 2,
-        "name":"Geforce RTX 3090",
-        "description":"ybreiuyvrebyive",
-        "price":"$400.000",
-        "category":"Art-Destacado",
-        "image":"placa-video.jfif"
-    },
-    {
-        "id": 3,
-        "name":"Teclado HyperX Alloy Fps",
-        "description":"ybreiuyvrebyive",
-        "price":"$12.000",
-        "category":"Art-Destacado",
-        "image":"mouse.jfif"
-    },
-    {
-        "id": 4,
-        "name":"Gabinete Gamer",
-        "description":"ybreiuyvrebyive",
-        "discount":"%30",
-        "price":"$50.000",
-        "category":"Oferta",
-        "image":"gabinete-gamer.jfif"
-    },
-    {
-        "id": 5,
-        "name":"Gabinete Gamer",
-        "description":"ybreiuyvrebyive",
-        "price":"$60.000",
-        "discount":"%30",
-        "category":"Oferta",
-        "image":"gabinete-gamer.jfif"
-    },
-    {
-        "id": 6,
-        "name":"Gabinete Gamer",
-        "description":"ybreiuyvrebyive",
-        "price":"$70.000",
-        "discount":"%30",
-        "category":"Oferta",
-        "image":"gabinete-gamer.jfif"
-    }
+  {
+    "id": 1,
+    "name": "Mouse Logitech GPRO",
+    "description": "ybreiuyvrebyive",
+    "price": "$10.000",
+    "category": "Art-Destacado",
+    "image": "mouse.jfif"
+  },
+  {
+    "id": 2,
+    "name": "Geforce RTX 3090",
+    "description": "ybreiuyvrebyive",
+    "price": "$400.000",
+    "category": "Art-Destacado",
+    "image": "placa-video.jfif"
+  },
+  {
+    "id": 3,
+    "name": "Teclado HyperX Alloy Fps",
+    "description": "ybreiuyvrebyive",
+    "price": "$12.000",
+    "category": "Art-Destacado",
+    "image": "mouse.jfif"
+  },
+  {
+    "id": 4,
+    "name": "Gabinete Gamer",
+    "description": "ybreiuyvrebyive",
+    "discount": "%30",
+    "price": "$50.000",
+    "category": "Oferta",
+    "image": "gabinete-gamer.jfif"
+  },
+  {
+    "id": 5,
+    "name": "Gabinete Gamer",
+    "description": "ybreiuyvrebyive",
+    "price": "$60.000",
+    "discount": "%30",
+    "category": "Oferta",
+    "image": "gabinete-gamer.jfif"
+  },
+  {
+    "id": 6,
+    "name": "Gabinete Gamer",
+    "description": "ybreiuyvrebyive",
+    "price": "$70.000",
+    "discount": "%30",
+    "category": "Oferta",
+    "image": "gabinete-gamer.jfif"
+  }
 ]

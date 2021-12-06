@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
-<body>
-<%- include("./partials/header") %>
-  <main>
-    <h2 class="art-destacados">ARTICULOS DESTACADOS</h2>
-    <section class="section1-index">
+  <%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
+  <body>
+    <%- include("./partials/header") %>
+    <main>
+      <h2 class="art-destacados">ARTICULOS DESTACADOS</h2>
+      <section class="section1-index">
         <div>
-        <article class="producto">
-          <img src="/img/mouse.jfif">
-          <div class="producto-contenido">
-            <p>$12.000</p>
-            <p class="title">Mouse Logitech GPRO</p>
-          </div>
-        </article>
-        </div>
-        <div>
-        <article class="producto">
-          <img src="/img/placa-video.jfif" width="100%">
-          <div class="producto-contenido">
-            <p>$400.000</p>
-            <p class="title">GeForce RTX 3090</p>
-          </div>
-        </article>
-        </div>
-        <div>
-        <article class="producto">
-          <img src="/img/teclado.jfif">
-          <div class="producto-contenido">
-            <p>$10.000</p>
-            <p class="title">Teclado HyperX Alloy fps</p>
-          </div>
-        </article>
+          <article class="producto">
+            <img src="/img/mouse.jfif" />
+            <div class="producto-contenido">
+              <p>$12.000</p>
+              <p class="title">Mouse Logitech GPRO</p>
+            </div>
+          </article>
         </div>
         <div>
           <article class="producto">
-            <img src="/img/teclado.jfif">
+            <img src="/img/placa-video.jfif" width="100%" />
+            <div class="producto-contenido">
+              <p>$400.000</p>
+              <p class="title">GeForce RTX 3090</p>
+            </div>
+          </article>
+        </div>
+        <div>
+          <article class="producto">
+            <img src="/img/teclado.jfif" />
             <div class="producto-contenido">
               <p>$10.000</p>
               <p class="title">Teclado HyperX Alloy fps</p>
             </div>
           </article>
-          </div>
-    </section>
-    <h2 class="ultima-visita-ofertas">OFERTAS</h2>
+        </div>
+        <div>
+          <article class="producto">
+            <img src="/img/teclado.jfif" />
+            <div class="producto-contenido">
+              <p>$10.000</p>
+              <p class="title">Teclado HyperX Alloy fps</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <h2 class="ultima-visita-ofertas">OFERTAS</h2>
       <section class="section2-index">
         <% offerProducts.forEach((prod)=>{ %>
         <div>
