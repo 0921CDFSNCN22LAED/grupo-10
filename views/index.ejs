@@ -44,50 +44,35 @@
           </div>
     </section>
     <h2 class="ultima-visita-ofertas">OFERTAS</h2>
-    <section class="section2-index">
-      <div>
-        <article class="producto">
-          <p class="title">Gabinete gamer Magnum</p>
-          <img src=/img/gabinete-gamer.jfif>
-          <div class="producto-contenido">
-            <p>$50.000</p>
-            <p class="descuentos">30% OFF</p>
-            <button class="style-arrow-left">
-              <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="style-arrow-right">
-              <i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-        </article>
-      </div>
-      <div>
-        <article class="producto">
-          <p class="title">Gabinete gamer Magnum</p>
-          <img src=/img/gabinete-gamer.jfif>
-          <div class="producto-contenido">
-            <p>$50.000</p>
-            <p class="descuentos">30% OFF</p>
-          </div>
-        </article>
-      </div>
-      <div>
-        <article class="producto">
-          <p class="title">Gabinete gamer Magnum</p>
-          <img src=/img/gabinete-gamer.jfif>
-          <div class="producto-contenido">
-            <p>$50.000</p>
-            <p class="descuentos">30% OFF</p>
-          </div>
-        </article>
-      </div>
-      <div class="style-wpp">
-        <a href="https://web.whatsapp.com/send?phone=5491133226951&text=hola" class="style-wasap">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-      </div>
-    </section>
-  </main>
-  <%- include("./partials/footer") %>
-</body>
+      <section class="section2-index">
+        <% offerProducts.forEach((prod)=>{ %>
+        <div>
+          <article class="producto">
+            <img src=/img/<%= prod.image%>>
+            <div class="producto-contenido">
+              <p><%= prod.price %></p>
+              <p class="title"><%= prod.name %></p>
+              <p class="descuentos"><%= prod.discount %></p>
+            </div>
+          </article>
+        </div>
+        <% }) %>
+        <button class="style-arrow-left">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="style-arrow-right">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="style-wpp">
+          <a
+            href="https://web.whatsapp.com/send?phone=5491133226951&text=hola"
+            class="style-wasap"
+          >
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+    <%- include("./partials/footer") %>
+  </body>
 </html>
