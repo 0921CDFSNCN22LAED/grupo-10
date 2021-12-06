@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
+</head>
+<body>
+    <%- include("./partials/header") %>
+    <main>
+        <div>
+            <div>
+                <div>
+                    <h2>Formulario de creación de productos</h2>
+                </div>
+            </div>
+            <div>
+                <form action="" method="POST">
+                    <div>
+                        <div>
+                            <label for="name">Nombre del producto:</label>
+                            <input type="text" id="name" name="name" placeholder="Ej: Zapatillas Reebok" class="form-input">
+                        </div>
+                        <div>
+                            <label for="price">Precio del producto:</label>
+                            <input type="text" id="price" name="price" placeholder="Ej: 5678" class="form-input">
+                        </div>
+                        <div>
+                            <label for="description" class="form-label">Descipción:</label>
+                            <textarea name="description" id="description"></textarea>
+                        </div>
+                        <div>
+                            <label for="category">Categoria:</label>
+                            <select name="category" id="category">
+                                <option value="">Elegi</option>
+                                <option value="Oferta">Ofertas</option>
+                                <option value="Art-destacado">Articulos Destacados</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="image">Foto de Articulo</label>
+                            <input type="file" name="image" accept="image/png,image/jpg">
+                        </div>
+                        <div>
+                            <button type="submit">Guardar producto</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    
+        </div>  
+    </main>
+    <footer>
+        <%- include("./partials/footer") %>
+    </footer>
+
+    
+</body>
+</html>
