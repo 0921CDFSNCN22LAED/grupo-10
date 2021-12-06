@@ -10,7 +10,7 @@
 }
 .form-crearProducto {
   margin: 5px;
-  text-align: none;
+  text-align: center;
   padding: 10px;
   background-color:rgb(75, 75, 75);
   box-shadow: 0 0px 20px rgb(19, 18, 18);
@@ -23,7 +23,7 @@
   margin: 20px 0;
 }
 .box-descripcion textarea {
-
+  width: 80%;
 }
 .box-boton-guardarProducto {
   text-align: center;
