@@ -16,3 +16,39 @@ Retrospectiva utilizando la dinámica de la estrella de mar.
 5) Dejar de hacer.
 - Dejar descontentos de lado o actitudes negativas que no contribuyen a un buen clima de trabajo.
 
+-------------------------------------------------------------------------------------------------------
+RETRO: SOBRE SPRINT 2.
+
+1) Comenzar a hacer.
+- Dividir las tareas en función del perfil de cada uno.
+
+2) Hacer más.
+- Invertir mas tiempo en el trabajo integrador.
+
+3) Continuar haciendo.
+- Continuar con las reuniones semanales (todos los lunes a las 19:00hs).
+
+4) Hacer menos.
+- 
+
+5) Dejar de hacer.
+- Dejar de posponer tareas del trabajo integrador.
+
+-------------------------------------------------------------------------------------------------------
+RETRO: SOBRE SPRINT 3.
+
+1) Comenzar a hacer.
+- Colocar fecha de entrega a las tareas.
+
+2) Hacer más.
+- Seguir dividiendo tareas.
+
+3) Continuar haciendo.
+- Invertir mas tiempo en el trabajo integrador.
+
+4) Hacer menos.
+- 
+
+5) Dejar de hacer.
+- ausencia de comunicación.
+
