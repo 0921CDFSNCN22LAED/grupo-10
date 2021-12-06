@@ -10,7 +10,7 @@ router.get('/carrito/pago', mainController.carritoPago);
 router.get('/carrito/confirmacion', mainController.carritoConfirmacion);
 router.get('/login', mainController.login);
 router.get('/registro', mainController.registro);
-//create
+// create
 router.get('/create', mainController.create); 
 router.post('/', mainController.store);
 // edit

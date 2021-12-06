@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
-</head>
-<body>
+  <head>
+    <%- include("./partials/head", {title: "Crear un producto - PC Gamer"}) %>
+  </head>
+  <body>
     <%- include("./partials/header") %>
     <main>
+      <div>
         <div>
+          <div>
+            <h2>Formulario de creación de productos</h2>
+          </div>
+        </div>
+        <div>
+          <form action="" method="POST">
             <div>
                 <form class="form-crearProducto" action="" method="POST">
                     <h2 class="titulo-micompra">Formulario de creación de productos</h2>
@@ -41,13 +48,10 @@
                     </div>
                 </form>
             </div>
-    
-        </div>  
+          </form>
+        </div>
+      </div>
     </main>
-    <footer>
-        <%- include("./partials/footer") %>
-    </footer>
-
-    
-</body>
+    <footer><%- include("./partials/footer") %></footer>
+  </body>
 </html>
