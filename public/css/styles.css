@@ -225,7 +225,7 @@ img {
         background: none;
         position: absolute;
         right: 30px;
-        bottom: -500px;
+        bottom: -170px;
     }
     .style-arrow-left{
         display: block;
@@ -236,7 +236,7 @@ img {
         background: none;
         position: absolute;
         left: 30px;
-        bottom: -500px;
+        bottom: -170px;
     }
     
 }
