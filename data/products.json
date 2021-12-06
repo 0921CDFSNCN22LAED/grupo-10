@@ -35,20 +35,54 @@
     },
     {
         "id": 5,
-        "name":"Gabinete Gamer",
-        "description":"ybreiuyvrebyive",
-        "price":"$60.000",
+        "name":"Motherboard Asus Prime Z490",
+        "description":"Tarjeta Madre Intel Z490, Ethernet de 1 Gb, HDMI, DisplayPort, SATA 6Gbps, USB 3.2 Gen 2, soporte Thunderbolt™ 3 e iluminación Aura Sync RGB Socket Intel® LGA 1200: Listo para procesadores Intel® Core ™ de 10a generación.",
+        "price":"$59.990",
         "discount":"%30",
         "category":"Oferta",
-        "image":"gabinete-gamer.jfif"
+        "image":"placa-madre-asus.jpg"
     },
     {
         "id": 6,
-        "name":"Gabinete Gamer",
-        "description":"ybreiuyvrebyive",
-        "price":"$70.000",
+        "name":"Procesador Core I9",
+        "description":"Procesador de escritorio desbloqueado Intel Core i9-10900K de 10ª generación. Con la tecnología Intel Turbo Boost Max 3. 0, los procesadores de escritorio Intel Core de 10ª generación desbloqueados están optimizados para jugadores entusiastas y creadores serios y ayudan a ofrecer overclocking de alto rendimiento para un impulso adicional. Solución térmica no incluida en la caja.",
+        "price":"$58.999",
         "discount":"%30",
         "category":"Oferta",
-        "image":"gabinete-gamer.jfif"
+        "image":"core-i9.jpg"
+    },
+    {
+        "id": 7,
+        "name":"Teclado Mecanico Razer Hunstaman Mini",
+        "description":"Un teclado para juegos reducido al 60 % de su tamaño y con sus punteros switches ópticos Razer™. Portátil e ideal para escritorios reducidos, es hora de experimentar un accionamiento a la velocidad de la luz.",
+        "price":"$18.190",
+        "category":"Art-Destacado",
+        "image":"teclado-razer.jpg"
+    },
+    {
+        "id": 8,
+        "name":"Memoria Ram Hyperx 8gb",
+        "description":"Memoria Ram Gamer Kingston Hyperx Fury 8gb Rgb Ddr4 3600mhz",
+        "price":"$9.000",
+        "discount":"%15",
+        "category":"Oferta",
+        "image":"memoria-ram.jfif"
+    },
+    {
+        "id": 9,
+        "name":"Mouse Gamer Razer Viper Mini 8500DPI",
+        "description":"Mouse Gamer ultra liviano de alta velocidad. Por su ergonomía ermite que las personas diestras o zurdas puedan utilizarlo y personalizar la configuración.",
+        "price":"$5.000",
+        "category":"Art-Destacado",
+        "image":"razer-vipermini.jpg"
+    },
+    {
+        "id": 10,
+        "name":"Redragon K530 Draconic",
+        "description":"Primer teclado Redragon 60% – Diseño ultra minimalista sin teclas (TKL) con 61 teclas portátil que libera espacio de mesa para movimiento del ratón, que ofrece el rendimiento más puro para FPS Pro",
+        "price":"$11.000",
+        "discount":"%25",
+        "category":"Oferta",
+        "image":"teclado-redrgon.jpg"
     }
 ]
