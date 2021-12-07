@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <%- include("./partials/head", {title: "Crear un producto - PC Gamer"}) %>
-  </head>
-  <body>
+<head>
+    <%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
+</head>
+<body>
     <%- include("./partials/header") %>
     <main>
-      <div>
         <div>
-          <div>
-            <h2>Formulario de creación de productos</h2>
-          </div>
-        </div>
-        <div>
-          <form action="" method="POST">
             <div>
-                <form class="form-register" action="" method="POST">
+                <form class="form-crearProducto" action="" method="POST">
                     <h2 class="titulo-micompra">Formulario de creación de productos</h2>
                     <div>
                         <div>
@@ -26,12 +19,12 @@
                             <label for="price">Precio del producto:</label>
                             <input class="input-crearProducto" type="text" id="price" name="price" placeholder="Ej: $10.000" class="form-input">
                         </div>
-                        <div>
-                            <label for="description">Descipción:</label>
+                        <div class="box-descripcion">
+                            <label for="description">Descripción:</label>
                             <textarea name="description" id="description"></textarea>
                         </div>
                         <div>
-                            <label for="category">Categoria:</label>
+                            <label for="category">Categoría:</label>
                             <select name="category" id="category">
                                 <option value="">Elegi</option>
                                 <option value="Oferta">Ofertas</option>
@@ -42,16 +35,19 @@
                             <label for="image">Foto de Articulo</label>
                             <input type="file" name="image" accept="image/png,image/jpg">
                         </div>
-                        <div>
-                            <button type="submit">Guardar producto</button>
+                        <div class="box-boton-guardarProducto">
+                            <button class="boton-crearProducto" type="submit">Crear producto</button>
                         </div>
                     </div>
                 </form>
             </div>
-          </form>
-        </div>
-      </div>
+    
+        </div>  
     </main>
-    <footer><%- include("./partials/footer") %></footer>
-  </body>
+    <footer>
+        <%- include("./partials/footer") %>
+    </footer>
+
+    
+</body>
 </html>

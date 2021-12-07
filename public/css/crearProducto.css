@@ -8,3 +8,37 @@
   color: white;
   background-color: rgb(39, 39, 39);
 }
+.form-crearProducto {
+  margin: 5px;
+  text-align: center;
+  padding: 10px;
+  background-color:rgb(75, 75, 75);
+  box-shadow: 0 0px 20px rgb(19, 18, 18);
+  border-radius: 3px;
+}
+
+.box-descripcion {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.box-descripcion textarea {
+  width: 80%;
+  margin: 0 auto;
+}
+.box-boton-guardarProducto {
+  text-align: center;
+}
+.boton-crearProducto {
+  height: 37px;
+  width: 80%;
+  min-width: 125px;
+  max-width: 400px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(31, 134, 182);
+  color: white;
+  font-weight: bolder;
+  margin: 15px 0;
+}
