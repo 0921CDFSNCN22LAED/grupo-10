@@ -9,11 +9,11 @@
       <div>
         <div>
           <div>
-            <h2>Estás editando:</h2>
+            <h2>Estás editando el producto:<i><%= product.name %></i></h2>
           </div>
         </div>
         <div>
-          <form action="" method="PUT">
+          <form action="/<%= product.id%>?_method=PUT" method="POST">
             <div>
               <div>
                 <label for="name">Nombre del producto:</label>
@@ -22,6 +22,7 @@
                   id="name"
                   name="name"
                   placeholder="Teclado Mecanico"
+                  value="<%= product.name %>"
                 />
               </div>
               <div>
@@ -31,6 +32,7 @@
                   id="price"
                   name="price"
                   placeholder="Ej: $400.000"
+                  value="<%= product.price %>"
                 />
               </div>
               <div>
@@ -39,7 +41,8 @@
                   type="text"
                   id="discount"
                   name="discount"
-                  placeholder="Ej: 15"
+                  placeholder="Ej: %15"
+                  value="<%= product.discount%>"
                 />
               </div>
               <div>
@@ -52,7 +55,7 @@
               </div>
               <div>
                 <label for="description">Descipción:</label>
-                <textarea name="description" id="description"></textarea>
+                <textarea name="description" id="description"><%=product.description%></textarea>
               </div>
               <div>
                 <button type="submit">Guardar producto</button>
