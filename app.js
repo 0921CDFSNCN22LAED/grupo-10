@@ -13,3 +13,5 @@ app.set('view engine', 'ejs');
 const mainRouter = require('./routers/mainRouter.js');
 app.use('/', mainRouter);
 
+const productsRouter = require('./routers/productsRouter.js');
+app.use ('/products', productsRouter);
