@@ -24,6 +24,7 @@
 }
 .box-descripcion textarea {
   width: 80%;
+  margin: 0 auto;
 }
 .box-boton-guardarProducto {
   text-align: center;
