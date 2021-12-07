@@ -17,6 +17,12 @@
   border-radius: 3px;
 }
 
+.box-subtitulosCrearProd {
+  margin: 15px 0;
+}
+.box-subtitulosCrearProd input {
+  margin-top: 5px;
+}
 .box-descripcion {
   display: flex;
   flex-direction: column;
@@ -24,7 +30,31 @@
 }
 .box-descripcion textarea {
   width: 80%;
-  margin: 0 auto;
+  margin: 5px auto;
+  padding: 20px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(39, 39, 39);
+}
+
+.box-categoria {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.box-categoria select {
+  width: 80%;
+  padding:12px;
+  margin: 5px auto;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(39, 39, 39);
+}
+
+.box-imagen {
+  margin: 15px 0;
 }
 .box-boton-guardarProducto {
   text-align: center;
