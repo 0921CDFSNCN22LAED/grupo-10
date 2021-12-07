@@ -59,8 +59,14 @@ module.exports = {
     res.redirect()
   },
 
-  edit:(req, res)=>{
-    res.render()
+  edit:(req, res) => {
+    const id = req.params.id;
+    const product = products.find((prod) => {
+      return prod.id == id;
+    });
+    res.render("editarProducto", {
+      product,
+    });
   },
 
   update:(req, res)=>{
