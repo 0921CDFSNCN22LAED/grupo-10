@@ -16,3 +16,5 @@ router.get('/:id/edit');
 router.put('/:id');
 // Acción de borrado
 router.delete('/:id');
+
+module.exports = router;
