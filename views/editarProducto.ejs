@@ -8,11 +8,11 @@
     <main>
       <div>
           <form class="form-crearProducto" action="/<%= product.id%>?_method=PUT" method="POST">
-            <h2>Estás editando el producto: <i><%= product.name %></i></h2>
+            <h2 class="titulo-micompra">Estás editando el producto: <i><%= product.name %></i></h2>
             <div>
-              <div>
+              <div class="box-subtitulosCrearProd">
                 <label for="name">Nombre del producto:</label>
-                <input
+                <input class="input-crearProducto"
                   type="text"
                   id="name"
                   name="name"
@@ -20,9 +20,9 @@
                   value="<%= product.name %>"
                 />
               </div>
-              <div>
+              <div class="box-subtitulosCrearProd">
                 <label for="price">Precio del producto:</label>
-                <input
+                <input class="input-crearProducto"
                   type="text"
                   id="price"
                   name="price"
@@ -30,9 +30,9 @@
                   value="<%= product.price %>"
                 />
               </div>
-              <div>
+              <div class="box-subtitulosCrearProd">
                 <label for="discount">Descuento:</label>
-                <input
+                <input class="input-crearProducto"
                   type="text"
                   id="discount"
                   name="discount"
@@ -40,7 +40,7 @@
                   value="<%= product.discount%>"
                 />
               </div>
-              <div>
+              <div class="box-categoria">
                 <label for="category">Categoría:</label>
                 <select name="category" id="category">
                   <option value="">Elegí</option>
@@ -48,7 +48,7 @@
                   <option value="visited">Últimos agregados</option>
                 </select>
               </div>
-              <div>
+              <div class="box-descripcion">
                 <label for="description">Descipción:</label>
                 <textarea name="description" id="description"><%=product.description%></textarea>
               </div>
