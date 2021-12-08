@@ -7,11 +7,6 @@
     <%- include("./partials/header") %>
     <main>
       <div>
-        <div>
-          <div>
-          </div>
-        </div>
-        <div>
           <form class="form-crearProducto" action="/<%= product.id%>?_method=PUT" method="POST">
             <h2>Estás editando el producto: <i><%= product.name %></i></h2>
             <div>
@@ -62,7 +57,6 @@
               </div>
             </div>
           </form>
-        </div>
       </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>
