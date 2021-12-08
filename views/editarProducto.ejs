@@ -9,11 +9,11 @@
       <div>
         <div>
           <div>
-            <h2>Estás editando el producto:<i><%= product.name %></i></h2>
           </div>
         </div>
         <div>
-          <form action="/<%= product.id%>?_method=PUT" method="POST">
+          <form class="form-crearProducto" action="/<%= product.id%>?_method=PUT" method="POST">
+            <h2>Estás editando el producto: <i><%= product.name %></i></h2>
             <div>
               <div>
                 <label for="name">Nombre del producto:</label>
