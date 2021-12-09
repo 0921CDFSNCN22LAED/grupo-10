@@ -51,14 +51,6 @@ module.exports = {
     res.render("register");
   },
 
-  create: (req, res) => {
-    res.render("crearProducto");
-  },
-
-  store:(req, res) => {
-    res.redirect()
-  },
-
   edit:(req, res) => {
     const id = req.params.id;
     const product = products.find((prod) => {
@@ -71,5 +63,5 @@ module.exports = {
 
   update:(req, res)=>{
     res.render()
-  }
+  },
 }
