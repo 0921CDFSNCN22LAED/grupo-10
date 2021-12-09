@@ -1,4 +1,5 @@
 .input-crearProducto {
+  margin: 5px auto;
   padding: 20px;
   height: 30px;
   width: 80%;
@@ -19,6 +20,8 @@
 
 .box-subtitulosCrearProd {
   margin: 15px 0;
+  display: flex;
+  flex-direction: column;
 }
 .box-subtitulosCrearProd input {
   margin-top: 5px;
@@ -30,6 +33,7 @@
 }
 .box-descripcion textarea {
   width: 80%;
+  max-width: 400px;
   margin: 5px auto;
   padding: 20px;
   border: none;
@@ -45,6 +49,7 @@
 }
 .box-categoria select {
   width: 80%;
+  max-width: 400px;
   padding:12px;
   margin: 5px auto;
   border: none;
