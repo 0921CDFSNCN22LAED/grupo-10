@@ -14,9 +14,11 @@ module.exports = {
     const artDestacadosProducts = products.filter((prod)=>{
 			return prod.category == "Art-destacado";
 		})
+    .slice(0, 3);
 		const offerProducts = products.filter((prod)=>{
 			return prod.category == "Oferta";
 		})
+    .slice(0, 3);
 		res.render("index", {
 			artDestacadosProducts: artDestacadosProducts,
 			offerProducts: offerProducts
