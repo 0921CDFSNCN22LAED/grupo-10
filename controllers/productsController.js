@@ -5,7 +5,7 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 function saveProducts() {
-  const texto = JSON.stringify(products);
+  const texto = JSON.stringify(products, null, 2);
   fs.writeFileSync(productsFilePath, texto, 'utf-8');
 }
 
