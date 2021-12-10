@@ -27,4 +27,8 @@ module.exports = {
     saveProducts();
     res.redirect('/products');
   },
+
+  list: (req, res) => {
+    res.render('productos')
+  }
 };
