@@ -5,16 +5,26 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 function saveProducts() {
-	const texto = JSON.stringify(products);
-	fs.writeFileSync(productsFilePath, texto, "utf-8");
+  const texto = JSON.stringify(products);
+  fs.writeFileSync(productsFilePath, texto, 'utf-8');
 }
 
 module.exports = {
   create: (req, res) => {
-    res.render("crearProducto");
+    res.render('crearProducto');
   },
 
-  store:(req, res) => {
-    res.redirect();
+  store: (req, res) => {
+    const newProduct = {
+      id: new Date().getTime(),
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      category: req.body.category,
+      image: req.body.image,
+    }
+    products.push(newProduct);
+    saveProducts();
+    res.redirect('/products');
   },
-}
+};
