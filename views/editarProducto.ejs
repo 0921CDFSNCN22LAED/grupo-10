@@ -7,7 +7,7 @@
     <%- include("./partials/header") %>
     <main>
       <div>
-          <form class="form-crearProducto" action="/<%= product.id%>?_method=PUT" method="POST">
+          <form class="form-crearProducto" action="/products" method="POST">
             <h2 class="titulo-micompra">Estás editando el producto: <i><%= product.name %></i></h2>
             <div>
               <div class="box-subtitulosCrearProd">
@@ -44,8 +44,8 @@
                 <label for="category">Categoría:</label>
                 <select name="category" id="category">
                   <option value="">Elegí</option>
-                  <option value="in-sale">En oferta</option>
-                  <option value="visited">Últimos agregados</option>
+                  <option value="in-sale" <%= product.category == "in-sale" ? " selected" : "" %>>En oferta</option>
+                  <option value="visited" <%= product.category == "visited" ? " selected" : "" %>>Últimos agregados</option>
                 </select>
               </div>
               <div class="box-descripcion">

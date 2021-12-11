@@ -64,6 +64,19 @@ module.exports = {
   },
 
   update:(req, res)=>{
-    res.render()
+    const id = req.params.id;
+    const product = products.find((prod) => {
+      return prod.id == id;
+    });
+
+    product.category = req.body.category;
+    product.name = req.body.name;
+    product.description = req.body.description;
+    product.price = req.body.price;
+    product.discount = req.body.discount;
+    product.image = req.body.image;
+
+    saveProducts();
+    res.redirect("/"+id);
   },
 }
