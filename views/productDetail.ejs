@@ -7,7 +7,7 @@
       <section class="section1">
         <img
           class="imagen-principal"
-          src="/img/imagenPrincipal.jpg"
+          src="/img/<%= product.image %>"
           alt="imagenPrincipal"
         />
         <div class="contenedor-imagenesB">
@@ -18,13 +18,11 @@
       </section>
       <!-- INFO PRODUCTO-->
       <section class="section2">
-        <h2 class="nombre-producto">
-          Placa de Video MSI GeForce GTX 1660 Ti 6GB GDDR6 Ventus XS OC
-        </h2>
+        <h2 class="nombre-producto"><%= product.name %></h2>
         <div class="contenedor-info-producto">
           <h3 class="subtitulo-caracteristicas">CARACTERISTICAS</h3>
-          <li class="li-caracteristicas">asd</li>
-          <li class="li-caracteristicas"></li>
+          <li class="li-caracteristicas"><%= product.price %></li>
+          <li class="li-caracteristicas"><%= product.description %></li>
           <li class="li-caracteristicas"></li>
           <li class="li-caracteristicas"></li>
           <div class="contenedor-txt-verde">
