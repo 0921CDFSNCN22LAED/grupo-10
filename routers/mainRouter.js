@@ -3,7 +3,7 @@ const router = express.Router();
 const mainController = require('../controllers/mainController.js');
 
 router.get('/', mainController.index);
-router.get('/detalle-producto', mainController.detalleProducto);
+router.get('/detalle-producto/:id', mainController.detalleProducto);
 router.get('/carrito', mainController.carrito);
 router.get('/carrito/entrega', mainController.carritoEntrega);
 router.get('/carrito/pago', mainController.carritoPago);
