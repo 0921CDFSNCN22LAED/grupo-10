@@ -47,6 +47,7 @@
       <section class="section2-index">
         <% offerProducts.forEach((prod)=>{ %>
         <div>
+          <a href="/detalle-producto/<%= prod.id %>">
           <article class="producto">
             <img src=/img/<%= prod.image%>>
             <div class="producto-contenido">
@@ -54,6 +55,7 @@
               <p class="title"><%= prod.name %></p>
               <p class="descuentos"><%= prod.discount %></p>
             </div>
+          </a>
           </article>
         </div>
         <% }) %>
