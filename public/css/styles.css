@@ -159,6 +159,9 @@ img {
 .style-arrow-right{
     display: none;
 }
+.ofertas-style{
+    color: white;
+}
 
 @media (min-width: 768px) {
     footer section {
@@ -211,6 +214,9 @@ img {
     .style-arrow-right{
         display: none;
     }
+    .ofertas-style{
+        color: white;
+    }
 }
 @media (min-width: 992px) {
     .style-wpp{
@@ -237,6 +243,9 @@ img {
         position: absolute;
         left: 30px;
         bottom: -170px;
+    }
+    .ofertas-style{
+        color: white;
     }
     
 }
