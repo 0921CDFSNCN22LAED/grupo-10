@@ -12,7 +12,7 @@ function saveProducts() {
 module.exports = {
   index: (req, res) => {
     const artDestacadosProducts = products.filter((prod)=>{
-			return prod.category == "Art-destacado";
+			return prod.category == "Art-Destacado";
 		})
     .slice(0, 3);
 		const offerProducts = products.filter((prod)=>{

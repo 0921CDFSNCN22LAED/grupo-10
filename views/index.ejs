@@ -6,31 +6,20 @@
     <main>
       <h2 class="art-destacados">ARTICULOS DESTACADOS</h2>
       <section class="section1-index">
-        <div>
-          <article class="producto">
-            <img src="/img/mouse.jfif" />
-            <div class="producto-contenido">
-              <p>$12.000</p>
-              <p class="title">Mouse Logitech GPRO</p>
-            </div>
-          </article>
-        </div>
-        <div>
-          <article class="producto">
-            <img src="/img/placa-video.jfif" width="100%" />
-            <div class="producto-contenido">
-              <p>$400.000</p>
-              <p class="title">GeForce RTX 3090</p>
-            </div>
-          </article>
-        </div>
-        <div>
-          <article class="producto">
-            <img src="/img/teclado.jfif" />
-            <div class="producto-contenido">
-              <p>$10.000</p>
-              <p class="title">Teclado HyperX Alloy fps</p>
-            </div>
+        <% artDestacadosProducts.forEach((prod)=>{ %>
+          <div>
+            <a href="/detalle-producto/<%= prod.id %>" style="text-decoration:none" class= "ofertas-style">
+            <article class="producto">
+              <img src=/img/<%= prod.image%>>
+              <div class="producto-contenido">
+                <p><%= prod.price %></p>
+                <p class="title"><%= prod.name %></p>
+                <p class="descuentos"><%= prod.discount %></p>
+              </div>
+            </a>
+            </article>
+          </div>
+          <% }) %>
           </article>
         </div>
       </section>
