@@ -31,9 +31,8 @@ module.exports = {
     const id = req.params.id;
 
     const product = products.find((prod) => {
-      return (prod.id = id);
+      return prod.id == id;
     });
-
     res.render('productDetail', {
       product,
     });

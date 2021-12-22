@@ -49,6 +49,7 @@ module.exports = {
     editProduct = {
       id: parseInt(id),
       ...req.body,
+      image: product.image,
     };
     // delete edited product copy from JSON DB
     products = products.filter((product) => {
