@@ -7,56 +7,69 @@
     <%- include("./partials/header") %>
     <main>
       <div>
-          <form class="form-crearProducto" action="/products" method="POST">
-            <h2 class="titulo-micompra">Estás editando el producto: <i><%= product.name %></i></h2>
-            <div>
-              <div class="box-subtitulosCrearProd">
-                <label for="name">Nombre del producto:</label>
-                <input class="input-crearProducto"
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Teclado Mecanico"
-                  value="<%= product.name %>"
-                />
-              </div>
-              <div class="box-subtitulosCrearProd">
-                <label for="price">Precio del producto:</label>
-                <input class="input-crearProducto"
-                  type="text"
-                  id="price"
-                  name="price"
-                  placeholder="Ej: $400.000"
-                  value="<%= product.price %>"
-                />
-              </div>
-              <div class="box-subtitulosCrearProd">
-                <label for="discount">Descuento:</label>
-                <input class="input-crearProducto"
-                  type="text"
-                  id="discount"
-                  name="discount"
-                  placeholder="Ej: %15"
-                  value="<%= product.discount%>"
-                />
-              </div>
-              <div class="box-categoria">
-                <label for="category">Categoría:</label>
-                <select name="category" id="category">
-                  <option value="">Elegí</option>
-                  <option value="in-sale">En oferta</option>
-                  <option value="visited">Últimos agregados</option>
-                </select>
-              </div>
-              <div class="box-descripcion">
-                <label for="description">Descipción:</label>
-                <textarea name="description" id="description"><%=product.description%></textarea>
-              </div>
-              <div class="box-boton-guardarProducto">
-                <button class="boton-crearProducto" type="submit">Editar producto</button>
-              </div>
+        <form
+          class="form-crearProducto"
+          action="/products/<%= product.id%>/edit?_method=PUT"
+          method="POST"
+        >
+          <h2 class="titulo-micompra">
+            Estás editando el producto: <i><%= product.name %></i>
+          </h2>
+          <div>
+            <div class="box-subtitulosCrearProd">
+              <label for="name">Nombre del producto:</label>
+              <input
+                class="input-crearProducto"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Teclado Mecanico"
+                value="<%= product.name %>"
+              />
             </div>
-          </form>
+            <div class="box-subtitulosCrearProd">
+              <label for="price">Precio del producto:</label>
+              <input
+                class="input-crearProducto"
+                type="text"
+                id="price"
+                name="price"
+                placeholder="Ej: $400.000"
+                value="<%= product.price %>"
+              />
+            </div>
+            <div class="box-subtitulosCrearProd">
+              <label for="discount">Descuento:</label>
+              <input
+                class="input-crearProducto"
+                type="text"
+                id="discount"
+                name="discount"
+                placeholder="Ej: %15"
+                value="<%= product.discount%>"
+              />
+            </div>
+            <div class="box-categoria">
+              <label for="category">Categoría:</label>
+              <select name="category" id="category">
+                <option value="">Elegí</option>
+                <option value="in-sale">En oferta</option>
+                <option value="visited">Últimos agregados</option>
+              </select>
+            </div>
+            <div class="box-descripcion">
+              <label for="description">Descripción:</label>
+              <textarea name="description" id="description">
+<%=product.description%></textarea
+              >
+            </div>
+            <div class="box-boton-guardarProducto">
+              <button class="boton-crearProducto" type="submit">
+                Editar producto
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>

@@ -1,19 +1,11 @@
 [
   {
-    "id": 1,
-    "name": "Mouse Logitech GPRO",
-    "description": "El mouse inalámbrico G Pro tiene un Sensor Hero 25K es Ultraligero y tambien tiene un diseño ergonómico ambidiestro",
-    "price": "$10.000",
-    "category": "Art-Destacado",
-    "image": "logitech-gpro.jfif"
-  },
-  {
     "id": 2,
     "name": "Geforce RTX 3090",
     "description": "GeForce RTX 3090 VENTUS 3X OC - tarjeta gráfica - GF RTX 3090 - 24 GB - Tipo de dispositivo:Tarjeta gráfica - Tipo de bus:PCI Express 4.0 - Motor gráfico:NVIDIA GeForce RTX 3090 - Memoria:24 GB GDDR6X - Velocidad de la memoria:19.5 Gbps - Núcleos CUDA:10496 - Interfaz de memoria:384-bit - Máxima Resolución:7680 x 4320 - N° máximo de monitores soportados:4 - Interfaces:3 x DisplayPort ¦ HDMI - Apoyado por API:DirectX 12, OpenGL 4.6",
     "price": "$400.000",
-    "category": "Art-Destacado",
-    "image": "placa-video.jfif"
+    "category": "",
+    "discount": ""
   },
   {
     "id": 3,
@@ -26,7 +18,7 @@
   {
     "id": 4,
     "name": "Gabinete Gamer",
-    "description":"El gabinete Gamer con Luces frontales RGB y ventana lateral de acrilico MT-235GM será el espacio ideal para que tu hardware esté bien refrigerado y completamente a la vista.",
+    "description": "El gabinete Gamer con Luces frontales RGB y ventana lateral de acrilico MT-235GM será el espacio ideal para que tu hardware esté bien refrigerado y completamente a la vista.",
     "discount": "%30",
     "price": "$50.000",
     "category": "Oferta",
@@ -83,5 +75,13 @@
     "discount": "%25",
     "category": "Oferta",
     "image": "teclado-redragon.jpg"
+  },
+  {
+    "id": 1,
+    "name": "Mouse Logitech GPRO Test",
+    "price": "$10.000",
+    "discount": "",
+    "category": "",
+    "description": "El mouse inalámbrico G Pro tiene un Sensor Hero 25K es Ultraligero y tambien tiene un diseño ergonómico ambidiestro"
   }
 ]

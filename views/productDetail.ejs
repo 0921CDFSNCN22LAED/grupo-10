@@ -38,6 +38,12 @@
             <i class="fas fa-cart-arrow-down"></i>
             Agregar al Carrito
           </button>
+            <form action="/products/<%= product.id %>/edit" method="GET">
+                <button class="boton-editar" type="submit" value="text">
+                <i class="fas fa-edit"></i>
+                Editar producto
+                </button>
+            </form>
         </div>
       </section>
     </div>

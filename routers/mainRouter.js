@@ -10,8 +10,5 @@ router.get('/carrito/pago', mainController.carritoPago);
 router.get('/carrito/confirmacion', mainController.carritoConfirmacion);
 router.get('/login', mainController.login);
 router.get('/registro', mainController.registro);
-// edit
-router.get('/:id/edit', mainController.edit); 
-router.put('/:id', mainController.update); 
 
-module.exports = router
+module.exports = router;

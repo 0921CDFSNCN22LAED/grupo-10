@@ -1,145 +1,147 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    color: white;
+  color: white;
 }
 
 .section1 {
-    padding: 10px;
-    margin: 10px;
-    box-shadow: inset 0 0 10px rgb(72, 47, 117);
+  padding: 10px;
+  margin: 10px;
+  box-shadow: inset 0 0 10px rgb(72, 47, 117);
 }
 
 .imagen-principal {
-    width: 100%;
-    max-width: 360px;
+  width: 100%;
+  max-width: 360px;
 }
 .contenedor-imagenesB {
-    display: flex;
-    justify-content: space-around;
-    border-top: solid 2px #ebebeb;
+  display: flex;
+  justify-content: space-around;
+  border-top: solid 2px #ebebeb;
 }
 .imagenB {
-    width: 20%;
-    max-width: 90px;
+  width: 20%;
+  max-width: 90px;
 }
-
-
 
 .section2 {
-    padding: 10px 5px;
-    box-shadow: inset 0 0 10px rgb(72, 47, 117);
-    margin: 10px;
+  padding: 10px 5px;
+  box-shadow: inset 0 0 10px rgb(72, 47, 117);
+  margin: 10px;
 }
 .contenedor-info-producto {
-    margin: 10px;
+  margin: 10px;
 }
 .nombre-producto {
-    font-size: 1.2rem;
-    text-align: center;
+  font-size: 1.2rem;
+  text-align: center;
 }
 .subtitulo-caracteristicas {
-    font-size: 1rem;
-    text-align: center;
+  font-size: 1rem;
+  text-align: center;
 }
 
 .contenedor-txt-verde {
-    padding: 7.5px 0;
+  padding: 7.5px 0;
 }
 .contenedor-info-producto p {
-    color: #28e370;
-    padding: 4px;
-    text-align: center;
-    font-size: 14px;
-    font-weight: bold;
-
+  color: #28e370;
+  padding: 4px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
 }
 .contenedor-info-producto p i {
-    padding: 3px;
+  padding: 3px;
 }
 
 .li-caracteristicas {
-    font-size: 14px;
+  font-size: 14px;
 }
-.boton-compra, .boton-carrito {
-    display: block;
-    padding: 12px;
-    width: 60%;
-    max-width: 360px;
-    margin: 7.5px auto;
-    font-weight: bolder;
-    border: none;
-    color: white;
-    background-color: #ff0b0bbd;
-    border-radius: 5px;
-    border-top: solid 1px black;
-    border-bottom: solid 3px black;
-    
+.boton-compra,
+.boton-carrito,
+.boton-editar {
+  display: block;
+  padding: 12px;
+  width: 60%;
+  max-width: 360px;
+  margin: 7.5px auto;
+  font-weight: bolder;
+  border: none;
+  color: white;
+  background-color: #ff0b0bbd;
+  border-radius: 5px;
+  border-top: solid 1px black;
+  border-bottom: solid 3px black;
+}
+
+.boton-editar {
+  background-color: #e7ff0bbd;
 }
 
 .section3 {
-    padding: 10px;
-    margin: 10px;
-    box-shadow:wheat;
-    box-shadow: inset 0 0 10px rgb(48, 47, 51);
+  padding: 10px;
+  margin: 10px;
+  box-shadow: wheat;
+  box-shadow: inset 0 0 10px rgb(48, 47, 51);
 }
 .subtitulo-intereses {
-    text-align: center;
-    padding-bottom: 10px;
+  text-align: center;
+  padding-bottom: 10px;
 }
 .productos-de-interes {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .box-articulo-interes {
-    text-align: center;
-    border-bottom: solid 2px rgb(75, 75, 75);
-    padding: 10px;
+  text-align: center;
+  border-bottom: solid 2px rgb(75, 75, 75);
+  padding: 10px;
 }
 .contenedor-infoproducto-interes {
-    display: flex;
-    padding-top: 10px;
-    
+  display: flex;
+  padding-top: 10px;
 }
 .precio {
-    width: 25%;
-    font-size: 18px;
+  width: 25%;
+  font-size: 18px;
 }
 .nombre-producto-interes {
-    width: 75%;
-    font-size: 15px;
+  width: 75%;
+  font-size: 15px;
 }
 
-.section1, .section2, .section3 {
-    box-shadow: 0 0px 20px rgb(19, 18, 18);
-    border-radius: 5px;
-    background-color: #272728d1;
-    margin: 25px 0;
+.section1,
+.section2,
+.section3 {
+  box-shadow: 0 0px 20px rgb(19, 18, 18);
+  border-radius: 5px;
+  background-color: #272728d1;
+  margin: 25px 0;
 }
 .section1 {
-    text-align: center;
+  text-align: center;
 }
 
-
 @media (min-width: 768px) {
-    .section1, .section2{
-        display: inline-block;
-        width: 48%;
-    }
-    .productos-de-interes {
-        flex-wrap: nowrap;
-    }
-    .flex-section1y2 {
-        display: flex;
-        justify-content: space-around;
-    }
-    .productos-de-interes {
-        flex-wrap: wrap;
-    }
+  .section1,
+  .section2 {
+    display: inline-block;
+    width: 48%;
+  }
+  .productos-de-interes {
+    flex-wrap: nowrap;
+  }
+  .flex-section1y2 {
+    display: flex;
+    justify-content: space-around;
+  }
+  .productos-de-interes {
+    flex-wrap: wrap;
+  }
 }
