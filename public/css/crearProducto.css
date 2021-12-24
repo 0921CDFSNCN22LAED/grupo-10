@@ -9,11 +9,72 @@
   color: white;
   background-color: rgb(39, 39, 39);
 }
+
+.before-symbol {
+  position: absolute;
+  transform: translate(0.5rem, 0.85rem);
+}
+
+/* eliminar los botones para subir y bajar numeros */
+input[type='number'] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.feedback-crearProducto {
+  margin: 5px auto;
+  padding: 6px;
+  width: 80%;
+  max-width: 400px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: red;
+}
+
+.img-crearProducto {
+  margin: 5px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(39, 39, 39);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.img-crearProducto > img {
+  width: 40%;
+  height: auto;
+}
+
+.img-crearProducto > div {
+  padding-top: 1rem;
+  width: 200px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.img-container {
+  padding-top: 1rem;
+  width: 5rem;
+  overflow: hidden;
+  margin: auto;
+}
+
 .form-crearProducto {
   margin: 5px;
   text-align: center;
   padding: 10px;
-  background-color:rgb(75, 75, 75);
+  background-color: rgb(75, 75, 75);
   box-shadow: 0 0px 20px rgb(19, 18, 18);
   border-radius: 3px;
 }
@@ -50,7 +111,7 @@
 .box-categoria select {
   width: 80%;
   max-width: 400px;
-  padding:12px;
+  padding: 12px;
   margin: 5px auto;
   border: none;
   border-radius: 3px;

@@ -1,77 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <%- include("./partials/head", {title: "Editar un producto - PC Gamer"}) %>
-  </head>
-  <body>
+</head>
+
+<body>
     <%- include("./partials/header") %>
     <main>
-      <div>
-        <form
-          class="form-crearProducto"
-          action="/products/<%= product.id%>/edit?_method=PUT"
-          method="POST"
-        >
-          <h2 class="titulo-micompra">
-            Estás editando el producto: <i><%= product.name %></i>
-          </h2>
-          <div>
-            <div class="box-subtitulosCrearProd">
-              <label for="name">Nombre del producto:</label>
-              <input
-                class="input-crearProducto"
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Teclado Mecanico"
-                value="<%= product.name %>"
-              />
-            </div>
-            <div class="box-subtitulosCrearProd">
-              <label for="price">Precio del producto:</label>
-              <input
-                class="input-crearProducto"
-                type="text"
-                id="price"
-                name="price"
-                placeholder="Ej: $400.000"
-                value="<%= product.price %>"
-              />
-            </div>
-            <div class="box-subtitulosCrearProd">
-              <label for="discount">Descuento:</label>
-              <input
-                class="input-crearProducto"
-                type="text"
-                id="discount"
-                name="discount"
-                placeholder="Ej: %15"
-                value="<%= product.discount%>"
-              />
-            </div>
-            <div class="box-categoria">
-              <label for="category">Categoría:</label>
-              <select name="category" id="category">
-                <option value="">Elegí</option>
-                <option value="in-sale">En oferta</option>
-                <option value="visited">Últimos agregados</option>
-              </select>
-            </div>
-            <div class="box-descripcion">
-              <label for="description">Descripción:</label>
-              <textarea name="description" id="description">
-<%=product.description%></textarea
-              >
-            </div>
-            <div class="box-boton-guardarProducto">
-              <button class="boton-crearProducto" type="submit">
-                Editar producto
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
+        <div>
+            <form class="form-crearProducto" action="/products/<%= product.id%>/edit?_method=PUT" method="POST">
+                <h2 class="titulo-micompra">
+                    Estás editando el producto: <i><%= product.name %></i>
+                </h2>
+                <div>
+                    <div class="box-subtitulosCrearProd">
+                        <label for="name">Nombre del producto:</label>
+                        <input class="input-crearProducto" type="text" id="name" name="name"
+                            placeholder="Teclado Mecanico" value="<%= product.name %>" />
+                        <% if(errors && errors.name) {%>
+                        <span class="feedback-crearProducto"><%= errors.name.msg%></span>
+                        <% } %>
+                    </div>
+                    <div class="box-subtitulosCrearProd">
+                        <label for="price">Precio del producto:</label>
+                        <div>
+                            <span class="before-symbol">$</span>
+                            <input class="input-crearProducto" type="text" id="price" name="price" min="0"
+                                placeholder="400.000" value="<%= product.price %>" />
+                        </div>
+                        <% if(errors && errors.price) {%>
+                        <span class="feedback-crearProducto"><%= errors.price.msg%></span>
+                        <% } %>
+                    </div>
+                    <div class="box-subtitulosCrearProd">
+                        <label for="discount">Descuento:</label>
+                        <div>
+                            <span class="before-symbol">%</span>
+                            <input class="input-crearProducto" type="number" min="0" max="100" id="discount"
+                                name="discount" placeholder="15" value="<%= parseInt(product.discount)%>" />
+                        </div>
+                        <% if(errors && errors.discount) {%>
+                        <span class="feedback-crearProducto"><%= errors.discount.msg%></span>
+                        <% } %>
+
+                    </div>
+                    <div class="box-categoria">
+                        <label for="category">Categoría:</label>
+                        <select name="category" id="category">
+                            <option value="">Elegí</option>
+                            <% for(let category in categories) {%>
+                            <option value=<%= categories[category].id %>
+                                <%= product.category == categories[category].id ? "Selected" : ""  %>>
+                                <%= categories[category].name %>
+                            </option>
+                            <% } %>
+                        </select>
+                        <% if(errors && errors.category) {%>
+                        <span class="feedback-crearProducto"><%= errors.category.msg%></span>
+                        <% } %>
+                    </div>
+                    <div class="box-descripcion">
+                        <label for="description">Descripción:</label>
+                        <textarea name="description" id="description"><%=product.description%></textarea>
+                    </div>
+                    <div class="img-crearProducto">
+                        <img src="/img/<%=product.image%>" alt="product image">
+                        <div>
+                            <label for="image">Cambiar imagen</label>
+                            <div class="img-container">
+                                <input type="file" name="image" id="image">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="box-boton-guardarProducto">
+                        <button class="boton-crearProducto" type="submit">
+                            Editar producto
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>
-  </body>
+</body>
+
 </html>

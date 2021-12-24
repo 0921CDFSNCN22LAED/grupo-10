@@ -32,13 +32,23 @@ module.exports = {
     res.render('productos');
   },
   edit: (req, res) => {
+    const categories = [
+      { id: 'Oferta', name: 'En oferta' },
+      { id: 'Art-Destacado', name: 'Destacado' },
+    ];
     const id = req.params.id;
     const product = products.find((prod) => {
       return prod.id == id;
     });
+    errors = req.session.errors ? req.session.errors : '';
+    console.log(errors);
+
     res.render('editarProducto', {
       product,
+      categories,
+      errors,
     });
+    errors = '';
   },
 
   update: (req, res) => {
@@ -51,6 +61,7 @@ module.exports = {
       ...req.body,
       image: product.image,
     };
+    console.log(req.body);
     // delete edited product copy from JSON DB
     products = products.filter((product) => {
       return product.id != id;
