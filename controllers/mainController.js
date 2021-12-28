@@ -9,18 +9,22 @@ function saveProducts() {
   fs.writeFileSync(productsFilePath, texto, 'utf-8');
 }
 
+const addDiscountSymbol = (function () {
+  products.forEach((prod) => {
+    prod.discount = prod.discount ? prod.discount + '%' : '';
+  });
+})();
+
 module.exports = {
   index: (req, res) => {
-    const artDestacadosProducts = products
-      .filter((prod) => {
-        return prod.category == 'Art-Destacado';
-      })
-      .slice(0, 3);
-    const offerProducts = products
-      .filter((prod) => {
-        return prod.category == 'Oferta';
-      })
-      .slice(0, 3);
+    const artDestacadosProducts = products.filter((prod) => {
+      return prod.category == 'Art-Destacado';
+    });
+    //   .slice(0, 3);
+    const offerProducts = products.filter((prod) => {
+      return prod.category == 'Oferta';
+    });
+    //   .slice(0, 3);
     res.render('index', {
       artDestacadosProducts: artDestacadosProducts,
       offerProducts: offerProducts,

@@ -1,60 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
-  <body>
+<%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
+
+<body>
     <%- include("./partials/header") %>
     <main>
-      <h2 class="art-destacados">ARTICULOS DESTACADOS</h2>
-      <section class="section1-index">
-        <% artDestacadosProducts.forEach((prod)=>{ %>
-          <div>
-            <a href="/detalle-producto/<%= prod.id %>" style="text-decoration:none" class= "ofertas-style">
-            <article class="producto">
-              <img src=/img/<%= prod.image%>>
-              <div class="producto-contenido">
-                <p><%= prod.price %></p>
-                <p class="title"><%= prod.name %></p>
-                <p class="descuentos"><%= prod.discount %></p>
-              </div>
-            </a>
-            </article>
-          </div>
-          <% }) %>
-          </article>
-        </div>
-      </section>
-      <h2 class="ultima-visita-ofertas">OFERTAS</h2>
-      <section class="section2-index">
-        <% offerProducts.forEach((prod)=>{ %>
-        <div>
-          <a href="/detalle-producto/<%= prod.id %>" style="text-decoration:none" class= "ofertas-style">
-          <article class="producto">
-            <img src=/img/<%= prod.image%>>
-            <div class="producto-contenido">
-              <p><%= prod.price %></p>
-              <p class="title"><%= prod.name %></p>
-              <p class="descuentos"><%= prod.discount %></p>
+        <h2 class="art-destacados">ARTÍCULOS DESTACADOS</h2>
+        <section id="carouselArtDestacados" class="carousel slide producto w-md my-5" data-bs-ride="carousel">
+            <div class=" carousel-indicators">
+                <% for(let i = 0; i < artDestacadosProducts.length; i++) { %>
+                <button type="button" data-bs-target="#carouselArtDestacados" data-bs-slide-to="<%= i %> "
+                    <% if(i==0) {%> class="active" aria-current="true" <% } %> aria-label="Slide <%= i + 1 %>"></button>
+                <% } %>
             </div>
-          </a>
-          </article>
-        </div>
-        <% }) %>
-        <button class="style-arrow-left">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="style-arrow-right">
-          <i class="fas fa-chevron-right"></i>
-        </button>
+            <div class="carousel-inner container-fluid">
+                <% for(let i = 0; i < artDestacadosProducts.length; i++) { %>
+                <a href="/detalle-producto/<%= artDestacadosProducts[i].id %>"
+                    class="carousel-item <%= i == 0 ? "active" : "" %> ofertas-style" style="text-decoration: none;">
+                    <div class="row justify-content-center">
+                        <img src="/img/<%=artDestacadosProducts[i].image%>"
+                            class="d-block w-50 col-md-5 col-12 carrousel-img "
+                            alt="<%= artDestacadosProducts[i].name %>">
+                        <div class="col-md-4 col-12 mt-5">
+                            <p><%= artDestacadosProducts[i].price %></p>
+                            <p class="title" style="text-align: start;"><%= artDestacadosProducts[i].name %></p>
+                            <p class="descuentos" style="height: 1rem;"><%= artDestacadosProducts[i].discount %>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+                <% } %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselArtDestacados"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselArtDestacados"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </section>
+        <h2 class="ultima-visita-ofertas">OFERTAS</h2>
+
+        <section id="carouselOfertas" class="carousel carousel-dark slide max-w-1200" data-bs-ride="carousel">
+            <div class="carousel-inner container-fluid">
+                <% for(let i = 0; i < offerProducts.length; i+=2) { %>
+                <div class="carousel-item <%= i == 0 ? "active" : "" %>">
+                    <div class="row justify-content-center">
+                        <a href="/detalle-producto/<%= offerProducts[i].id %>" style="text-decoration:none"
+                            class="ofertas-style  col-md-5 col-12 mt-5">
+                            <article class="producto ">
+                                <img src="/img/<%= offerProducts[i].image%>" class="carrousel-img ">
+                                <div class="producto-contenido my-3">
+                                    <p><%= offerProducts[i].price %></p>
+                                    <p class="title"><%= offerProducts[i].name %></p>
+                                    <p class="descuentos"><%= offerProducts[i].discount %></p>
+                                </div>
+                            </article>
+                        </a>
+                        <% if(offerProducts[i+1]) {%>
+                        <!-- Haciendo trampa al esconderla pues algunos productos no se van a ver, para resolver -->
+
+                        <a href="/detalle-producto/<%= offerProducts[i+1].id %>" style="text-decoration:none"
+                            class="ofertas-style  col-md-5 col-12 d-none  d-md-block mt-5">
+                            <article class="producto ">
+                                <img src="/img/<%= offerProducts[i+1].image%>" class="carrousel-img ">
+                                <div class="producto-contenido my-3">
+                                    <p><%= offerProducts[i+1].price %></p>
+                                    <p class="title"><%= offerProducts[i+1].name %></p>
+                                    <p class="descuentos"><%= offerProducts[i+1].discount %></p>
+                                </div>
+                            </article>
+                        </a>
+                        <% } %>
+                    </div>
+
+                </div>
+                <% } %>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselOfertas" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselOfertas" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </section>
+
+
+
+
+
+
+
+
+
+
         <div class="style-wpp">
-          <a
-            href="https://web.whatsapp.com/send?phone=5491133226951&text=hola"
-            class="style-wasap"
-          >
-            <i class="fab fa-whatsapp"></i>
-          </a>
+            <a href="https://web.whatsapp.com/send?phone=5491133226951&text=hola" class="style-wasap">
+                <i class="fab fa-whatsapp"></i>
+            </a>
         </div>
-      </section>
     </main>
     <%- include("./partials/footer") %>
-  </body>
+</body>
+
 </html>
