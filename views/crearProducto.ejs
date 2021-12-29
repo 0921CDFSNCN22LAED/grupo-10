@@ -1,64 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
-  </head>
-  <body>
+</head>
+
+<body>
     <%- include("./partials/header") %>
     <main>
-      <div>
         <div>
-          <form class="form-crearProducto" action="/products" method="POST">
-            <h2 class="titulo-micompra">Formulario de creación de productos</h2>
             <div>
-              <div class="box-subtitulosCrearProd">
-                <label for="name">Nombre del producto:</label>
-                <input
-                  class="input-crearProducto"
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Ej: Teclado Mecanico"
-                  class="form-input"
-                />
-              </div>
-              <div class="box-subtitulosCrearProd">
-                <label for="price">Precio del producto:</label>
-                <input
-                  class="input-crearProducto"
-                  type="text"
-                  id="price"
-                  name="price"
-                  placeholder="Ej: $10.000"
-                  class="form-input"
-                />
-              </div>
-              <div class="box-descripcion">
-                <label for="description">Descripción:</label>
-                <textarea name="description" id="description"></textarea>
-              </div>
-              <div class="box-categoria">
-                <label for="category">Categoría:</label>
-                <select name="category" id="category">
-                  <option value="">Elegí</option>
-                  <option value="Oferta">Ofertas</option>
-                  <option value="Art-destacado">Articulos Destacados</option>
-                </select>
-              </div>
-              <div class="box-imagen">
-                <label for="image">Foto de Artículo</label>
-                <input type="file" name="image" accept="image/png,image/jpg" />
-              </div>
-              <div class="box-boton-guardarProducto">
-                <button class="boton-crearProducto" type="submit">
-                  Crear producto
-                </button>
-              </div>
+                <form class="form-crearProducto" action="/products" method="POST">
+                    <h2 class="titulo-micompra">Formulario de creación de productos</h2>
+                    <div>
+                        <div class="box-subtitulosCrearProd">
+                            <label for="name">Nombre del producto:</label>
+                            <input class="input-crearProducto" type="text" id="name" name="name"
+                                placeholder="Ej: Teclado Mecanico" class="form-input" />
+                        </div>
+                        <div class="box-subtitulosCrearProd">
+                            <label for="price">Precio del producto:</label>
+                            <input class="input-crearProducto" type="text" id="price" name="price"
+                                placeholder="Ej: $10.000" class="form-input" />
+                        </div>
+                        <div class="box-descripcion">
+                            <label for="description">Descripción:</label>
+                            <textarea name="description" id="description"></textarea>
+                        </div>
+                        <div class="box-categoria">
+                            <label for="category">Categoría:</label>
+                            <select name="category" id="category">
+                                <option value="">Elegí</option>
+                                <option value="Oferta">Ofertas</option>
+                                <option value="Art-Destacado">Artículos Destacados</option>
+                            </select>
+                        </div>
+                        <div class="box-categoria">
+                            <label for="taxonomy">Taxonomía</label>
+                            <select name="taxonomy" id="taxonomy">
+                                <option value="">Elegí</option>
+                                <option value="Hardware">Hardware</option>
+                                <option value="Periféricos">Periféricos</option>
+                            </select>
+                            <select class="d-none" name="taxonomyHardware" id="taxonomyHardware">
+                                <option value="">Elegí</option>
+                                <% let hardware = ["Coolers", "Disco Rígido HDD", "Disco Solido SDD", "Fuentes", "Gabinetes", "Memorias Ram", "Motherboards", "Placas de video", "Procesadores"] %>
+                                <% for(let component of hardware) {%>
+                                <option value=<%= component %>><%= component %></option>
+                                <% } %>
+                            </select>
+                            <select class="d-none" name="taxonomyPeripherals" id="taxonomyPeripherals">
+                                <option value="">Elegí</option>
+                                <% let peripherals = ["Almacenamiento","Auriculares","Impresoras","Joysticks","Micrófonos","Monitores","Mouses","Parlantes","Teclados","Web cams","Pads y otros"] %>
+                                <% for(let peripheral of peripherals) {%>
+                                <option value=<%= peripheral %>><%= peripheral %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="box-imagen">
+                        <label for="image">Foto de Artículo</label>
+                        <input type="file" name="image" accept="image/png,image/jpg" />
+                    </div>
+                    <div class="box-boton-guardarProducto">
+                        <button class="boton-crearProducto" type="submit">
+                            Crear producto
+                        </button>
+                    </div>
             </div>
-          </form>
+            </form>
         </div>
-      </div>
+        </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>
-  </body>
+    <script>
+        document.getElementById('taxonomy').addEventListener('change', function () {
+            if (this.value == "Hardware") {
+                document.getElementById("taxonomyHardware").classList.add("d-block");
+                document.getElementById("taxonomyHardware").classList.remove("d-none");
+                document.getElementById("taxonomyPeripherals").classList.add("d-none");
+                document.getElementById("taxonomyPeripherals").classList.remove("d-block");
+                document.getElementById("taxonomyPeripherals").value = "";
+            } else if (this.value == "Periféricos") {
+                document.getElementById("taxonomyHardware").classList.add("d-none");
+                document.getElementById("taxonomyHardware").classList.remove("d-block");
+                document.getElementById("taxonomyHardware").value = "";
+                document.getElementById("taxonomyPeripherals").classList.add("d-block");
+                document.getElementById("taxonomyPeripherals").classList.remove("d-none");
+            };
+
+        });
+    </script>
+</body>
+
 </html>

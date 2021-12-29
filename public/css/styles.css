@@ -3,9 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-.w-50 {
-  width: 50%;
-}
 
 .bg-color-black {
   background-color: black;
@@ -14,17 +11,52 @@
 
 .navbar-custom {
   margin: 1rem;
-  /* margin-left: 5.375rem; */
+}
+
+.navbar-custom ul {
+  display: block;
+  text-align: center;
+}
+
+.navbar-custom ul li {
+  list-style: none;
+  margin: 4px;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: large;
 }
 
 .navbar-custom ul li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
-  font-size: large;
 }
-.navbar-custom ul li a:hover {
+.navbar-custom ul li:hover {
   background-color: #ca0505;
+}
+
+.wrap-menu ul {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #272728d1;
+  padding: 0;
+  text-align: start;
+}
+
+.wrap-menu:hover ul {
+  display: block;
+}
+
+.wrap-menu ul li {
+  width: 100%;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .navbar-custom nav > ul {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 body {
@@ -103,14 +135,7 @@ img {
   border-radius: 5px;
   width: 100%;
 }
-.navbar-custom ul li {
-  list-style: none;
-  margin: 4px;
-}
-.navbar-custom ul {
-  display: block;
-  text-align: center;
-}
+
 .pos-search {
   width: 300px;
   margin: auto;
@@ -214,13 +239,6 @@ img {
   }
   .footer-b {
     margin: 10px;
-  }
-  .navbar-custom ul {
-    display: flex;
-    justify-content: center;
-  }
-  .navbar-custom ul li a {
-    padding: 10px;
   }
 
   .section2-index {

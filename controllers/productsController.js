@@ -21,6 +21,12 @@ module.exports = {
       description: req.body.description,
       price: req.body.price,
       category: req.body.category,
+      taxonomy: [
+        req.body.taxonomy,
+        req.body.taxonomyHardware
+          ? req.body.taxonomyHardware
+          : req.body.taxonomyPeripherals,
+      ],
       image: req.body.image,
     };
     products.push(newProduct);

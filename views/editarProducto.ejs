@@ -64,6 +64,35 @@
                         <label for="description">Descripción:</label>
                         <textarea name="description" id="description"><%=product.description%></textarea>
                     </div>
+
+                    <div class="box-categoria">
+                        <label for="taxonomy">Taxonomía</label>
+                        <select name="taxonomy" id="taxonomy">
+                            <option value="">Elegí</option>
+                            <option value="Hardware" <%= product.taxonomy[0] == "Hardware" ? "selected" : "" %>>Hardware
+                            </option>
+                            <option value="Periféricos" <%= product.taxonomy[0] == "Periféricos" ? "selected" : "" %>>
+                                Periféricos</option>
+                        </select>
+                        <select class="<%= product.taxonomy[0] == "Hardware" ? "d-block" : "d-none" %>"
+                            name="taxonomyHardware" id="taxonomyHardware">
+                            <option value="">Elegí</option>
+                            <% let hardware = ["Coolers", "Disco Rígido HDD", "Disco Solido SDD", "Fuentes", "Gabinetes", "Memorias Ram", "Motherboards", "Placas de video", "Procesadores"] %>
+                            <% for(let component of hardware) {%>
+                            <option value=<%= component %> <%= product.taxonomy[1] == component ? "selected" : "" %>>
+                                <%= component %></option>
+                            <% } %>
+                        </select>
+                        <select class="<%= product.taxonomy[0] == "Periféricos" ? "d-block" : "d-none" %>"
+                            name="taxonomyPeripherals" id="taxonomyPeripherals">
+                            <option value="">Elegí</option>
+                            <% let peripherals = ["Almacenamiento","Auriculares","Impresoras","Joysticks","Micrófonos","Monitores","Mouses","Parlantes","Teclados","Web cams","Pads y otros"] %>
+                            <% for(let peripheral of peripherals) {%>
+                            <option value=<%= peripheral %> <%= product.taxonomy[1] == peripheral ? "selected" : "" %>>
+                                <%= peripheral %></option>
+                            <% } %>
+                        </select>
+                    </div>
                     <div class="img-crearProducto">
                         <img src="/img/<%=product.image%>" alt="product image">
                         <div>
@@ -85,6 +114,24 @@
         </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>
+    <script>
+        document.getElementById('taxonomy').addEventListener('change', function () {
+            if (this.value == "Hardware") {
+                document.getElementById("taxonomyHardware").classList.add("d-block");
+                document.getElementById("taxonomyHardware").classList.remove("d-none");
+                document.getElementById("taxonomyPeripherals").classList.add("d-none");
+                document.getElementById("taxonomyPeripherals").classList.remove("d-block");
+                document.getElementById("taxonomyPeripherals").value = "";
+            } else if (this.value == "Periféricos") {
+                document.getElementById("taxonomyHardware").classList.add("d-none");
+                document.getElementById("taxonomyHardware").classList.remove("d-block");
+                document.getElementById("taxonomyHardware").value = "";
+                document.getElementById("taxonomyPeripherals").classList.add("d-block");
+                document.getElementById("taxonomyPeripherals").classList.remove("d-none");
+            };
+
+        });
+    </script>
 </body>
 
 </html>

@@ -18,8 +18,22 @@
                 <nav class="left-nav">
                     <ul class="style-left-nav">
                         <li><a href="">Arma tu PC</a></li>
-                        <li><a href="">Hardware</a></li>
-                        <li><a href="">Periféricos</a></li>
+                        <li class="wrap-menu"><a href="">Hardware</a>
+                            <ul>
+                                <% for(let tax of locals.taxonomy.hardware) { %>
+                                <li><a href=""><%= tax %></a></li>
+                                <% } %>
+
+                            </ul>
+                        </li>
+                        <li class="wrap-menu"><a href="">Periféricos</a>
+                            <ul>
+                                <% for(let tax of locals.taxonomy.peripherals) { %>
+                                <li><a href=""><%= tax %></a></li>
+                                <% } %>
+
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </nav>

@@ -7,12 +7,6 @@
     <main>
         <h2 class="art-destacados">ARTÍCULOS DESTACADOS</h2>
         <section id="carouselArtDestacados" class="carousel slide producto w-md my-5" data-bs-ride="carousel">
-            <div class=" carousel-indicators">
-                <% for(let i = 0; i < artDestacadosProducts.length; i++) { %>
-                <button type="button" data-bs-target="#carouselArtDestacados" data-bs-slide-to="<%= i %> "
-                    <% if(i==0) {%> class="active" aria-current="true" <% } %> aria-label="Slide <%= i + 1 %>"></button>
-                <% } %>
-            </div>
             <div class="carousel-inner container-fluid">
                 <% for(let i = 0; i < artDestacadosProducts.length; i++) { %>
                 <a href="/detalle-producto/<%= artDestacadosProducts[i].id %>"
