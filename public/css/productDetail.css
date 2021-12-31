@@ -63,6 +63,7 @@ body {
   font-size: 14px;
 }
 .boton-compra,
+.boton-delete,
 .boton-carrito,
 .boton-editar {
   display: block;

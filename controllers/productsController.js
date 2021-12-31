@@ -80,4 +80,16 @@ module.exports = {
     // temp redirect
     res.redirect('/');
   },
+  delete: (req, res)=>{
+    const id = req.params.id;
+    let product = products.find((prod) => {
+      return prod.id == id;
+    });
+
+    products.splice(product, 1);
+
+    saveProducts();
+
+    res.redirect('/');
+  }
 };
