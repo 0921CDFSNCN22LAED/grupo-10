@@ -24,10 +24,18 @@ module.exports = {
     const offerProducts = products.filter((prod) => {
       return prod.category == 'Oferta';
     });
+    const hardware = products.filter((prod) => {
+      return prod.taxonomy[0] == 'Hardware';
+    });
+    const peripherals = products.filter((prod) => {
+      return prod.taxonomy[0] == 'Periférico';
+    });
     //   .slice(0, 3);
     res.render('index', {
       artDestacadosProducts: artDestacadosProducts,
       offerProducts: offerProducts,
+      hardware,
+      peripherals,
     });
   },
 

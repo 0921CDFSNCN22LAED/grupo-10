@@ -5,8 +5,8 @@
 <body>
     <%- include("./partials/header") %>
     <main>
-        <h2 class="art-destacados">ARTÍCULOS DESTACADOS</h2>
         <section id="carouselArtDestacados" class="carousel slide producto w-md my-5" data-bs-ride="carousel">
+            <h2 class="titulo">ARTÍCULOS DESTACADOS</h2>
             <div class="carousel-inner container-fluid">
                 <% for(let i = 0; i < artDestacadosProducts.length; i++) { %>
                 <a href="/detalle-producto/<%= artDestacadosProducts[i].id %>"
@@ -36,9 +36,12 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </section>
-        <h2 class="ultima-visita-ofertas">OFERTAS</h2>
 
-        <section id="carouselOfertas" class="carousel carousel-dark slide max-w-1200" data-bs-ride="carousel">
+
+
+        <section id="carouselOfertas" class="carousel carousel-dark slide max-w-1200 mb-5" data-bs-ride="false"
+            data-bs-wrap="false">
+            <h2 class="titulo">OFERTAS</h2>
             <div class="carousel-inner container-fluid">
                 <% for(let i = 0; i < offerProducts.length; i+=2) { %>
                 <div class="carousel-item <%= i == 0 ? "active" : "" %>">
@@ -59,7 +62,7 @@
 
                         <a href="/detalle-producto/<%= offerProducts[i+1].id %>" style="text-decoration:none"
                             class="ofertas-style  col-md-5 col-12 d-none  d-md-block mt-5">
-                            <article class="producto ">
+                            <article class="producto">
                                 <img src="/img/<%= offerProducts[i+1].image%>" class="carrousel-img ">
                                 <div class="producto-contenido my-3">
                                     <p><%= offerProducts[i+1].price %></p>
@@ -85,9 +88,59 @@
             </button>
         </section>
 
+        <section id="hardware-carousel" class="custom-carousel mb-5">
+            <h2 class="titulo">Hardware</h2>
+            <div class="d-flex align-items-center justify-content-center container-fluid mb-3">
+                <div class="carousel-control-prev-icon custom hardware" aria-hidden="true"></div>
+                <div class="hide-overflow">
+                    <div class="row my-2 custom-stick" id="hardware-stick">
+                        <% for(let item of hardware) {%>
+                        <div class="col-lg-3 col-md-4 col-sm-6 hardware-card">
+                            <a class="noLinkStyle p-1 d-flex flex-column h-100 producto ">
+                                <div
+                                    class="d-flex align-items-center justify-content-center img-thumbnail mb-3 h-50 carousel-img-container">
+                                    <img src="/img/<%= item.image %>" alt="">
+                                </div>
+                                <div class="">
+                                    <h5><%= item.name %></h5>
+                                    <p><%= item.price %></p>
+                                    <p class="h-50 cut-long-text"><%= item.description %></p>
+                                </div>
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="carousel-control-next-icon custom hardware" aria-hidden="true"></div>
+            </div>
+        </section>
 
-
-
+        <section id="peripherals-carousel" class="custom-carousel mb-5">
+            <h2 class="titulo">Periféricos</h2>
+            <div class="d-flex align-items-center justify-content-center container-fluid mb-3">
+                <div class="carousel-control-prev-icon custom peripheral" aria-hidden="true"></div>
+                <div class="hide-overflow">
+                    <div class="row my-2 custom-stick" id="peripherals-stick">
+                        <% for(let item of peripherals) {%>
+                        <div class="col-lg-3 col-md-4 col-sm-6 peripherals-card">
+                            <a class="noLinkStyle p-1 d-flex flex-column h-100 producto ">
+                                <div
+                                    class="d-flex align-items-center justify-content-center img-thumbnail mb-3 h-50 carousel-img-container">
+                                    <img src="/img/<%= item.image %>" alt="">
+                                </div>
+                                <div class="">
+                                    <h5><%= item.name %></h5>
+                                    <p><%= item.price %></p>
+                                    <p class="h-50 cut-long-text"><%= item.description %></p>
+                                </div>
+                            </a>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="carousel-control-next-icon custom peripheral" aria-hidden="true"></div>
+            </div>
+        </section>
 
 
 
@@ -101,6 +154,7 @@
         </div>
     </main>
     <%- include("./partials/footer") %>
+    <script src="/scripts/carousel.js"></script>
 </body>
 
 </html>
