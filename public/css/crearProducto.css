@@ -15,7 +15,7 @@
   transform: translate(0.5rem, 0.85rem);
 }
 
-/* eliminar los botones para subir y bajar numeros */
+/* eliminar los botones para subir y bajar números */
 input[type='number'] {
   -webkit-appearance: textfield;
   -moz-appearance: textfield;

@@ -79,20 +79,23 @@ module.exports = {
   },
 
   registro: (req, res) => {
-    res.render('register');
+    let errors = req.session.errors ? req.session.errors : '';
+    let old = req.session.old ? req.session.old : '';
+    res.render('register', { errors, old });
+    req.session.errors = '';
+    req.session.old = '';
   },
 
-  user: (req, res)=>{
+  user: (req, res) => {
     const newUser = {
       id: new Date().getTime(),
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
-      respassword:req.body.repassword,
-      perfilImage: req.body.image,
+      perfilImage: req.file ? req.file.filename : 'default-avatar.png',
     };
     users.push(newUser);
     saveUsers();
     res.redirect('login');
-  }
+  },
 };

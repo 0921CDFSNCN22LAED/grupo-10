@@ -46,8 +46,7 @@ module.exports = {
     const product = products.find((prod) => {
       return prod.id == id;
     });
-    errors = req.session.errors ? req.session.errors : '';
-    console.log(errors);
+    let errors = req.session.errors ? req.session.errors : '';
 
     res.render('editarProducto', {
       product,
@@ -67,7 +66,6 @@ module.exports = {
       ...req.body,
       image: product.image,
     };
-    console.log(req.body);
     // delete edited product copy from JSON DB
     products = products.filter((product) => {
       return product.id != id;
@@ -80,7 +78,7 @@ module.exports = {
     // temp redirect
     res.redirect('/');
   },
-  delete: (req, res)=>{
+  delete: (req, res) => {
     const id = req.params.id;
     let product = products.find((prod) => {
       return prod.id == id;
@@ -91,5 +89,5 @@ module.exports = {
     saveProducts();
 
     res.redirect('/');
-  }
+  },
 };

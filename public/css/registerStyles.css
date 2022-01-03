@@ -5,7 +5,7 @@
 }
 
 .body-register {
-  background-color:rgba(244, 244, 245, 0.425);
+  background-color: rgba(244, 244, 245, 0.425);
 }
 .main-register {
   width: 95%;
@@ -15,7 +15,7 @@
   margin: 5px;
   text-align: center;
   padding: 10px;
-  background-color:rgb(75, 75, 75);
+  background-color: rgb(75, 75, 75);
   box-shadow: 0 0px 20px rgb(19, 18, 18);
   border-radius: 3px;
 }
@@ -26,7 +26,6 @@
   padding-bottom: 15px;
   border-bottom: solid 2px rgb(226, 226, 226);
   font-size: 20px;
-
 }
 .contenedores-register {
   margin: 15px;
@@ -52,5 +51,16 @@
   background-color: rgb(31, 134, 182);
   color: white;
   font-weight: bolder;
-  
+}
+
+.feedback-crearUsuario {
+  margin: 2px 10px;
+  padding: 6px;
+  width: 80%;
+  max-width: 400px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: red;
+  position: absolute;
 }
