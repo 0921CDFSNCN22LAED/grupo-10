@@ -2,23 +2,27 @@
   <body>
   <%- include("./partials/header") %>
     <main class="main-register">
-        <form class="form-register" action="" method="post">
+        <form class="form-register" action="/" method="POST" enctype="multipart/form-data">
           <h3 class="titulo-register">Registrate</h3>
             <div class="contenedores-register">
                 <label for="nombre"></label>
-                <input class="input-register1" type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido">
+                <input class="input-register1" type="text" name="name" id="name" placeholder="Nombre y Apellido">
             </div>
             <div class="contenedores-register">
                 <label for="email-register"></label>
-                <input class="input-register1" type="text" name="email-register" id="email-register" placeholder="Example@hotmail.com">
+                <input class="input-register1" type="text" name="email" id="email" placeholder="Example@hotmail.com">
             </div>
             <div class="contenedores-register">
                 <label for="contraseña-register"></label>
-                <input class="input-register1" type="text" name="contraseña-register" id="contraseña-register" placeholder="Contraseña">
+                <input class="input-register1" type="text" name="password" id="password" placeholder="Contraseña">
             </div>
             <div class="contenedores-register">
                 <label for="confirmar-contraseña"></label>
-                <input class="input-register1" type="text" name="confirmar-contraseña" id="confirmar-contraseña" placeholder="Confirmar contraseña">
+                <input class="input-register1" type="text" name="repassword" id="repassword" placeholder="Confirmar contraseña">
+            </div>
+            <div>
+                <label for="perfilImage">Foto de Perfil</label>
+                <input type="file" name="perfilImage" accept="image/png,image/jpg" />
             </div>
             <div class="contenedores-register">
                 <button class="boton-register" type="submit">Registrarse</button>

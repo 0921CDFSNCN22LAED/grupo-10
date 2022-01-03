@@ -9,6 +9,14 @@ function saveProducts() {
   fs.writeFileSync(productsFilePath, texto, 'utf-8');
 }
 
+const usersFilePath = path.join(__dirname, '../data/users.json');
+const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+
+function saveUsers() {
+  const texto = JSON.stringify(users);
+  fs.writeFileSync(usersFilePath, texto, 'utf-8');
+}
+
 const addDiscountSymbol = (function () {
   products.forEach((prod) => {
     prod.discount = prod.discount ? prod.discount + '%' : '';
@@ -73,4 +81,18 @@ module.exports = {
   registro: (req, res) => {
     res.render('register');
   },
+
+  user: (req, res)=>{
+    const newUser = {
+      id: new Date().getTime(),
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      respassword:req.body.repassword,
+      perfilImage: req.body.image,
+    };
+    users.push(newUser);
+    saveUsers();
+    res.redirect('login');
+  }
 };
