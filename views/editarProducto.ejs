@@ -17,7 +17,7 @@
                     <div class="box-subtitulosCrearProd">
                         <label for="name">Nombre del producto:</label>
                         <input class="input-crearProducto" type="text" id="name" name="name"
-                            placeholder="Teclado Mecanico" value="<%= product.name %>" />
+                            placeholder="Teclado Mecánico" value="<%= product.name %>" />
                         <% if(errors && errors.name) {%>
                         <span class="feedback-crearProducto"><%= errors.name.msg%></span>
                         <% } %>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="box-descripcion">
                         <label for="description">Descripción:</label>
-                        <textarea name="description" id="description"><%=product.description%></textarea>
+                        <textarea name="description" id="description" rows="10"><%=product.description%></textarea>
                     </div>
 
                     <div class="box-categoria">

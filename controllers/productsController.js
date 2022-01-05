@@ -1,93 +1,36 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-let products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-function saveProducts() {
-  const texto = JSON.stringify(products, null, 2);
-  fs.writeFileSync(productsFilePath, texto, 'utf-8');
-}
+const productServices = require('../services/productServices');
 
 module.exports = {
   create: (req, res) => {
     res.render('crearProducto');
   },
-
   store: (req, res) => {
-    const newProduct = {
-      id: new Date().getTime(),
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.price,
-      category: req.body.category,
-      taxonomy: [
-        req.body.taxonomy,
-        req.body.taxonomyHardware
-          ? req.body.taxonomyHardware
-          : req.body.taxonomyPeripherals,
-      ],
-      image: req.body.image,
-    };
-    products.push(newProduct);
-    saveProducts();
+    console.log(`req.body`, req.body);
+    productServices.storeProduct(req);
     res.redirect('/products');
   },
-
   list: (req, res) => {
     res.render('productos');
   },
   edit: (req, res) => {
-    const categories = [
-      { id: 'Oferta', name: 'En oferta' },
-      { id: 'Art-Destacado', name: 'Destacado' },
-    ];
-    const id = req.params.id;
-    const product = products.find((prod) => {
-      return prod.id == id;
-    });
+    const product = productServices.getProduct(req.params.id);
+    const categories = productServices.getProductsCategories();
     let errors = req.session.errors ? req.session.errors : '';
-
     res.render('editarProducto', {
       product,
       categories,
       errors,
     });
-    errors = '';
+    req.session.errors = '';
   },
-
   update: (req, res) => {
-    const id = req.params.id;
-    let product = products.find((prod) => {
-      return prod.id == id;
-    });
-    editProduct = {
-      id: parseInt(id),
-      ...req.body,
-      image: product.image,
-    };
-    // delete edited product copy from JSON DB
-    products = products.filter((product) => {
-      return product.id != id;
-    });
-    // add edited product to JSON DB
-    products.push(editProduct);
-    // save JSON DB
-    saveProducts();
+    productServices.updateProduct(req.params.id);
     // res.redirect('/products/' + id);
     // temp redirect
     res.redirect('/');
   },
   delete: (req, res) => {
-    const id = req.params.id;
-    let product = products.find((prod) => {
-      return prod.id == id;
-    });
-
-    products.splice(product, 1);
-
-    saveProducts();
-
+    productServices.deleteProduct(req.params.id);
     res.redirect('/');
   },
 };

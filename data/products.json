@@ -5,7 +5,10 @@
     "description": "GeForce RTX 3090 VENTUS 3X OC - tarjeta gráfica - GF RTX 3090 - 24 GB - Tipo de dispositivo:Tarjeta gráfica - Tipo de bus:PCI Express 4.0 - Motor gráfico:NVIDIA GeForce RTX 3090 - Memoria:24 GB GDDR6X - Velocidad de la memoria:19.5 Gbps - Núcleos CUDA:10496 - Interfaz de memoria:384-bit - Máxima Resolución:7680 x 4320 - N° máximo de monitores soportados:4 - Interfaces:3 x DisplayPort ¦ HDMI - Apoyado por API:DirectX 12, OpenGL 4.6",
     "price": "$400.000",
     "category": "Oferta",
-    "taxonomy": ["Hardware", "Placas de video"],
+    "taxonomy": [
+      "Hardware",
+      "Placas de video"
+    ],
     "discount": "",
     "image": "placa-video.jfif"
   },
@@ -16,7 +19,10 @@
     "discount": "30",
     "price": "$50.000",
     "category": "Oferta",
-    "taxonomy": ["Hardware", "Gabinetes"],
+    "taxonomy": [
+      "Hardware",
+      "Gabinetes"
+    ],
     "image": "gabinete-gamer.jfif"
   },
   {
@@ -26,7 +32,10 @@
     "price": "$59.990",
     "discount": "30",
     "category": "Oferta",
-    "taxonomy": ["Hardware", "Motherboards"],
+    "taxonomy": [
+      "Hardware",
+      "Motherboards"
+    ],
     "image": "placa-madre-asus.jpg"
   },
   {
@@ -35,7 +44,10 @@
     "description": "Un teclado para juegos reducido al 60  de su tamaño y con sus punteros switches ópticos Razer™. Portátil e ideal para escritorios reducidos, es hora de experimentar un accionamiento a la velocidad de la luz.",
     "price": "$18.190",
     "category": "Art-Destacado",
-    "taxonomy": ["Periféricos", "Teclados"],
+    "taxonomy": [
+      "Periféricos",
+      "Teclados"
+    ],
     "image": "teclado-razer.jpg"
   },
   {
@@ -45,7 +57,10 @@
     "price": "$9.000",
     "discount": "15",
     "category": "Oferta",
-    "taxonomy": ["Hardware", "Memorias ram"],
+    "taxonomy": [
+      "Hardware",
+      "Memorias ram"
+    ],
     "image": "memoria-ram.jfif"
   },
   {
@@ -54,7 +69,10 @@
     "description": "Mouse Gamer ultra liviano de alta velocidad. Por su ergonomía ermite que las personas diestras o zurdas puedan utilizarlo y personalizar la configuración.",
     "price": "$5.000",
     "category": "Art-Destacado",
-    "taxonomy": ["Periféricos", "Mouses"],
+    "taxonomy": [
+      "Periféricos",
+      "Mouses"
+    ],
     "image": "razer-vipermini.jpg"
   },
   {
@@ -64,7 +82,10 @@
     "price": "$11.000",
     "discount": "25",
     "category": "Oferta",
-    "taxonomy": ["Periférico", "Teclados"],
+    "taxonomy": [
+      "Periférico",
+      "Teclados"
+    ],
     "image": "teclado-redragon.jpg"
   },
   {
@@ -73,7 +94,10 @@
     "price": "$10.000",
     "discount": "",
     "category": "Oferta",
-    "taxonomy": ["Periférico", "Mouses"],
+    "taxonomy": [
+      "Periférico",
+      "Mouses"
+    ],
     "description": "El mouse inalámbrico G Pro tiene un Sensor Hero 25K es Ultraligero y tambien tiene un diseño ergonómico ambidiestro",
     "image": "logitech-gpro.jfif"
   },
@@ -83,7 +107,10 @@
     "price": "$12.000",
     "discount": "10",
     "category": "Oferta",
-    "taxonomy": ["Periférico", "Teclados"],
+    "taxonomy": [
+      "Periférico",
+      "Teclados"
+    ],
     "description": "El Teclado HyperX Alloy Fps tiene un diseño ultra minimalista sin llave (TKL) ideal para FPS Pro, tiene switches mecánicos Cherry MX, con teclas retroiluminadas con efectos de ilimunacion dinamicos",
     "image": "teclado.jfif"
   },
@@ -93,7 +120,10 @@
     "price": "$58.999",
     "discount": "30",
     "category": "Art-Destacado",
-    "taxonomy": ["Hardware", "Procesadores"],
+    "taxonomy": [
+      "Hardware",
+      "Procesadores"
+    ],
     "description": "Procesador de escritorio desbloqueado Intel Core i9-10900K de 10ª generación. Con la tecnología Intel Turbo Boost Max 3. 0, los procesadores de escritorio Intel Core de 10ª generación desbloqueados están optimizados para jugadores entusiastas y creadores serios y ayudan a ofrecer overclocking de alto rendimiento para un impulso adicional. Solución térmica no incluida en la caja.",
     "image": "core-i9.jpg"
   },
@@ -103,7 +133,24 @@
     "description": "Modelo\r\nRYZEN 7 3700X\r\nSocket\r\nAM4 Ryzen 3th Gen\r\nNúcleos\r\n8\r\nFrecuencia\r\n3600.00 mhz\r\nProceso De Fabricación\r\n7 nm\r\nChipset Gpu\r\nNO Posee Gráficos Integrados\r\nHilos\r\n16\r\nFrecuencia Turbo\r\n4400 mhz\r\nFamilia\r\nAMD RYZEN 7",
     "price": "45900",
     "category": "Art-Destacado",
-    "taxonomy": ["Hardware", "Procesadores"],
+    "taxonomy": [
+      "Hardware",
+      "Procesadores"
+    ],
     "image": "compragamer_Imganen_general_14083_Procesador_AMD_RYZEN_7_3700X_4.4_GHz_AM4_Wraith_Prism_RGB_Led_Cooler_4e00eaaf-grn.jpg"
+  },
+  {
+    "id": 1641412110777,
+    "name": "Radeon R5 220 2GB DDR3 AFOX",
+    "price": "11999",
+    "description": "Marca:\tAFOX  \r\nMemoria:\t2GB GDDR3\r\nPlaca de Video:\tRadeon R5 220 2GB DDR3 AFOX\r\nPantalla:\tResolución Max 2560 x 1600\r\nPuerto HDMI:\t1x VGA - 1x DVI - 1x HDMI",
+    "category": "",
+    "taxonomy": [
+      "Hardware",
+      "Placas"
+    ],
+    "taxonomyHardware": "Placas",
+    "taxonomyPeripherals": "",
+    "image": "defaultProduct.png"
   }
 ]
