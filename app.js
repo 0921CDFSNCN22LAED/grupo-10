@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 
 const taxonomy = require('./middleware/taxonomy.js');
+const flashErrors = require('./middleware/flashErrors');
 
 const publicPath = path.resolve(__dirname, 'public');
 app.use(express.static(publicPath));
@@ -20,7 +21,7 @@ app.use(methodOverride('_method'));
 app.use(
   session({ secret: 'clave secreta', resave: false, saveUninitialized: false })
 );
-
+app.use(flashErrors);
 app.use(taxonomy);
 
 const mainRouter = require('./routers/mainRouter.js');

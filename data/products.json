@@ -152,5 +152,20 @@
     "taxonomyHardware": "Placas",
     "taxonomyPeripherals": "",
     "image": "defaultProduct.png"
+  },
+  {
+    "id": 1641413542112,
+    "name": "KIT AMD Ryzen 7 4700S 4.0 Ghz - Motherboard Mini-ITX - 16GB GDDR6",
+    "price": "37000",
+    "discount": "10",
+    "category": "Oferta",
+    "description": "Microprocesador\r\nModeloRyzen 7 4700S\r\nNucleos8\r\nFrecuencia4.0\r\nMotherboard\r\nChipsetKit\r\nRanuras PCIe1 Ranura PCIe® X16, Compatible Con (Señal X4 Gen 2)\r\nMemoria Ram\r\nTamaño De Memoria16 GB\r\nPlaca De Video Compatibles\r\nLista De Tarjetas Gráficas CompatiblesAMD Radeon™ 550,RX 550,RX 560,RX 570,RX 580, RX 590, GT 1030­,GTX 1050­, GTX 1050 Ti­, GTX 1060\r\nAlimentacion\r\nWattsDe 250W, Como Mínimo. Se Recomienda De 300W En Adelante.\r\nPuertos SATA\r\nSata2\r\nPuertos\r\nPuertos De E/S (Panel Trasero)Pantalla NO; Audio SÍ; 3 USB3 Gen2 Más 1 Gen1; 4 USB2\r\nConectores\r\nConectores En El Panel Delantero2 USB3 Gen1; Conector De Audio HD",
+    "taxonomy": [
+      "Hardware",
+      "Motherboards"
+    ],
+    "taxonomyHardware": "Motherboards",
+    "taxonomyPeripherals": "",
+    "image": "defaultProduct.png"
   }
 ]

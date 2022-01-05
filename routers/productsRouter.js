@@ -13,8 +13,8 @@ router.get('/create', productsController.create);
 // Acción de creación
 router.post(
   '/store',
-  //   productValidations,
-  //   validations,
+  productValidations,
+  validations,
   productsController.store
 );
 // Detalle de un producto

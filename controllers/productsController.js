@@ -2,10 +2,10 @@ const productServices = require('../services/productServices');
 
 module.exports = {
   create: (req, res) => {
-    res.render('crearProducto');
+    const categories = productServices.getProductsCategories();
+    res.render('crearProducto', { categories });
   },
   store: (req, res) => {
-    console.log(`req.body`, req.body);
     productServices.storeProduct(req);
     res.redirect('/products');
   },
