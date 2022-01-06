@@ -56,12 +56,12 @@ module.exports = {
     this.saveProducts(products);
   },
   deleteProduct: function (id) {
-    ////CORREGIR Esto borra solo el primer producto, no el producto deseado
+    ////CORREGIR Esto borra solo el primer producto, no el producto deseado- CORREGIDO
     const products = this.getProducts();
-    let product = products.find((prod) => {
+    let product = products.findIndex((prod) => {
       return prod.id == id;
     });
     products.splice(product, 1);
-    saveProducts(products);
+    this.saveProducts(products);
   },
 };
