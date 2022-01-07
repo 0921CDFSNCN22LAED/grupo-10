@@ -1,60 +1,15 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-function saveProducts() {
-  const texto = JSON.stringify(products);
-  fs.writeFileSync(productsFilePath, texto, 'utf-8');
-}
-
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
-function saveUsers() {
-  const texto = JSON.stringify(users);
-  fs.writeFileSync(usersFilePath, texto, 'utf-8');
-}
-
-const addDiscountSymbol = (function () {
-  products.forEach((prod) => {
-    prod.discount = prod.discount ? prod.discount + '%' : '';
-  });
-})();
+const mainServices = require('../services/mainServices');
+const productServices = require('../services/productServices');
 
 module.exports = {
   index: (req, res) => {
-    const artDestacadosProducts = products.filter((prod) => {
-      return prod.category == 'Art-Destacado';
-    });
-    //   .slice(0, 3);
-    const offerProducts = products.filter((prod) => {
-      return prod.category == 'Oferta';
-    });
-    const hardware = products.filter((prod) => {
-      return prod.taxonomy[0] == 'Hardware';
-    });
-    const peripherals = products.filter((prod) => {
-      return prod.taxonomy[0] == 'Periférico';
-    });
-    //   .slice(0, 3);
+    const { artDestacadosProducts, offerProducts, hardware, peripherals } =
+      productServices.getProductsByCategoryOrTaxonomy();
     res.render('index', {
-      artDestacadosProducts: artDestacadosProducts,
-      offerProducts: offerProducts,
+      artDestacadosProducts,
+      offerProducts,
       hardware,
       peripherals,
-    });
-  },
-
-  detalleProducto: (req, res) => {
-    const id = req.params.id;
-
-    const product = products.find((prod) => {
-      return prod.id == id;
-    });
-    res.render('productDetail', {
-      product,
     });
   },
 
@@ -79,23 +34,11 @@ module.exports = {
   },
 
   registro: (req, res) => {
-    let errors = req.session.errors ? req.session.errors : '';
-    let old = req.session.old ? req.session.old : '';
-    res.render('register', { errors, old });
-    req.session.errors = '';
-    req.session.old = '';
+    res.render('register');
   },
 
-  user: (req, res) => {
-    const newUser = {
-      id: new Date().getTime(),
-      name: req.body.name,
-      email: req.body.email,
-      password: req.body.password,
-      perfilImage: req.file ? req.file.filename : 'default-avatar.png',
-    };
-    users.push(newUser);
-    saveUsers();
+  storeUser: (req, res) => {
+    mainServices.store(req);
     res.redirect('login');
   },
 };

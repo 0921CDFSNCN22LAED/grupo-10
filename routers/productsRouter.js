@@ -18,14 +18,14 @@ router.post(
   productsController.store
 );
 // Detalle de un producto
-router.get('/:id');
+router.get('/:id', productsController.detail);
 // Formulario de edición de productos
 router.get('/:id/edit', productsController.edit);
 // Acción de edición
 router.put(
   '/:id/edit',
-  productValidations,
-  validations,
+  //   productValidations,
+  //   validations,
   productsController.update
 );
 // Acción de borrado

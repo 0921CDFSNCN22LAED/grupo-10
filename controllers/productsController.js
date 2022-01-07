@@ -12,8 +12,14 @@ module.exports = {
   list: (req, res) => {
     res.render('productos');
   },
-  edit: (req, res) => {
+  detail: (req, res) => {
     const product = productServices.getProduct(req.params.id);
+    res.render('productDetail', {
+      product,
+    });
+  },
+  edit: (req, res) => {
+    const product = productServices.getProductRaw(req.params.id);
     const categories = productServices.getProductsCategories();
     let errors = req.session.errors ? req.session.errors : '';
     res.render('editarProducto', {
@@ -24,7 +30,8 @@ module.exports = {
     req.session.errors = '';
   },
   update: (req, res) => {
-    productServices.updateProduct(req.params.id);
+    console.log(`req.body`, req.body);
+    productServices.updateProduct(req.params.id, req.body);
     // res.redirect('/products/' + id);
     // temp redirect
     res.redirect('/');

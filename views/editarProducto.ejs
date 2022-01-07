@@ -26,7 +26,7 @@
                         <label for="price">Precio del producto:</label>
                         <div>
                             <span class="before-symbol">$</span>
-                            <input class="input-crearProducto" type="text" id="price" name="price" min="0"
+                            <input class="input-crearProducto" type="number" id="price" name="price" min="0"
                                 placeholder="400.000" value="<%= product.price %>" />
                         </div>
                         <% if(errors && errors.price) {%>
@@ -93,7 +93,7 @@
                         </select>
                     </div>
                     <div class="img-crearProducto">
-                        <img src="/img/<%=product.image%>" alt="product image">
+                        <img src="/img/products-img/<%=product.image%>" alt="product image">
                         <div>
                             <label for="image">Cambiar imagen</label>
                             <div class="img-container">
