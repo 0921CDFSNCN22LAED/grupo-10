@@ -16,6 +16,11 @@ module.exports = {
     const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
     return products;
   },
+  getProductsRandom: function (n) {
+    const products = this.getProducts();
+    products.sort(() => Math.random() - Math.random());
+    return products;
+  },
   getProduct: function (id) {
     const products = this.getProducts();
     const product = products.find((prod) => {

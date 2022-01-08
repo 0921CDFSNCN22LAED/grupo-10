@@ -14,8 +14,10 @@ module.exports = {
   },
   detail: (req, res) => {
     const product = productServices.getProduct(req.params.id);
+    const products = productServices.getProductsRandom().slice(0, 6);
     res.render('productDetail', {
       product,
+      products,
     });
   },
   edit: (req, res) => {
