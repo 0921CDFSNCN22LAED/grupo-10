@@ -88,14 +88,14 @@
             </button>
         </section>
 
-        <section id="hardware-carousel" class="custom-carousel mb-5">
+        <section id="" class="custom-carousel mb-5">
             <h2 class="titulo">Hardware</h2>
             <div class="d-flex align-items-center justify-content-center container-fluid mb-3">
-                <div class="carousel-control-prev-icon custom hardware" aria-hidden="true"></div>
+                <div class="carousel-control-prev-icon custom" aria-hidden="true"></div>
                 <div class="hide-overflow">
-                    <div class="row my-2 custom-stick" id="hardware-stick">
+                    <div class="row my-2 custom-stick">
                         <% for(let item of hardware) {%>
-                        <div class="col-lg-3 col-md-4 col-sm-6 hardware-card">
+                        <div class="col-lg-3 col-md-4 col-sm-6 c-card">
                             <a href="/products/<%= item.id %>"
                                 class="noLinkStyle p-1 d-flex flex-column h-100 producto ">
                                 <div
@@ -112,18 +112,18 @@
                         <% } %>
                     </div>
                 </div>
-                <div class="carousel-control-next-icon custom hardware" aria-hidden="true"></div>
+                <div class="carousel-control-next-icon custom " aria-hidden="true"></div>
             </div>
         </section>
 
-        <section id="peripherals-carousel" class="custom-carousel mb-5">
+        <section id="" class="custom-carousel mb-5">
             <h2 class="titulo">Periféricos</h2>
             <div class="d-flex align-items-center justify-content-center container-fluid mb-3">
-                <div class="carousel-control-prev-icon custom peripheral" aria-hidden="true"></div>
+                <div class="carousel-control-prev-icon custom " aria-hidden="true"></div>
                 <div class="hide-overflow">
-                    <div class="row my-2 custom-stick" id="peripherals-stick">
+                    <div class="row my-2 custom-stick">
                         <% for(let item of peripherals) {%>
-                        <div class="col-lg-3 col-md-4 col-sm-6 peripherals-card">
+                        <div class="col-lg-3 col-md-4 col-sm-6 c-card">
                             <a href="/products/<%= item.id %>"
                                 class="noLinkStyle p-1 d-flex flex-column h-100 producto ">
                                 <div
@@ -138,7 +138,7 @@
                             </a>
                         </div>
                         <% } %>
-                        <div class="col-lg-3 col-md-4 col-sm-6 peripherals-card">
+                        <div class="col-lg-3 col-md-4 col-sm-6 c-card">
                             <a href="/products/search" class="noLinkStyle p-1 d-flex flex-column h-100 producto ">
                                 <div
                                     class="d-flex align-items-center justify-content-center img-thumbnail mb-3 h-50 carousel-img-container">
@@ -153,7 +153,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-control-next-icon custom peripheral" aria-hidden="true"></div>
+                <div class="carousel-control-next-icon custom" aria-hidden="true"></div>
             </div>
         </section>
 
