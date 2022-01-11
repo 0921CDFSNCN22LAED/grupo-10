@@ -26,7 +26,7 @@
   {
     "id": 4,
     "name": "Gabinete Gamer",
-    "description":"El gabinete Gamer con Luces frontales RGB y ventana lateral de acrilico MT-235GM será el espacio ideal para que tu hardware esté bien refrigerado y completamente a la vista.",
+    "description": "El gabinete Gamer con Luces frontales RGB y ventana lateral de acrilico MT-235GM será el espacio ideal para que tu hardware esté bien refrigerado y completamente a la vista.",
     "discount": "%30",
     "price": "$50.000",
     "category": "Oferta",
@@ -83,5 +83,21 @@
     "discount": "%25",
     "category": "Oferta",
     "image": "teclado-redragon.jpg"
+  },
+  {
+    "id": 1639437472584,
+    "name": "prueba Esteban",
+    "description": "xxxxxxxxxxxx",
+    "price": "$999",
+    "category": "Oferta",
+    "image": ""
+  },
+  {
+    "id": 1640124983461,
+    "name": "prueba Esteban2",
+    "description": "ergt45t45y",
+    "price": "$9992",
+    "category": "Oferta",
+    "image": "Sin título2.png"
   }
 ]
