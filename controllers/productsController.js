@@ -1,34 +1,45 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-function saveProducts() {
-  const texto = JSON.stringify(products, null, 2);
-  fs.writeFileSync(productsFilePath, texto, 'utf-8');
-}
+const productServices = require('../services/productServices');
 
 module.exports = {
   create: (req, res) => {
-    res.render('crearProducto');
+    const categories = productServices.getProductsCategories();
+    res.render('crearProducto', { categories });
   },
-
   store: (req, res) => {
-    const newProduct = {
-      id: new Date().getTime(),
-      name: req.body.name,
-      description: req.body.description,
-      price: req.body.price,
-      category: req.body.category,
-      image: req.body.image,
-    }
-    products.push(newProduct);
-    saveProducts();
+    productServices.storeProduct(req);
     res.redirect('/products');
   },
-
   list: (req, res) => {
-    res.render('productos')
-  }
+    res.render('productos');
+  },
+  detail: (req, res) => {
+    const product = productServices.getProduct(req.params.id);
+    const products = productServices.getProductsRandom().slice(0, 6);
+    res.render('productDetail', {
+      product,
+      products,
+    });
+  },
+  edit: (req, res) => {
+    const product = productServices.getProductRaw(req.params.id);
+    const categories = productServices.getProductsCategories();
+    let errors = req.session.errors ? req.session.errors : '';
+    res.render('editarProducto', {
+      product,
+      categories,
+      errors,
+    });
+    req.session.errors = '';
+  },
+  update: (req, res) => {
+    console.log(`req.body`, req.body);
+    productServices.updateProduct(req.params.id, req.body);
+    // res.redirect('/products/' + id);
+    // temp redirect
+    res.redirect('/');
+  },
+  delete: (req, res) => {
+    productServices.deleteProduct(req.params.id);
+    res.redirect('/');
+  },
 };

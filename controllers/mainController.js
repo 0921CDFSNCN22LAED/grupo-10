@@ -1,82 +1,44 @@
-const fs = require('fs');
-const path = require('path');
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-function saveProducts() {
-	const texto = JSON.stringify(products);
-	fs.writeFileSync(productsFilePath, texto, "utf-8");
-}
+const mainServices = require('../services/mainServices');
+const productServices = require('../services/productServices');
 
 module.exports = {
   index: (req, res) => {
-    const artDestacadosProducts = products.filter((prod)=>{
-			return prod.category == "Art-destacado";
-		})
-    .slice(0, 3);
-		const offerProducts = products.filter((prod)=>{
-			return prod.category == "Oferta";
-		})
-    .slice(0, 3);
-		res.render("index", {
-			artDestacadosProducts: artDestacadosProducts,
-			offerProducts: offerProducts
-		})
-  },
-
-  detalleProducto: (req, res) => {
-    res.render("productDetail");
+    const { artDestacadosProducts, offerProducts, hardware, peripherals } =
+      productServices.getProductsByCategoryOrTaxonomy();
+    res.render('index', {
+      artDestacadosProducts,
+      offerProducts,
+      hardware,
+      peripherals,
+    });
   },
 
   carrito: (req, res) => {
-    res.render("productCart");
+    res.render('productCart');
   },
 
   carritoEntrega: (req, res) => {
-    res.render("productCart2");
+    res.render('productCart2');
   },
 
   carritoPago: (req, res) => {
-    res.render("productCart3");
+    res.render('productCart3');
   },
 
   carritoConfirmacion: (req, res) => {
-    res.render("productCart4");
+    res.render('productCart4');
   },
 
   login: (req, res) => {
-    res.render("login");
+    res.render('login');
   },
 
   registro: (req, res) => {
-    res.render("register");
+    res.render('register');
   },
 
-  edit:(req, res) => {
-    const id = req.params.id;
-    const product = products.find((prod) => {
-      return prod.id == id;
-    });
-    res.render("editarProducto", {
-      product,
-    });
+  storeUser: (req, res) => {
+    mainServices.store(req);
+    res.redirect('login');
   },
-
-  update:(req, res)=>{
-    const id = req.params.id;
-    const product = products.find((prod) => {
-      return prod.id == id;
-    });
-
-    product.category = req.body.category;
-    product.name = req.body.name;
-    product.description = req.body.description;
-    product.price = req.body.price;
-    product.discount = req.body.discount;
-    product.image = req.body.image;
-
-    saveProducts();
-    res.redirect("/"+id);
-  },
-}
+};
