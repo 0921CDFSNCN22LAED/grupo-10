@@ -10,7 +10,8 @@ module.exports = {
     res.redirect('/products');
   },
   list: (req, res) => {
-    res.render('productos');
+    const products = productServices.getProducts();
+    res.render('productos', {products});
   },
   detail: (req, res) => {
     const product = productServices.getProduct(req.params.id);
