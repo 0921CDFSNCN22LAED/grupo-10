@@ -19,18 +19,10 @@
     "image": "razer-vipermini.jpg"
   },
   {
-<<<<<<< HEAD
-    "id": 4,
-    "name": "Gabinete Gamer",
-    "description": "El gabinete Gamer con Luces frontales RGB y ventana lateral de acrilico MT-235GM será el espacio ideal para que tu hardware esté bien refrigerado y completamente a la vista.",
-    "discount": "%30",
-    "price": "$50.000",
-=======
     "id": 1,
     "name": "Mouse Logitech GPRO Test",
     "price": "$10.000",
     "discount": "",
->>>>>>> e56358f942f7656243442480d40b26263883c442
     "category": "Oferta",
     "taxonomy": ["Periféricos", "Mouses"],
     "description": "El mouse inalámbrico G Pro tiene un Sensor Hero 25K es Ultraligero y tambien tiene un diseño ergonómico ambidiestro",
@@ -127,22 +119,6 @@
     "image": "teclado-redragon.jpg"
   },
   {
-<<<<<<< HEAD
-    "id": 1639437472584,
-    "name": "prueba Esteban",
-    "description": "xxxxxxxxxxxx",
-    "price": "$999",
-    "category": "Oferta",
-    "image": ""
-  },
-  {
-    "id": 1640124983461,
-    "name": "prueba Esteban2",
-    "description": "ergt45t45y",
-    "price": "$9992",
-    "category": "Oferta",
-    "image": "Sin título2.png"
-=======
     "id": 8,
     "name": "Memoria Ram Hyperx 8gb",
     "price": "$ 9000",
@@ -151,6 +127,5 @@
     "description": "Memoria Ram Gamer Kingston Hyperx Fury 8gb Rgb Ddr4 3600mhz",
     "taxonomy": ["Hardware", "Memorias"],
     "image": "memoria-ram.jfif"
->>>>>>> e56358f942f7656243442480d40b26263883c442
   }
 ]
