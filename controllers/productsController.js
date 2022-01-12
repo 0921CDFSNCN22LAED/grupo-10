@@ -33,7 +33,6 @@ module.exports = {
     req.session.errors = '';
   },
   update: (req, res) => {
-    console.log(`req.body`, req.body);
     productServices.updateProduct(req.params.id, req.body);
     // res.redirect('/products/' + id);
     // temp redirect

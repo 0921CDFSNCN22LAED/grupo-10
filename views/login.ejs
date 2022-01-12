@@ -2,6 +2,9 @@
   <body>
   <%- include("./partials/header") %>
     <main class="main-login">
+      <% if(errors){%>
+        <div class = "text-center bg-danger p-3"><%= errors %> </div>
+        <% } %>
       <form class="form-login" action="/login" method="post">
         <h3 class="titulo-login">Ingresa con tu cuenta:</h3>
         <div class="contenedores-login">

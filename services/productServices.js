@@ -40,7 +40,6 @@ module.exports = {
     product.discount = product.discount
       ? Number(product.discount.replace(cleanRegEx, ''))
       : '';
-    console.log(`product`, product);
     return product;
   },
   getProductsCategories: function () {

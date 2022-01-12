@@ -22,5 +22,6 @@ router.post(
   validations,
   mainController.storeUser
 );
+router.get("/logout", mainController.logout)
 
 module.exports = router;

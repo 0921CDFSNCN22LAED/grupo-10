@@ -30,16 +30,21 @@ module.exports = {
   },
 
   login: (req, res) => {
-    res.render('login');
+    console.log(req.session)
+    const errors = req.session.loginErrors
+    req.session.loginErrors = ""
+    res.render('login', {errors});
   },
   loginProcess:(req, res) =>{
     
     if(mainServices.validateUser(req.body.email, req.body["contraseña"])){
       req.session.log = true
-      console.log(req.session)
+      req.session.user = mainServices.getUserbyEmail(req.body.email)
       return res.redirect('/')
     }else{
-      return res.redirect('back')
+      req.session.loginErrors = "Las credenciales no son correctas"
+      console.log(req.session)
+      return res.redirect('login')
     }
   },
 
@@ -51,4 +56,8 @@ module.exports = {
     mainServices.store(req);
     res.redirect('login');
   },
+  logout: (req, res) =>{
+    req.session.log = false
+    res.redirect('login')
+  }
 };
