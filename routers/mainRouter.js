@@ -13,6 +13,7 @@ router.get('/carrito/entrega', mainController.carritoEntrega);
 router.get('/carrito/pago', mainController.carritoPago);
 router.get('/carrito/confirmacion', mainController.carritoConfirmacion);
 router.get('/login', mainController.login);
+router.post('/login', mainController.loginProcess)
 router.get('/registro', mainController.registro);
 router.post(
   '/',

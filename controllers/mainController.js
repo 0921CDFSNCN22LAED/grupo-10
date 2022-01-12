@@ -32,6 +32,15 @@ module.exports = {
   login: (req, res) => {
     res.render('login');
   },
+  loginProcess:(req, res) =>{
+    
+    if(mainServices.validateUser(req.body.email, req.body["contraseña"])){
+      req.session.log = true
+      return res.redirect('/')
+    }else{
+      return res.redirect('back')
+    }
+  },
 
   registro: (req, res) => {
     res.render('register');

@@ -30,4 +30,21 @@ module.exports = {
     users.push(newUser);
     this.saveUsers(users);
   },
+  getUserbyEmail: function (email) {
+    const users = this.getUsers();
+    const user = users.find((user) => {
+      return user.email == email;
+    });
+    return user;
+  },
+  validateUser: function (email, password) {
+    if(this.getUserbyEmail(email)){
+      const user = this.getUserbyEmail(email)
+      const userPassword = user.password
+      return userPassword == password
+    }else{
+      return false
+    };
+  },
+
 };
