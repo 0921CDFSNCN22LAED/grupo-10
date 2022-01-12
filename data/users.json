@@ -139,5 +139,12 @@
     "email": "ana@mail.com",
     "password": "1234",
     "perfilImage": "1641552193310.png"
+  },
+  {
+    "id": 1642021841507,
+    "name": "Cristian",
+    "email": "cristianramos92639@gmail.com",
+    "password": "$2a$10$i1AaknHRAOWe4JBy3gsiLuC/j5Rkba1WAO2yjGmC0Si.l0JNPyUPO",
+    "perfilImage": "default-avatar.png"
   }
 ]

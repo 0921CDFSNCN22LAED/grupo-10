@@ -1,4 +1,5 @@
 const fs = require('fs');
+const bcrypt = require("bcryptjs")
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 
@@ -23,7 +24,7 @@ module.exports = {
       id: new Date().getTime(),
       name: req.body.name,
       email: req.body.email,
-      password: req.body.password,
+      password: bcrypt.hashSync(req.body.password, 10),
       perfilImage: req.file ? req.file.filename : 'default-avatar.png',
     };
     let users = this.getUsers();
@@ -40,8 +41,8 @@ module.exports = {
   validateUser: function (email, password) {
     if(this.getUserbyEmail(email)){
       const user = this.getUserbyEmail(email)
-      const userPassword = user.password
-      return userPassword == password
+      const checkPassword = bcrypt.compareSync(password, user.password)
+      return checkPassword
     }else{
       return false
     };

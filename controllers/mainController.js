@@ -36,6 +36,7 @@ module.exports = {
     
     if(mainServices.validateUser(req.body.email, req.body["contraseña"])){
       req.session.log = true
+      console.log(req.session)
       return res.redirect('/')
     }else{
       return res.redirect('back')
