@@ -75,10 +75,10 @@ body {
 .style-user {
   display: inline-flex;
 }
-.style-user img {
+/* .style-user img {
   vertical-align: middle;
   width: 24px;
-}
+} */
 
 .style-cart {
   border: none;
@@ -299,8 +299,6 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-
 
 /* Otros */
 

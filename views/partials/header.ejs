@@ -6,23 +6,35 @@
 <header class="bg-color-black ">
     <div class="max-w-1200">
         <nav class="right-nav">
-            <%= locals && locals.loguser ? user.name :"No logeado" %>
-            <% if(locals && locals.loguser){%>
-                <form action="/logout" method="GET"><button>
-                    Cerrar Sesion
-                </button> </form>
-            <% } %>
-            <% if(locals && locals.loguser){%><a href="/profile" class="style-user">
-                <img src="img/profiles-img/<%=user.perfilImage%>" >
-            </a>
-            <% }else{%>
-                <a href="/login" class="style-user">
-                    <i class="fas fa-user-alt"></i>
-                </a>
-            <%} %>
-            <a href="/carrito" class="style-cart">
-                <i class="fas fa-shopping-cart"></i>
-            </a>
+            <div class="row align-items-center">
+                <div class="col-3 ">Hola <%= locals && locals.loguser ? user.name :"No logeado" %></div>
+
+                <% if(locals && locals.loguser){%>
+                <div class="col-3 ">
+                    <a href="/profile">
+                        <img class="w-100" src="img/profiles-img/<%=user.perfilImage%>">
+                    </a>
+                </div>
+                <% }else{%>
+                <div class="col-3 ">
+                    <a href="/login" class="style-user">
+                        <i class="fas fa-user-alt"></i>
+                    </a>
+                </div>
+                <%} %>
+                <div class="col-2 ">
+                    <a href="/carrito" class="style-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                    </a>
+                </div>
+                <% if(locals && locals.loguser){%>
+                <div class="col-3 ">
+                    <form action="/logout" method="GET">
+                        <button class="btn btn-warning "> Salir </button>
+                    </form>
+                </div>
+                <% } %>
+            </div>
         </nav>
         <section class="style-header">
             <nav class="navbar-custom">

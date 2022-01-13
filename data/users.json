@@ -153,5 +153,26 @@
     "email": "estebanponce_7@hotmail.com",
     "password": "$2a$10$1/Ab3k2UbWcPeS8yITfXReCdmRhrCqsugCPNiqCIPKm7vrYJm9qga",
     "perfilImage": "default-avatar.png"
+  },
+  {
+    "id": 1642110009802,
+    "name": "luios",
+    "email": "luis@mail.com",
+    "password": "$2a$10$HeFihDt5ed48HPM3Yz8et.ZOp2vs1jaSsaxhPtG14RVDAE5hVfrTG",
+    "perfilImage": "default-avatar.png"
+  },
+  {
+    "id": 1642110610473,
+    "name": "Jose",
+    "email": "jose@mail.com",
+    "password": "$2a$10$Pz99vQ0UhbpRkLzWdYc5A.5tpFQSE9VZEkBTKxUa5KKNCGiZUMPtO",
+    "perfilImage": "default-avatar.png"
+  },
+  {
+    "id": 1642110635393,
+    "name": "Oriana",
+    "email": "oriana@mail.com",
+    "password": "$2a$10$li12N1zGiGvJ9lxZIJC0Se9cCk6KPSi0j/fLqPmMwd/5Eymn5nEt.",
+    "perfilImage": "1642110635362.png"
   }
 ]
