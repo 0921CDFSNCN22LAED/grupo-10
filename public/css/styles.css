@@ -72,13 +72,23 @@ body {
   border-radius: 3px;
   color: white;
 }
-.style-user,
+.style-user {
+  display: inline-flex;
+}
+.style-user img {
+  vertical-align: middle;
+  width: 24px;
+}
+
 .style-cart {
   border: none;
   color: white;
   font-size: 20px;
   padding: 5px;
   text-decoration: none;
+}
+.style-cart {
+  display: table-caption;
 }
 
 main {
@@ -289,6 +299,9 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+
 /* Otros */
 
 @media (min-width: 768px) {

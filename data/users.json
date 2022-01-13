@@ -146,5 +146,12 @@
     "email": "cristianramos92639@gmail.com",
     "password": "$2a$10$i1AaknHRAOWe4JBy3gsiLuC/j5Rkba1WAO2yjGmC0Si.l0JNPyUPO",
     "perfilImage": "default-avatar.png"
+  },
+  {
+    "id": 1642108634782,
+    "name": "Esteban Ponce",
+    "email": "estebanponce_7@hotmail.com",
+    "password": "$2a$10$1/Ab3k2UbWcPeS8yITfXReCdmRhrCqsugCPNiqCIPKm7vrYJm9qga",
+    "perfilImage": "default-avatar.png"
   }
 ]
