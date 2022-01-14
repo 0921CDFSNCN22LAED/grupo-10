@@ -74,6 +74,9 @@ body {
 }
 .style-user {
   display: inline-flex;
+  font-size: 20px;
+  color: white;
+  padding: 5px;
 }
 /* .style-user img {
   vertical-align: middle;
