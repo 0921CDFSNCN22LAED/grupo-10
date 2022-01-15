@@ -4,6 +4,7 @@
     "name": "Cristian",
     "email": "cristianramos92639@gmail.com",
     "password": "$2a$10$i1AaknHRAOWe4JBy3gsiLuC/j5Rkba1WAO2yjGmC0Si.l0JNPyUPO",
+    "roleLevel": "admin",
     "perfilImage": "default-avatar.png"
   },
   {
@@ -11,6 +12,7 @@
     "name": "Esteban Ponce",
     "email": "estebanponce_7@hotmail.com",
     "password": "$2a$10$1/Ab3k2UbWcPeS8yITfXReCdmRhrCqsugCPNiqCIPKm7vrYJm9qga",
+    "roleLevel": "admin",
     "perfilImage": "default-avatar.png"
   },
   {
@@ -18,6 +20,7 @@
     "name": "Jose",
     "email": "jose@mail.com",
     "password": "$2a$10$Pz99vQ0UhbpRkLzWdYc5A.5tpFQSE9VZEkBTKxUa5KKNCGiZUMPtO",
+    "roleLevel": "1",
     "perfilImage": "default-avatar.png"
   },
   {
@@ -25,6 +28,7 @@
     "name": "Oriana",
     "email": "oriana@mail.com",
     "password": "$2a$10$li12N1zGiGvJ9lxZIJC0Se9cCk6KPSi0j/fLqPmMwd/5Eymn5nEt.",
+    "roleLevel": "1",
     "perfilImage": "1642110635362.png"
   },
   {
@@ -32,6 +36,7 @@
     "name": "Luios",
     "email": "luios@mail.com",
     "password": "$2a$10$D1ffvwiXKuefx9aglXVb/ueC1A1Uj4svQz8rm/Koj9AUAmybJxT5u",
+    "roleLevel": "admin",
     "perfilImage": "default-avatar.png"
   }
 ]
