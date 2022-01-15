@@ -6,15 +6,26 @@ const userValidations = require('../middleware/userValidations');
 const validations = require('../middleware/validation');
 
 const mainController = require('../controllers/mainController.js');
+const unLogUserRedirect = require('../middleware/unLogUserRedirect');
+const logUserRedirect = require('../middleware/logUserRedirect');
 
 router.get('/', mainController.index);
+router.get('/profile', unLogUserRedirect, mainController.profile);
 router.get('/carrito', mainController.carrito);
-router.get('/carrito/entrega', mainController.carritoEntrega);
-router.get('/carrito/pago', mainController.carritoPago);
-router.get('/carrito/confirmacion', mainController.carritoConfirmacion);
-router.get('/login', mainController.login);
-router.post('/login', mainController.loginProcess)
-router.get('/registro', mainController.registro);
+router.get(
+  '/carrito/entrega',
+  unLogUserRedirect,
+  mainController.carritoEntrega
+);
+router.get('/carrito/pago', unLogUserRedirect, mainController.carritoPago);
+router.get(
+  '/carrito/confirmacion',
+  unLogUserRedirect,
+  mainController.carritoConfirmacion
+);
+router.get('/login', logUserRedirect, mainController.login);
+router.post('/login', mainController.loginProcess);
+router.get('/registro', logUserRedirect, mainController.registro);
 router.post(
   '/',
   fileUpload.single('perfilImage'),
@@ -22,6 +33,6 @@ router.post(
   validations,
   mainController.storeUser
 );
-router.get("/logout", mainController.logout)
+router.get('/logout', mainController.logout);
 
 module.exports = router;

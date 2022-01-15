@@ -1,42 +1,44 @@
-  <%- include("./partials/head", {title: "Login - PC Gamer"}) %>
-  <body>
-  <%- include("./partials/header") %>
+<%- include("./partials/head", {title: "Login - PC Gamer"}) %>
+
+<body>
+    <%- include("./partials/header") %>
     <main class="main-login">
-      <% if(errors){%>
-        <div class = "text-center bg-danger p-3"><%= errors %> </div>
+        <% if(errors){%>
+        <div class="text-center bg-danger p-3"><%= errors %> </div>
         <% } %>
-      <form class="form-login" action="/login" method="post">
-        <h3 class="titulo-login">Ingresá con tu cuenta:</h3>
-        <div class="contenedores-login">
-            <label for="email"></label>
-            <input class="input-login1" type="text" name="email" id="email" placeholder="Example@hotmail.com">
-        </div>
-        <div class="contenedores-login">
-            <label for="contraseña"></label>
-            <input class="input-login1" type="text" name="contraseña" id="contraseña" placeholder="Contraseña">
-        </div>
-        <div class="contenedores-login">
-            <button class="boton-enviar" type="submit">Login</button>
-        </div>
-        <div class="style-recordar">
-          <label>Recordarme</label>
-          <input type="checkbox">
-        </div>
-        <div class="contenedor-gg-fb">
-        <button class="login-google" type="button" value="text">
-          <i class="fab fa-google"></i>
-          Ingresá con Google
-        </button>
-        <button class="login-facebook" type="button" value="text">
-          <i class="fab fa-facebook-f"></i>
-          Ingresá con Facebook
-        </button>
-      </div>
-      <div class= "style-registrate">
-        <a href=/registro> ¿No tenés cuenta? Registrate</a>
-      </div>
-    </form>
+        <form class="form-login" action="/login" method="post">
+            <h3 class="titulo-login">Ingresá con tu cuenta:</h3>
+            <div class="contenedores-login">
+                <label for="email"></label>
+                <input class="input-login1" type="text" name="email" id="email" placeholder="Example@hotmail.com">
+            </div>
+            <div class="contenedores-login">
+                <label for="contraseña"></label>
+                <input class="input-login1" type="text" name="contraseña" id="contraseña" placeholder="Contraseña">
+            </div>
+            <div class="contenedores-login">
+                <button class="boton-enviar" type="submit">Login</button>
+            </div>
+            <div class="style-recordar">
+                <label>Recordarme</label>
+                <input type="checkbox">
+            </div>
+            <div class="contenedor-gg-fb">
+                <button class="login-google" type="button" value="text">
+                    <i class="fab fa-google"></i>
+                    Ingresá con Google
+                </button>
+                <button class="login-facebook" type="button" value="text">
+                    <i class="fab fa-facebook-f"></i>
+                    Ingresá con Facebook
+                </button>
+            </div>
+            <div class="style-registrate">
+                <a href=/registro> ¿No tenés cuenta? Registrate</a>
+            </div>
+        </form>
     </main>
     <%- include("./partials/footer") %>
-  </body>
+</body>
+
 </html>

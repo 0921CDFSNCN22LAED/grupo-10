@@ -12,6 +12,9 @@ module.exports = {
       peripherals,
     });
   },
+  profile: (req, res) => {
+    res.render('profile');
+  },
 
   carrito: (req, res) => {
     res.render('productCart');
@@ -30,21 +33,19 @@ module.exports = {
   },
 
   login: (req, res) => {
-    console.log(req.session)
-    const errors = req.session.loginErrors
-    req.session.loginErrors = ""
-    res.render('login', {errors});
+    const errors = req.session.loginErrors;
+    req.session.loginErrors = '';
+    res.render('login', { errors });
   },
-  loginProcess:(req, res) =>{
-    
-    if(mainServices.validateUser(req.body.email, req.body["contraseña"])){
-      req.session.log = true
-      req.session.user = mainServices.getUserbyEmail(req.body.email)
-      return res.redirect('/')
-    }else{
-      req.session.loginErrors = "Las credenciales no son correctas"
-      console.log(req.session)
-      return res.redirect('login')
+  loginProcess: (req, res) => {
+    if (mainServices.validateUser(req.body.email, req.body['contraseña'])) {
+      req.session.log = true;
+      req.session.user = mainServices.getUserbyEmail(req.body.email);
+      const nextPage = req.session.nextPage ?? '/';
+      return res.redirect(nextPage);
+    } else {
+      req.session.loginErrors = 'Las credenciales no son correctas';
+      return res.redirect('login');
     }
   },
 
@@ -56,8 +57,8 @@ module.exports = {
     mainServices.store(req);
     res.redirect('login');
   },
-  logout: (req, res) =>{
-    req.session.log = false
-    res.redirect('login')
-  }
+  logout: (req, res) => {
+    req.session.log = false;
+    res.redirect('login');
+  },
 };

@@ -1,146 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Ainsley",
-    "email": "aruprich0@paypal.com",
-    "password": "tI0PQEj6W",
-    "respassword": "user",
-    "perfilImage": "user_1.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Charmain",
-    "email": "ctungay1@nationalgeographic.com",
-    "password": "VL7H4ytUZM",
-    "respassword": "user",
-    "perfilImage": "user_2.jpg"
-  },
-  {
-    "id": 3,
-    "name": "Emilie",
-    "email": "enightingale2@163.com",
-    "password": "F5D126DIuo5",
-    "respassword": "user",
-    "perfilImage": "user_3.jpg"
-  },
-  {
-    "id": 4,
-    "name": "Briana",
-    "email": "bburl3@sourceforge.net",
-    "password": "8ZV0Atb4zIa",
-    "respassword": "user",
-    "perfilImage": "user_4.jpg"
-  },
-  {
-    "id": 5,
-    "name": "Nero",
-    "email": "nfinkle4@macromedia.com",
-    "password": "Blzg78",
-    "respassword": "user",
-    "perfilImage": "user_5.jpg"
-  },
-  {
-    "id": 6,
-    "name": "Dominique",
-    "email": "dhooks5@jugem.jp",
-    "password": "B7sUf8gWJx",
-    "respassword": "user",
-    "perfilImage": "user_6.jpg"
-  },
-  {
-    "id": 7,
-    "name": "Amye",
-    "email": "amcmenamie6@wikia.com",
-    "password": "Z5YD6C9q",
-    "respassword": "user",
-    "perfilImage": "user_7.jpg"
-  },
-  {
-    "id": 8,
-    "name": "Irvin",
-    "email": "ifinnes7@skyrock.com",
-    "password": "WnmAT7tbI1O",
-    "respassword": "user",
-    "perfilImage": "user_8.jpg"
-  },
-  {
-    "id": 9,
-    "name": "Bondon",
-    "email": "bgreser8@tuttocitta.it",
-    "password": "XqpCXl7A",
-    "respassword": "user",
-    "perfilImage": "user_9.jpg"
-  },
-  {
-    "id": 10,
-    "name": "Willyt",
-    "email": "wpenna9@who.int",
-    "password": "K9o3jyU899U",
-    "respassword": "user",
-    "perfilImage": "user_10.jpg"
-  },
-  {
-    "id": 11,
-    "name": "Melisande",
-    "email": "mreuthera@princeton.edu",
-    "password": "k3CZXUGGVK",
-    "respassword": "user",
-    "perfilImage": "user_11.jpg"
-  },
-  {
-    "id": 12,
-    "name": "Onofredo",
-    "email": "omalesb@behance.net",
-    "password": "Mq4OinfHKJg",
-    "respassword": "user",
-    "perfilImage": "user_12.jpg"
-  },
-  {
-    "id": 13,
-    "name": "Mora",
-    "email": "mlamonbyc@g.co",
-    "password": "NzJEPHv",
-    "respassword": "user",
-    "perfilImage": "user_13.jpg"
-  },
-  {
-    "id": 14,
-    "name": "Jemmie",
-    "email": "jstonnerd@google.ru",
-    "password": "7Xey45clE",
-    "respassword": "user",
-    "perfilImage": "user_14.jpg"
-  },
-  {
-    "id": 15,
-    "name": "Clerc",
-    "email": "cledamune@qq.com",
-    "password": "lKsTk0mVrFJ",
-    "respassword": "user",
-    "perfilImage": "user_15.jpg"
-  },
-  {
-    "id": 1641204601112,
-    "name": "Luios",
-    "email": "luios@mail.com",
-    "password": "1234",
-    "perfilImage": "1641204601094.png"
-  },
-  {
-    "id": 1641551237786,
-    "name": "Miguel",
-    "email": "miguel@mail.com",
-    "password": "1234",
-    "perfilImage": "1641551237768.png"
-  },
-  {
-    "id": 1641552193327,
-    "name": "Ana",
-    "email": "ana@mail.com",
-    "password": "1234",
-    "perfilImage": "1641552193310.png"
-  },
-  {
     "id": 1642021841507,
     "name": "Cristian",
     "email": "cristianramos92639@gmail.com",
@@ -152,13 +11,6 @@
     "name": "Esteban Ponce",
     "email": "estebanponce_7@hotmail.com",
     "password": "$2a$10$1/Ab3k2UbWcPeS8yITfXReCdmRhrCqsugCPNiqCIPKm7vrYJm9qga",
-    "perfilImage": "default-avatar.png"
-  },
-  {
-    "id": 1642110009802,
-    "name": "luios",
-    "email": "luis@mail.com",
-    "password": "$2a$10$HeFihDt5ed48HPM3Yz8et.ZOp2vs1jaSsaxhPtG14RVDAE5hVfrTG",
     "perfilImage": "default-avatar.png"
   },
   {
@@ -174,5 +26,12 @@
     "email": "oriana@mail.com",
     "password": "$2a$10$li12N1zGiGvJ9lxZIJC0Se9cCk6KPSi0j/fLqPmMwd/5Eymn5nEt.",
     "perfilImage": "1642110635362.png"
+  },
+  {
+    "id": 1642272354724,
+    "name": "Luios",
+    "email": "luios@mail.com",
+    "password": "$2a$10$D1ffvwiXKuefx9aglXVb/ueC1A1Uj4svQz8rm/Koj9AUAmybJxT5u",
+    "perfilImage": "default-avatar.png"
   }
 ]
