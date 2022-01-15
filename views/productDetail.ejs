@@ -3,7 +3,7 @@
 <body>
     <%- include("./partials/header") %>
     <main>
-        <!-- IMAGENES PRODUCTO-->
+        <!-- IMÁGENES PRODUCTO-->
         <div class="flex-section1y2">
             <section class="section1">
                 <img class="imagen-principal" src="/img/products-img/<%= product.image %>" alt="imagenPrincipal" />
@@ -32,7 +32,7 @@
                     </ul>
                     <div class="contenedor-txt-verde">
                         <p><i class="fas fa-shield-alt"></i> Garantía: 36 meses</p>
-                        <p><i class="fas fa-check"></i> Stock Disponible</p>
+                        <p><i class="fas fa-check"></i> Stock disponible</p>
                         <p><i class="fas fa-truck-moving"></i> Envíos a todo el país</p>
                     </div>
                     <button class="boton-compra" type="button" value="text">
@@ -41,7 +41,7 @@
                     </button>
                     <button class="boton-carrito" type="button" value="text">
                         <i class="fas fa-cart-arrow-down"></i>
-                        Agregar al Carrito
+                        Agregar al carrito
                     </button>
                     <div class="admin-buttons">
                         <form action="/products/<%= product.id %>/edit" method="GET">
@@ -53,14 +53,14 @@
                         <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
                             <button class="boton-delete" type="submit" value="text">
                                 <i class="fas fa-trash-alt"></i>
-                                Eliminar Producto
+                                Eliminar producto
                             </button>
                         </form>
                     </div>
                 </div>
             </section>
         </div>
-        <!-- TAMBIEN PUEDE INTERESARTE-->
+        <!-- TAMBIÉN PUEDE INTERESARTE-->
         <div class="section3">
             <section id="" class="custom-carousel mb-5">
                 <h2 class="subtitulo-intereses">También puede interesarte:</h2>
