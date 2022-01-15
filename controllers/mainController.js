@@ -40,7 +40,11 @@ module.exports = {
   loginProcess: (req, res) => {
     if (mainServices.validateUser(req.body.email, req.body['contraseña'])) {
       req.session.log = true;
-      req.session.user = mainServices.getUserbyEmail(req.body.email);
+      const user = mainServices.getUserbyEmail(req.body.email);
+      req.session.user = user;
+      if (req.body.remember) {
+        res.cookie('email', user.email);
+      }
       const nextPage = req.session.nextPage ?? '/';
       return res.redirect(nextPage);
     } else {
@@ -58,7 +62,8 @@ module.exports = {
     res.redirect('login');
   },
   logout: (req, res) => {
-    req.session.log = false;
+    req.session.destroy();
+    res.clearCookie('email');
     res.redirect('login');
   },
 };
