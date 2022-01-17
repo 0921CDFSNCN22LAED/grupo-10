@@ -9,6 +9,10 @@ Hola, soy Seba, tengo 21 años y mi hobby es jugar videojuegos. Desde que soy ch
 Hace un año me surgió el interés de estudiar algo relacionado con la tecnología y me gustó la parte relacionada al desarrollo web.
 ### Cristian Ramos
 Soy Cristian Ramos, tengo 19 años, mi hobby es jugar en la pc, cuando me toco entrar a la facultad no sabia que carrera seguir, me gustó mucho la programacion con lo poco que aprendí en el colegio y decidí buscar algun curso, para poder trabajar de esto.
+### Luis Dartayet
+Músico docente con interés en cómo las nuevas tecnologías pueden ayudar en los entornos educativos. Particularmente centrado en la creación de herramientas para mejorar y acercar la educación musical a quienes lo deseen.
+### Cristian Kwak
+Estudiante en Ing. en sistemas en la UADE, tengo conocimientos básicos de Python pero nunca había programado con JS.
 ## Tablero de Trello
 https://trello.com/b/N3O69dSW/proyecto-integrador-grupo-10
 ## Páginas web de referencia
