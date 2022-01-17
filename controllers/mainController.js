@@ -1,3 +1,4 @@
+const db = require('../database/models');
 const mainServices = require('../services/mainServices');
 const productServices = require('../services/productServices');
 
