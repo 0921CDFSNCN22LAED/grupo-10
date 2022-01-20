@@ -48,9 +48,12 @@
 ### Comenzar a hacer
 - Peer review de código.
 ### Hacer más
-- Calendarizar nuestro trabajo. Trabajo individual hasta el 27 y posteriormente peer review/trabajo que no se haya podido resolver.
+- Calendarizar nuestro trabajo.
+- Trabajo individual hasta el 27 y posteriormente peer review/trabajo que no se haya podido resolver.
 ### Continuar haciendo
-- Buena comunicación. Trabajo en equipo. Reuniones regulares.
+- Buena comunicación.
+- Trabajo en equipo.
+- Reuniones regulares.
 ### Hacer menos
 - Reprogramar nuestras reuniones.
 ### Dejar de hacer
