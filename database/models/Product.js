@@ -46,6 +46,7 @@ module.exports = (sequelize, dataTypes) => {
       as: 'productsImages',
       foreignKey: 'product_id',
     });
+  Product.associate = (models) => {
     Product.BelongsTo(models.Categories, {
       as: 'ProductCategory',
       foreignKey: 'category_id',
@@ -53,3 +54,4 @@ module.exports = (sequelize, dataTypes) => {
   };
   return Product;
 };
+}
