@@ -26,14 +26,14 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.INTEGER.UNSIGNED,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        references: { model: 'Categories', key: 'id' },
+        // references: { model: 'Categories', key: 'id' },
       },
       subTaxonomy_id: {
         type: dataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        references: { model: 'SubTaxonomies', key: 'id' },
+        // references: { model: 'SubTaxonomies', key: 'id' },
       },
     },
 
@@ -46,8 +46,12 @@ module.exports = (sequelize, dataTypes) => {
       as: 'productsImages',
       foreignKey: 'product_id',
     });
-    Product.belongsTo(models.Categories, {
-      as: 'ProductCategory',
+    Product.belongsTo(models.SubTaxonomy, {
+      as: 'subTaxonomy',
+      foreignKey: 'subTaxonomy_id',
+    });
+    Product.belongsTo(models.Category, {
+      as: 'category',
       foreignKey: 'category_id',
     });
   };

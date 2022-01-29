@@ -20,9 +20,9 @@ module.exports = (sequelize, dataTypes) => {
     }
   );
   Taxonomy.associate = (models) => {
-    Taxonomy.hasMany(models.Subtaxonomy, {
-      as: 'product',
-      foreignKey: 'products_id',
+    Taxonomy.hasMany(models.SubTaxonomy, {
+      as: 'subTaxonomy',
+      foreignKey: 'taxonomy_id',
     });
   };
   return Taxonomy;

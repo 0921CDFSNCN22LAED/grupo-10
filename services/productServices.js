@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
+const { Product, SubTaxonomy } = require('../database/models');
 
 const convertToPesos = (number) => {
   return new Intl.NumberFormat('es-Ar', {
@@ -12,9 +13,31 @@ const convertToPesos = (number) => {
 };
 
 module.exports = {
-  getProducts: function () {
-    const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    return products;
+  getProducts: async function () {
+    // const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+    try {
+      const products = await Product.findAll({
+        raw: true,
+        nest: true,
+        include: [
+          { association: 'category' },
+          {
+            model: SubTaxonomy,
+            as: 'subTaxonomy',
+            include: [
+              {
+                association: 'taxonomy',
+              },
+            ],
+          },
+          { association: 'productsImages' },
+        ],
+      });
+
+      return products;
+    } catch (error) {
+      console.log('error', error);
+    }
   },
   getProductsRandom: function (n) {
     const products = this.getProducts();

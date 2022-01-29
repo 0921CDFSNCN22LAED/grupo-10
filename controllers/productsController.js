@@ -10,9 +10,10 @@ module.exports = {
     productServices.storeProduct(req);
     res.redirect('/products');
   },
-  list: (req, res) => {
-    const products = productServices.getProducts();
-    res.render('productos', {products});
+  list: async (req, res) => {
+    const products = await productServices.getProducts();
+    console.log('products', products);
+    res.render('productos', { products });
   },
   detail: (req, res) => {
     const product = productServices.getProduct(req.params.id);
