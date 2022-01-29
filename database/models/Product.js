@@ -46,7 +46,7 @@ module.exports = (sequelize, dataTypes) => {
       as: 'productsImages',
       foreignKey: 'product_id',
     });
-    Product.BelongsTo(models.Categories, {
+    Product.belongsTo(models.Categories, {
       as: 'ProductCategory',
       foreignKey: 'category_id',
     });

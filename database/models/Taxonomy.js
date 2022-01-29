@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
   const Taxonomy = sequelize.define(
-    'Taxonomies',
+    'Taxonomy',
 
     {
       id: {
@@ -13,7 +13,6 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.STRING(30),
         allowNull: false,
       },
-
     },
 
     {
