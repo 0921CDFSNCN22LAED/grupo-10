@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
   const Category = sequelize.define(
-    'Categories',
+    'Category',
 
     {
       id: {
@@ -12,7 +12,7 @@ module.exports = (sequelize, dataTypes) => {
       name: {
         type: dataTypes.STRING(30),
         allowNull: false,
-      }
+      },
     },
 
     {

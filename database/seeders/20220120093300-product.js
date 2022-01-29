@@ -35,19 +35,20 @@ module.exports = {
       {
         id: 2,
         name: 'Geforce RTX 3090',
+        price: 400000.0,
         description:
           'GeForce RTX 3090 VENTUS 3X OC - tarjeta gráfica - GF RTX 3090 - 24 GB - Tipo de dispositivo:Tarjeta gráfica - Tipo de bus:PCI Express 4.0 - Motor gráfico:NVIDIA GeForce RTX 3090 - Memoria:24 GB GDDR6X - Velocidad de la memoria:19.5 Gbps - Núcleos CUDA:10496 - Interfaz de memoria:384-bit - Máxima Resolución:7680 x 4320 - N° máximo de monitores soportados:4 - Interfaces:3 x DisplayPort ¦ HDMI - Apoyado por API:DirectX 12, OpenGL 4.6',
-        price: 400000.0,
+        discount: 0,
         category_id: 1,
         subTaxonomy_id: 8,
-        discount: 0,
       },
       {
         id: 9,
         name: 'Mouse Gamer Razer Viper Mini 8500DPI',
+        price: 5000,
         description:
           'Mouse Gamer ultra liviano de alta velocidad. Por su ergonomía ermite que las personas diestras o zurdas puedan utilizarlo y personalizar la configuración.',
-        price: 5000,
+        discount: 0,
         category_id: 2,
         subTaxonomy_id: 106,
       },
@@ -55,21 +56,21 @@ module.exports = {
         id: 1,
         name: 'Mouse Logitech GPRO Test',
         price: 10000,
+        description:
+          'El mouse inalámbrico G Pro tiene un Sensor Hero 25K es Ultraligero y tambien tiene un diseño ergonómico ambidiestro',
         discount: 0,
         category_id: 1,
         subTaxonomy_id: 106,
-        description:
-          'El mouse inalámbrico G Pro tiene un Sensor Hero 25K es Ultraligero y tambien tiene un diseño ergonómico ambidiestro',
       },
       {
         id: 3,
         name: 'Teclado HyperX Alloy Fps',
         price: 12000,
+        description:
+          'El Teclado HyperX Alloy Fps tiene un diseño ultra minimalista sin llave (TKL) ideal para FPS Pro, tiene switches mecánicos Cherry MX, con teclas retroiluminadas con efectos de ilimunacion dinamicos',
         discount: 10,
         category_id: 1,
         subTaxonomy_id: 108,
-        description:
-          'El Teclado HyperX Alloy Fps tiene un diseño ultra minimalista sin llave (TKL) ideal para FPS Pro, tiene switches mecánicos Cherry MX, con teclas retroiluminadas con efectos de ilimunacion dinamicos',
       },
       {
         id: 6,
@@ -122,7 +123,7 @@ module.exports = {
         subTaxonomy_id: 7,
       },
       {
-        id: 1641413542112,
+        id: 11,
         name: 'KIT AMD Ryzen 7 4700S 4.0 Ghz - Motherboard Mini-ITX - 16GB GDDR6',
         price: 37000,
         discount: 10,
@@ -132,9 +133,9 @@ module.exports = {
         subTaxonomy_id: 7,
       },
       {
-        id: 1641412110777,
+        id: 12,
         name: 'Radeon R5 220 2GB DDR3 AFOX',
-        price: 11.999,
+        price: 11999,
         discount: 0,
         category_id: null,
         description:
