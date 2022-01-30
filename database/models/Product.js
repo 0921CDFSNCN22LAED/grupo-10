@@ -26,14 +26,14 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.INTEGER.UNSIGNED,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        // references: { model: 'Categories', key: 'id' },
+        references: { model: 'Categories', key: 'id' },
       },
       subTaxonomy_id: {
         type: dataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        // references: { model: 'SubTaxonomies', key: 'id' },
+        references: { model: 'SubTaxonomies', key: 'id' },
       },
     },
 

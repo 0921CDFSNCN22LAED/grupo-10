@@ -3,9 +3,9 @@ const mainServices = require('../services/mainServices');
 const productServices = require('../services/productServices');
 
 module.exports = {
-  index: (req, res) => {
+  index: async (req, res) => {
     const { artDestacadosProducts, offerProducts, hardware, peripherals } =
-      productServices.getProductsByCategoryOrTaxonomy();
+      await productServices.getProductsByCategoryOrTaxonomy();
     res.render('index', {
       artDestacadosProducts,
       offerProducts,

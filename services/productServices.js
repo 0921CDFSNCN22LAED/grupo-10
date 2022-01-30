@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
-const { Product, SubTaxonomy } = require('../database/models');
+const { Product, SubTaxonomy, Category } = require('../database/models');
 
 const convertToPesos = (number) => {
   return new Intl.NumberFormat('es-Ar', {
@@ -12,47 +12,78 @@ const convertToPesos = (number) => {
     .slice(0, -3);
 };
 
-module.exports = {
-  getProducts: async function () {
-    // const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-    try {
-      const products = await Product.findAll({
-        raw: true,
-        nest: true,
-        include: [
-          { association: 'category' },
-          {
-            model: SubTaxonomy,
-            as: 'subTaxonomy',
-            include: [
-              {
-                association: 'taxonomy',
-              },
-            ],
-          },
-          { association: 'productsImages' },
-        ],
-      });
+const convertToPercentage = (number) => {
+  return number == 0 ? '' : parseFloat(number).toFixed(2) + '% off';
+};
 
-      return products;
-    } catch (error) {
-      console.log('error', error);
-    }
+module.exports = {
+  formatProduct: function (data) {
+    const products = data.map((product) => {
+      return (product = {
+        ...product,
+        price: convertToPesos(product.price),
+        discount: convertToPercentage(product.discount),
+        categoryData: product.category,
+        category: product.category.name,
+        taxonomy: [product.subTaxonomy.taxonomy.name, product.subTaxonomy.name],
+        image: product.productsImages.location,
+      });
+    });
+    return products;
   },
-  getProductsRandom: function (n) {
-    const products = this.getProducts();
+  getProducts: async function () {
+    const data = await Product.findAll({
+      raw: true,
+      nest: true,
+      include: [
+        { association: 'category' },
+        {
+          model: SubTaxonomy,
+          as: 'subTaxonomy',
+          include: [
+            {
+              association: 'taxonomy',
+            },
+          ],
+        },
+        { association: 'productsImages' },
+      ],
+    });
+    console.log('data', data);
+    console.log('data.length', data.length);
+
+    const products = this.formatProduct(data);
+    return products;
+  },
+  getProductsRandom: async function (n) {
+    const products = await this.getProducts();
     products.sort(() => Math.random() - Math.random());
     return products;
   },
-  getProduct: function (id) {
-    const products = this.getProducts();
-    const product = products.find((prod) => {
-      return prod.id == id;
+  getProduct: async function (id) {
+    const data = await Product.findByPk(id, {
+      raw: true,
+      nest: true,
+      include: [
+        { association: 'category' },
+        {
+          model: SubTaxonomy,
+          as: 'subTaxonomy',
+          include: [
+            {
+              association: 'taxonomy',
+            },
+          ],
+        },
+        { association: 'productsImages' },
+      ],
     });
+    const dataP = this.formatProduct([data]);
+    const product = dataP[0];
     return product;
   },
-  getProductRaw: function (id) {
-    const products = this.getProducts();
+  getProductRaw: async function (id) {
+    const products = await this.getProducts();
     const product = products.find((prod) => {
       return prod.id == id;
     });
@@ -65,28 +96,25 @@ module.exports = {
       : '';
     return product;
   },
-  getProductsCategories: function () {
-    const categories = [
-      { id: 'Oferta', name: 'En oferta' },
-      { id: 'Art-Destacado', name: 'Destacado' },
-    ];
+  getProductsCategories: async function () {
+    const categories = await Category.findAll({ raw: true, nest: true });
     return categories;
   },
-  getProductsByCategoryOrTaxonomy: function () {
-    const products = this.getProducts();
-    const artDestacadosProducts = products.filter((prod) => {
-      return prod.category == 'Art-Destacado';
+  getProductsByCategoryOrTaxonomy: async function () {
+    const products = await this.getProducts();
+    const artDestacadosProducts = await products.filter((prod) => {
+      return prod.category == 'ArtDestacado';
     });
-    //   .slice(0, 3);
-    const offerProducts = products.filter((prod) => {
+    const offerProducts = await products.filter((prod) => {
       return prod.category == 'Oferta';
     });
-    const hardware = products.filter((prod) => {
+    const hardware = await products.filter((prod) => {
       return prod.taxonomy[0] == 'Hardware';
     });
-    const peripherals = products.filter((prod) => {
-      return prod.taxonomy[0] == 'Periféricos';
+    const peripherals = await products.filter((prod) => {
+      return prod.taxonomy[0] == 'Peripherals';
     });
+
     return { artDestacadosProducts, offerProducts, hardware, peripherals };
   },
   saveProducts: function (products) {
