@@ -2,8 +2,8 @@ const db = require('../database/models');
 const productServices = require('../services/productServices');
 
 module.exports = {
-  create: (req, res) => {
-    const categories = productServices.getProductsCategories();
+  create: async (req, res) => {
+    const categories = await productServices.getProductsCategories();
     res.render('crearProducto', { categories });
   },
   store: (req, res) => {
@@ -12,12 +12,12 @@ module.exports = {
   },
   list: async (req, res) => {
     const products = await productServices.getProducts();
-    console.log('products', products);
     res.render('productos', { products });
   },
-  detail: (req, res) => {
-    const product = productServices.getProduct(req.params.id);
-    const products = productServices.getProductsRandom().slice(0, 6);
+  detail: async (req, res) => {
+    const product = await productServices.getProduct(req.params.id);
+    const randProducts = await productServices.getProductsRandom();
+    const products = randProducts.slice(0, 6);
     res.render('productDetail', {
       product,
       products,

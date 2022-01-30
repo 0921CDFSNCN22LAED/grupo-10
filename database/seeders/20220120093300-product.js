@@ -93,16 +93,6 @@ module.exports = {
         subTaxonomy_id: 108,
       },
       {
-        id: 1640781064038,
-        name: 'Procesador AMD RYZEN 7 3700X 4.4 GHz',
-        price: 45900,
-        discount: 0,
-        category_id: 2,
-        description:
-          'Modelo\r\nRYZEN 7 3700X\r\nSocket\r\nAM4 Ryzen 3th Gen\r\nNúcleos\r\n8\r\nFrecuencia\r\n3600.00 mhz\r\nProceso De Fabricación\r\n7 nm\r\nChipset Gpu\r\nNO Posee Gráficos Integrados\r\nHilos\r\n16\r\nFrecuencia Turbo\r\n4400 mhz\r\nFamilia\r\nAMD RYZEN 7',
-        subTaxonomy_id: 9,
-      },
-      {
         id: 4,
         name: 'Gabinete Gamer',
         price: 50.0,
