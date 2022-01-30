@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
-  const Subtaxonomy = sequelize.define(
-    'Subtaxonomies',
+  const SubTaxonomy = sequelize.define(
+    'SubTaxonomy',
 
     {
       id: {
@@ -16,24 +16,22 @@ module.exports = (sequelize, dataTypes) => {
       taxonomy_id: {
         type: dataTypes.INTEGER,
         allowNull: false,
-      }
+      },
     },
 
     {
       timestamps: false,
     }
   );
-  Subtaxonomy.associate = (models) => {
-    Subtaxonomy.hasMany(models.Product, {
-      as: 'SubtaxonomyProduct',
+  SubTaxonomy.associate = (models) => {
+    SubTaxonomy.hasMany(models.Product, {
+      as: 'subTaxonomy',
       foreignKey: 'subTaxonomy_id',
     });
-  };
-  Subtaxonomy.associate = (models) => {
-    Subtaxonomy.BelongsTo(models.Taxonomy, {
-      as: 'SubtaxonomyTaxonomy',
+    SubTaxonomy.belongsTo(models.Taxonomy, {
+      as: 'taxonomy',
       foreignKey: 'taxonomy_id',
     });
   };
-  return Subtaxonomy;
+  return SubTaxonomy;
 };

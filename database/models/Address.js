@@ -13,22 +13,36 @@ module.exports = (sequelize, dataTypes) => {
         allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        reference: {model: 'Users', key: 'id' }
+        reference: { model: 'Users', key: 'id' },
       },
-      streetAddress:{
+      streetAddress: {
         type: dataTypes.STRING(255),
         allowNull: false,
       },
-      city_id:{
+      city_id: {
         type: dataTypes.STRING(60),
         allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        reference: {model: 'Cities', key: 'id' }
+        reference: { model: 'Cities', key: 'id' },
       },
       postalCode: {
         type: dataTypes.INTEGER(8),
-      }
+      },
+    },
+    {
+      timestamps: false,
     }
-  )
-}
+  );
+  Address.associate = (models) => {
+    Address.belongsTo(models.User, {
+      as: 'user',
+      foreignKey: 'user_id',
+    });
+    Address.belongsTo(models.City, {
+      as: 'city',
+      foreignKey: 'city_id',
+    });
+  };
+  return Address;
+};

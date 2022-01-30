@@ -1,6 +1,6 @@
 module.exports = (sequelize, dataTypes) => {
   const ProductsImage = sequelize.define(
-    'ProductsImages',
+    'ProductsImage',
 
     {
       id: {
