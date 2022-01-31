@@ -164,11 +164,10 @@ module.exports = {
     this.saveProducts(products);
   },
   deleteProduct: function (id) {
-    const products = this.getProducts();
-    let product = products.findIndex((prod) => {
-      return prod.id == id;
+    Product.destroy({
+      where: {
+        id: id,
+      },
     });
-    products.splice(product, 1);
-    this.saveProducts(products);
   },
 };
