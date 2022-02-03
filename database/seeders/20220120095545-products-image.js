@@ -40,13 +40,6 @@ module.exports = {
         location: 'teclado-razer.jpg',
       },
       {
-        id: 7,
-        cover: 1,
-        product_id: 1640781064038,
-        location:
-          'compragamer_Imganen_general_14083_Procesador_AMD_RYZEN_7_3700X_4.4_GHz_AM4_Wraith_Prism_RGB_Led_Cooler_4e00eaaf-grn.jpg',
-      },
-      {
         id: 8,
         cover: 1,
         product_id: 4,
@@ -59,28 +52,10 @@ module.exports = {
         location: 'placa-madre-asus.jpg',
       },
       {
-        id: 10,
-        cover: 1,
-        product_id: 1641413542112,
-        location: 'defaultProduct.png',
-      },
-      {
-        id: 11,
-        cover: 1,
-        product_id: 1641412110777,
-        location: 'defaultProduct.png',
-      },
-      {
         id: 12,
         cover: 1,
         product_id: 10,
         location: 'teclado-redragon.jpg',
-      },
-      {
-        id: 13,
-        cover: 1,
-        product_id: 8,
-        location: 'memoria-ram.jfif',
       },
     ]);
   },
