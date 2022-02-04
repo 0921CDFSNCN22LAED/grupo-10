@@ -1,14 +1,17 @@
 const db = require('../database/models');
 const productServices = require('../services/productServices');
 
+
 module.exports = {
   create: async (req, res) => {
     const categories = await productServices.getProductsCategories();
-    res.render('crearProducto', { categories });
+    const {hardware, peripherals} = await productServices.getProductsSubTaxonomies();
+    res.render('crearProducto', { categories, hardware, peripherals });
   },
-  store: (req, res) => {
-    productServices.storeProduct(req);
-    //res.redirect('/products');
+  store: async (req, res) => {
+    const createdProduct = await productServices.storeProduct(req);
+    console.log(createdProduct)
+    res.redirect('/products');
   },
   list: async (req, res) => {
     const products = await productServices.getProducts();
@@ -23,14 +26,18 @@ module.exports = {
       products,
     });
   },
-  edit: (req, res) => {
-    const product = productServices.getProductRaw(req.params.id);
-    const categories = productServices.getProductsCategories();
+  edit: async (req, res) => {
+    const product = await productServices.getProduct(req.params.id);
+    const categories = await productServices.getProductsCategories();
+    const {hardware, peripherals} = await productServices.getProductsSubTaxonomies();
     let errors = req.session.errors ? req.session.errors : '';
+    console.log(product)
     res.render('editarProducto', {
       product,
       categories,
       errors,
+      hardware,
+      peripherals
     });
     req.session.errors = '';
   },

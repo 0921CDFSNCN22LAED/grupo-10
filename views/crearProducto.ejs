@@ -77,23 +77,22 @@
                                     Periféricos</option>
                             </select>
                             <select class="<%= old && old.taxonomy[0] == "Hardware" ? "d-block" : "d-none" %>"
-                                name="taxonomyHardware" id="taxonomyHardware">
+                                name="subTaxonomy" id="taxonomyHardware">
                                 <option value="">Elegí</option>
-                                <% let hardware = ["Coolers", "Disco Rígido HDD", "Disco Solido SDD", "Fuentes", "Gabinetes", "Memorias Ram", "Motherboards", "Placas de video", "Procesadores"] %>
+                                
                                 <% for(let component of hardware) {%>
-                                <option value=<%= component %>
-                                    <%= old && old.taxonomy[1] == component ? "selected" : "" %>>
-                                    <%= component %></option>
+                                <option value=<%= component.id %>
+                                    <%= old && old.taxonomy[1] == component.name ? "selected" : "" %>>
+                                    <%= component.name %></option>
                                 <% } %>
                             </select>
                             <select class="<%= old && old.taxonomy[0] == "Periféricos" ? "d-block" : "d-none" %>"
-                                name="taxonomyPeripherals" id="taxonomyPeripherals">
+                                name="subTaxonomy" id="taxonomyPeripherals">
                                 <option value="">Elegí</option>
-                                <% let peripherals = ["Almacenamiento","Auriculares","Impresoras","Joysticks","Micrófonos","Monitores","Mouses","Parlantes","Teclados","Web cams","Pads y otros"] %>
                                 <% for(let peripheral of peripherals) {%>
-                                <option value=<%= peripheral %>
-                                    <%= old && old.taxonomy[1] == peripheral ? "selected" : "" %>>
-                                    <%= peripheral %></option>
+                                <option value=<%= peripheral.id %>
+                                    <%= old && old.taxonomy[1] == peripheral.name ? "selected" : "" %>>
+                                    <%= peripheral.name %></option>
                                 <% } %>
                             </select>
                         </div>

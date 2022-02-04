@@ -99,6 +99,12 @@ module.exports = {
     const categories = await Category.findAll({ raw: true, nest: true });
     return categories;
   },
+  getProductsSubTaxonomies: async function () {
+    const subTaxonomies = await SubTaxonomy.findAll({ raw: true, nest: true});
+    const hardware = subTaxonomies.filter(subTaxonomy => subTaxonomy.taxonomy_id == 1);
+    const peripherals = subTaxonomies.filter(subTaxonomy => subTaxonomy.taxonomy_id == 2);
+    return {hardware, peripherals};
+  },
   getProductsByCategoryOrTaxonomy: async function () {
     const products = await this.getProducts();
     const artDestacadosProducts = await products.filter((prod) => {
@@ -120,25 +126,15 @@ module.exports = {
     const texto = JSON.stringify(products, null, 2);
     fs.writeFileSync(productsFilePath, texto, 'utf-8');
   },
-  storeProduct: function ({ body, file }) {
+  storeProduct: async function ({ body, file }) {
     console.log(body)
-    SubTaxonomy.findOne({
-      
-    })
     const newProduct = {
-      id: new Date().getTime(),
       ...body,
-      taxonomy: [
-        body.taxonomy,
-        body.taxonomyHardware
-          ? body.taxonomyHardware
-          : body.taxonomyPeripherals,
-      ],
-      image: file && file.filename ? file.filename : 'defaultProduct.png',
+      category_id: body.category,
+      subTaxonomy_id: body.subTaxonomy[0]??body.subTaxonomy[1],
     };
-    let products = this.getProducts();
-    //products.push(newProduct);
-    //this.saveProducts(products);
+    const createdProduct = await Product.create(newProduct)
+    return createdProduct
   },
   updateProduct: function (id, body) {
     let product = this.getProduct(id);
