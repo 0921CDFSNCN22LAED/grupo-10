@@ -26,7 +26,7 @@ module.exports = {
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 10),
       roleLevel: 1,
-      perfilImage: req.file ? req.file.filename : 'default-avatar.png',
+      profileImage: req.file ? req.file.filename : 'default-avatar.png',
     };
     let users = this.getUsers();
     users.push(newUser);

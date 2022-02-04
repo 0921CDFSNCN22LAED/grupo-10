@@ -28,7 +28,7 @@ router.post('/login', mainController.loginProcess);
 router.get('/registro', logUserRedirect, mainController.registro);
 router.post(
   '/',
-  fileUpload.single('perfilImage'),
+  fileUpload.single('profileImage'),
   userValidations,
   validations,
   mainController.storeUser

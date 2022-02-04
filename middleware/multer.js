@@ -7,7 +7,7 @@ let multerDiskStorage = multer.diskStorage({
       case 'image':
         cb(null, 'public/img/products-img');
         break;
-      case 'perfilImage':
+      case 'profileImage':
         cb(null, 'public/img/profiles-img');
     }
   },

@@ -18,7 +18,7 @@ module.exports = [
   check('repassword', 'Las contraseñas deben coincidir')
     .exists()
     .custom((value, { req }) => value === req.body.password),
-  check('perfilImage').custom((value, { req }) => {
+  check('profileImage').custom((value, { req }) => {
     if (!req.file) return true;
     let image = req.file;
     let acceptedExtensions = ['.jpg', '.png', '.gif'];
