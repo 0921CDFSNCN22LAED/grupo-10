@@ -49,8 +49,7 @@ module.exports = {
         { association: 'productsImages' },
       ],
     });
-    console.log('data', data);
-    console.log('data.length', data.length);
+    
 
     const products = this.formatProduct(data);
     return products;
@@ -122,6 +121,10 @@ module.exports = {
     fs.writeFileSync(productsFilePath, texto, 'utf-8');
   },
   storeProduct: function ({ body, file }) {
+    console.log(body)
+    SubTaxonomy.findOne({
+      
+    })
     const newProduct = {
       id: new Date().getTime(),
       ...body,
@@ -134,8 +137,8 @@ module.exports = {
       image: file && file.filename ? file.filename : 'defaultProduct.png',
     };
     let products = this.getProducts();
-    products.push(newProduct);
-    this.saveProducts(products);
+    //products.push(newProduct);
+    //this.saveProducts(products);
   },
   updateProduct: function (id, body) {
     let product = this.getProduct(id);

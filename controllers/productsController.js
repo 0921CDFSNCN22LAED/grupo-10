@@ -8,7 +8,7 @@ module.exports = {
   },
   store: (req, res) => {
     productServices.storeProduct(req);
-    res.redirect('/products');
+    //res.redirect('/products');
   },
   list: async (req, res) => {
     const products = await productServices.getProducts();
