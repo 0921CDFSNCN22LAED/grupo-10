@@ -2,6 +2,7 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users.json');
+const {User} = require('../database/models');
 
 module.exports = {
   getUsers: function () {
@@ -31,6 +32,14 @@ module.exports = {
     let users = this.getUsers();
     users.push(newUser);
     this.saveUsers(users);
+    // 🢁 JSON
+    // 🢃 DB
+    User.create({
+      name: req.body.name,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 10),
+      profileImage: req.file ? req.file.filename : 'default-avatar.png',
+    })
   },
   getUserbyEmail: function (email) {
     const users = this.getUsers();
