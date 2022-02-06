@@ -33,26 +33,6 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Products', [
       {
-        id: 2,
-        name: 'Geforce RTX 3090',
-        price: 400000.0,
-        description:
-          'GeForce RTX 3090 VENTUS 3X OC - tarjeta gráfica - GF RTX 3090 - 24 GB - Tipo de dispositivo:Tarjeta gráfica - Tipo de bus:PCI Express 4.0 - Motor gráfico:NVIDIA GeForce RTX 3090 - Memoria:24 GB GDDR6X - Velocidad de la memoria:19.5 Gbps - Núcleos CUDA:10496 - Interfaz de memoria:384-bit - Máxima Resolución:7680 x 4320 - N° máximo de monitores soportados:4 - Interfaces:3 x DisplayPort ¦ HDMI - Apoyado por API:DirectX 12, OpenGL 4.6',
-        discount: 0,
-        category_id: 1,
-        subTaxonomy_id: 8,
-      },
-      {
-        id: 9,
-        name: 'Mouse Gamer Razer Viper Mini 8500DPI',
-        price: 5000,
-        description:
-          'Mouse Gamer ultra liviano de alta velocidad. Por su ergonomía ermite que las personas diestras o zurdas puedan utilizarlo y personalizar la configuración.',
-        discount: 0,
-        category_id: 2,
-        subTaxonomy_id: 106,
-      },
-      {
         id: 1,
         name: 'Mouse Logitech GPRO Test',
         price: 10000,
@@ -63,6 +43,16 @@ module.exports = {
         subTaxonomy_id: 106,
       },
       {
+        id: 2,
+        name: 'Geforce RTX 3090',
+        price: 400000.0,
+        description:
+          'GeForce RTX 3090 VENTUS 3X OC - tarjeta gráfica - GF RTX 3090 - 24 GB - Tipo de dispositivo:Tarjeta gráfica - Tipo de bus:PCI Express 4.0 - Motor gráfico:NVIDIA GeForce RTX 3090 - Memoria:24 GB GDDR6X - Velocidad de la memoria:19.5 Gbps - Núcleos CUDA:10496 - Interfaz de memoria:384-bit - Máxima Resolución:7680 x 4320 - N° máximo de monitores soportados:4 - Interfaces:3 x DisplayPort ¦ HDMI - Apoyado por API:DirectX 12, OpenGL 4.6',
+        discount: 0,
+        category_id: 1,
+        subTaxonomy_id: 8,
+      },
+      {
         id: 3,
         name: 'Teclado HyperX Alloy Fps',
         price: 12000,
@@ -70,26 +60,6 @@ module.exports = {
           'El Teclado HyperX Alloy Fps tiene un diseño ultra minimalista sin llave (TKL) ideal para FPS Pro, tiene switches mecánicos Cherry MX, con teclas retroiluminadas con efectos de ilimunacion dinamicos',
         discount: 10,
         category_id: 1,
-        subTaxonomy_id: 108,
-      },
-      {
-        id: 6,
-        name: 'Procesador Core I9',
-        price: 58999,
-        discount: 30,
-        category_id: 2,
-        subTaxonomy_id: 9,
-        description:
-          'Procesador de escritorio desbloqueado Intel Core i9-10900K de 10ª generación. Con la tecnología Intel Turbo Boost Max 3. 0, los procesadores de escritorio Intel Core de 10ª generación desbloqueados están optimizados para jugadores entusiastas y creadores serios y ayudan a ofrecer overclocking de alto rendimiento para un impulso adicional. Solución térmica no incluida en la caja.',
-      },
-      {
-        id: 7,
-        name: 'Teclado Mecanico Razer Hunstaman Mini',
-        price: 18190,
-        discount: 0,
-        category_id: 2,
-        description:
-          'Un teclado para juegos reducido al 60  de su tamaño y con sus punteros switches ópticos Razer™. Portátil e ideal para escritorios reducidos, es hora de experimentar un accionamiento a la velocidad de la luz.',
         subTaxonomy_id: 108,
       },
       {
@@ -113,8 +83,58 @@ module.exports = {
         subTaxonomy_id: 7,
       },
       {
+        id: 6,
+        name: 'Procesador Core I9',
+        price: 58999,
+        discount: 30,
+        category_id: 2,
+        subTaxonomy_id: 9,
+        description:
+          'Procesador de escritorio desbloqueado Intel Core i9-10900K de 10ª generación. Con la tecnología Intel Turbo Boost Max 3. 0, los procesadores de escritorio Intel Core de 10ª generación desbloqueados están optimizados para jugadores entusiastas y creadores serios y ayudan a ofrecer overclocking de alto rendimiento para un impulso adicional. Solución térmica no incluida en la caja.',
+      },
+      {
+        id: 7,
+        name: 'Teclado Mecanico Razer Hunstaman Mini',
+        price: 18190,
+        discount: 0,
+        category_id: 2,
+        description:
+          'Un teclado para juegos reducido al 60  de su tamaño y con sus punteros switches ópticos Razer™. Portátil e ideal para escritorios reducidos, es hora de experimentar un accionamiento a la velocidad de la luz.',
+        subTaxonomy_id: 108,
+      },
+      {
+        id: 8,
+        name: 'Memoria Ram Hyperx 8gb',
+        price: 9000,
+        discount: 15,
+        category_id: 1,
+        description:
+          'Memoria Ram Gamer Kingston Hyperx Fury 8gb Rgb Ddr4 3600mhz',
+        subTaxonomy_id: 6,
+      },
+      {
+        id: 9,
+        name: 'Mouse Gamer Razer Viper Mini 8500DPI',
+        price: 5000,
+        description:
+          'Mouse Gamer ultra liviano de alta velocidad. Por su ergonomía ermite que las personas diestras o zurdas puedan utilizarlo y personalizar la configuración.',
+        discount: 0,
+        category_id: 2,
+        subTaxonomy_id: 106,
+      },
+      {
+        id: 10,
+        name: 'Redragon K530 Draconic',
+        price: 11000,
+        discount: 25,
+        category_id: 1,
+        description:
+          'Primer teclado Redragon 60% Diseño ultra minimalista sin teclas (TKL) con 61 teclas portátil que libera espacio de mesa para movimiento del ratón, que ofrece el rendimiento más puro para FPS Pro',
+        subTaxonomy_id: 108,
+      },
+      {
         id: 11,
-        name: 'KIT AMD Ryzen 7 4700S 4.0 Ghz - Motherboard Mini-ITX - 16GB GDDR6',
+        name: 'KIT AMD Ryzen 7 4700S 4.0 Ghz',
         price: 37000,
         discount: 10,
         category_id: 1,
@@ -131,26 +151,6 @@ module.exports = {
         description:
           'Marca:\tAFOX  \r\nMemoria:\t2GB GDDR3\r\nPlaca de Video:\tRadeon R5 220 2GB DDR3 AFOX\r\nPantalla:\tResolución Max 2560 x 1600\r\nPuerto HDMI:\t1x VGA - 1x DVI - 1x HDMI',
         subTaxonomy_id: 7,
-      },
-      {
-        id: 10,
-        name: 'Redragon K530 Draconic',
-        price: 11000,
-        discount: 25,
-        category_id: 1,
-        description:
-          'Primer teclado Redragon 60% Diseño ultra minimalista sin teclas (TKL) con 61 teclas portátil que libera espacio de mesa para movimiento del ratón, que ofrece el rendimiento más puro para FPS Pro',
-        subTaxonomy_id: 108,
-      },
-      {
-        id: 8,
-        name: 'Memoria Ram Hyperx 8gb',
-        price: 9000,
-        discount: 15,
-        category_id: 1,
-        description:
-          'Memoria Ram Gamer Kingston Hyperx Fury 8gb Rgb Ddr4 3600mhz',
-        subTaxonomy_id: 6,
       },
     ]);
   },

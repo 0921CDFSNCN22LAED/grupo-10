@@ -55,12 +55,12 @@ module.exports = {
       },
       {
         id: 6,
-        name: 'Memorias Ram"',
+        name: 'Memorias Ram',
         taxonomy_id: 1,
       },
       {
         id: 7,
-        name: ' ArtDestacado',
+        name: 'Motherboards',
         taxonomy_id: 1,
       },
       {
