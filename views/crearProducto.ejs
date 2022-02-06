@@ -10,7 +10,7 @@
     <main>
         <div>
             <div>
-                <form class="form-crearProducto" action="/products/store" method="POST">
+                <form class="form-crearProducto" action="/products/store" method="POST" enctype="multipart/form-data">
                     <h2 class="titulo-micompra">Formulario de creación de productos</h2>
                     <div>
                         <div class="box-subtitulosCrearProd">
@@ -79,7 +79,7 @@
                             <select class="<%= old && old.taxonomy[0] == "Hardware" ? "d-block" : "d-none" %>"
                                 name="subTaxonomy" id="taxonomyHardware">
                                 <option value="">Elegí</option>
-                                
+
                                 <% for(let component of hardware) {%>
                                 <option value=<%= component.id %>
                                     <%= old && old.taxonomy[1] == component.name ? "selected" : "" %>>

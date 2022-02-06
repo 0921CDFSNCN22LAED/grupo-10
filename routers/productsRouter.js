@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/productsController');
+const fileUpload = require('../middleware/multer');
 const productValidations = require('../middleware/productValidations');
 const validations = require('../middleware/validation');
 
@@ -13,6 +14,7 @@ router.get('/create', productsController.create);
 // Acción de creación
 router.post(
   '/store',
+  fileUpload.single('image'),
   productValidations,
   validations,
   productsController.store

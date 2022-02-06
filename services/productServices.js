@@ -1,7 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 const productsFilePath = path.join(__dirname, '../data/products.json');
-const { Product, SubTaxonomy, Category } = require('../database/models');
+const {
+  Product,
+  SubTaxonomy,
+  Category,
+  ProductsImage,
+} = require('../database/models');
 
 const convertToPesos = (number) => {
   return new Intl.NumberFormat('es-Ar', {
@@ -125,18 +130,25 @@ module.exports = {
 
     return { artDestacadosProducts, offerProducts, hardware, peripherals };
   },
-  saveProducts: function (products) {
-    const texto = JSON.stringify(products, null, 2);
-    fs.writeFileSync(productsFilePath, texto, 'utf-8');
-  },
   storeProduct: async function ({ body, file }) {
-    console.log(body);
     const newProduct = {
       ...body,
       category_id: body.category,
       subTaxonomy_id: body.subTaxonomy[0] ?? body.subTaxonomy[1],
     };
-    const createdProduct = await Product.create(newProduct);
+
+    const createdProduct = await Product.create(newProduct, {
+      raw: true,
+      nest: true,
+    });
+    const newImage = {
+      location: file.filename,
+      cover: 1,
+      product_id: createdProduct.id,
+    };
+    const productImage = await ProductsImage.create(newImage);
+    // await createdProduct.setProductsImage(productImage);
+
     return createdProduct;
   },
   updateProduct: function (id, body) {
