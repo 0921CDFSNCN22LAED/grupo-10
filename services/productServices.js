@@ -18,7 +18,8 @@ const convertToPercentage = (number) => {
 
 module.exports = {
   formatProduct: function (data) {
-    const products = data.map((product) => {
+    const formableData = !Array.isArray(data) ? Array.of(data) : data;
+    let products = formableData.map((product) => {
       return (product = {
         ...product,
         price: convertToPesos(product.price),
@@ -29,6 +30,9 @@ module.exports = {
         image: product.productsImages.location,
       });
     });
+    if (!Array.isArray(data)) {
+      products = products[0];
+    }
     return products;
   },
   getProducts: async function () {
@@ -49,7 +53,6 @@ module.exports = {
         { association: 'productsImages' },
       ],
     });
-    
 
     const products = this.formatProduct(data);
     return products;
@@ -77,15 +80,11 @@ module.exports = {
         { association: 'productsImages' },
       ],
     });
-    const dataP = this.formatProduct([data]);
-    const product = dataP[0];
+    const product = this.formatProduct(data);
     return product;
   },
   getProductRaw: async function (id) {
-    const products = await this.getProducts();
-    const product = products.find((prod) => {
-      return prod.id == id;
-    });
+    const product = await this.getProduct(id);
     const cleanRegEx = new RegExp(/[$\.%]/g);
     product.price = product.price
       ? Number(product.price.replace(cleanRegEx, ''))
@@ -100,10 +99,14 @@ module.exports = {
     return categories;
   },
   getProductsSubTaxonomies: async function () {
-    const subTaxonomies = await SubTaxonomy.findAll({ raw: true, nest: true});
-    const hardware = subTaxonomies.filter(subTaxonomy => subTaxonomy.taxonomy_id == 1);
-    const peripherals = subTaxonomies.filter(subTaxonomy => subTaxonomy.taxonomy_id == 2);
-    return {hardware, peripherals};
+    const subTaxonomies = await SubTaxonomy.findAll({ raw: true, nest: true });
+    const hardware = subTaxonomies.filter(
+      (subTaxonomy) => subTaxonomy.taxonomy_id == 1
+    );
+    const peripherals = subTaxonomies.filter(
+      (subTaxonomy) => subTaxonomy.taxonomy_id == 2
+    );
+    return { hardware, peripherals };
   },
   getProductsByCategoryOrTaxonomy: async function () {
     const products = await this.getProducts();
@@ -127,14 +130,14 @@ module.exports = {
     fs.writeFileSync(productsFilePath, texto, 'utf-8');
   },
   storeProduct: async function ({ body, file }) {
-    console.log(body)
+    console.log(body);
     const newProduct = {
       ...body,
       category_id: body.category,
-      subTaxonomy_id: body.subTaxonomy[0]??body.subTaxonomy[1],
+      subTaxonomy_id: body.subTaxonomy[0] ?? body.subTaxonomy[1],
     };
-    const createdProduct = await Product.create(newProduct)
-    return createdProduct
+    const createdProduct = await Product.create(newProduct);
+    return createdProduct;
   },
   updateProduct: function (id, body) {
     let product = this.getProduct(id);
