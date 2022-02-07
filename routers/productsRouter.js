@@ -3,6 +3,7 @@ const router = express.Router();
 const productsController = require('../controllers/productsController');
 const fileUpload = require('../middleware/multer');
 const productValidations = require('../middleware/productValidations');
+const tester = require('../middleware/tester');
 const validations = require('../middleware/validation');
 
 // viene de /products
