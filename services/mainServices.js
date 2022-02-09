@@ -9,11 +9,8 @@ module.exports = {
     const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
     return users;
   },
-  getUser: function (id) {
-    const users = this.getUsers();
-    const user = users.find((user) => {
-      return user.id == id;
-    });
+  getUser: async function (id) {
+    const user = await User.findByPk(id, {raw:true,nest:true,})
     return user;
   },
   saveUsers: function (users) {

@@ -13,8 +13,9 @@ module.exports = {
       peripherals,
     });
   },
-  profile: (req, res) => {
-    res.render('profile');
+  profile: async (req, res) => {
+    const user = await mainServices.getUser(req.session.user.id)
+    res.render('profile', {user});
   },
 
   carrito: (req, res) => {
