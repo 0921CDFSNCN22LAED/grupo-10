@@ -5,9 +5,10 @@ module.exports = {
       queryInterface.addColumn('Products', 'createdAt', {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
       }),
       queryInterface.addColumn('Products', 'updatedAt', {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.DATE,
       }),
       queryInterface.addColumn('Products', 'deletedAt', {

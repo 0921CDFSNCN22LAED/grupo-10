@@ -145,13 +145,13 @@ module.exports = {
       location: file.filename,
       cover: 1,
       // Si no creo product_id (ChimeraCase is a thing) no me deja crear la nueva imagen
-      product_id: createdProduct.id,
+      //   product_id: createdProduct.id,
     };
     // creo la imagen así y no chilla
     const productImage = await ProductsImage.create(newImage);
     //pero si la creo con setProductImage (add no es una función de las asociaciones 1 a 1 )
     //me dice que los valores de location y cover no son válidos
-    // await createdProduct.setProductsImage(productImage);
+    await productImage.setProduct(createdProduct.id);
 
     return createdProduct;
   },

@@ -19,7 +19,7 @@ module.exports = (sequelize, dataTypes) => {
       },
       product_id: {
         type: dataTypes.INTEGER.UNSIGNED,
-        allowNull: false,
+        // allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         references: { model: 'Products', key: 'id' },
@@ -32,7 +32,7 @@ module.exports = (sequelize, dataTypes) => {
   );
   ProductsImage.associate = (models) => {
     ProductsImage.belongsTo(models.Product, {
-      as: 'productsImages',
+      as: 'product',
       foreignKey: 'product_id',
     });
   };
