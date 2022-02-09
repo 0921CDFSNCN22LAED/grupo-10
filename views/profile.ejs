@@ -4,12 +4,12 @@
   <%- include("./partials/header") %>
   <main class="main-register">
     <h1>Pagina de perfil</h1>
-    <form class="form-register" action="/" method="POST" enctype="multipart/form-data">
-      <h3 class="titulo-register">Registrate</h3>
+    <form class="form-register" action="/profile?_method=PUT" method="POST" enctype="multipart/form-data">
+      <h3 class="titulo-register">Tu perfil</h3>
       <div class="contenedores-register">
           <label for="nombre"></label>
           <input class="input-register1" type="text" name="name" id="name" placeholder="Nombre y Apellido" value="<%= user.name %>" disabled>
-          <button>Editar</button>
+          <button class="edit-button">Editar</button>
           <% if(errors && errors.name) {%>
           <span class="feedback-crearUsuario"><%= errors.name.msg%></span>
           <% } %>
@@ -17,6 +17,7 @@
       <div class="contenedores-register">
           <label for="email-register"></label>
           <input class="input-register1" type="text" name="email" id="email" placeholder="Example@hotmail.com" value="<%= user.email %>" disabled>
+          <button class="edit-button">Editar</button>
           <% if(errors && errors.email) {%>
           <span class="feedback-crearUsuario"><%= errors.email.msg%></span>
           <% } %>
@@ -50,7 +51,7 @@
           <% } %>
       </div>
       <div class="contenedores-register">
-          <button class="boton-register" type="submit">Registrarse</button>
+          <button class="boton-register" type="submit">Guardar cambios</button>
       </div>
     </form>
   </main>

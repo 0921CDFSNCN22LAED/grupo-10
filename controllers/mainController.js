@@ -13,9 +13,16 @@ module.exports = {
       peripherals,
     });
   },
+
   profile: async (req, res) => {
     const user = await mainServices.getUser(req.session.user.id)
     res.render('profile', {user});
+  },
+
+  update: async (req, res) => {
+    const user = await mainServices.updateUser(req.body, req.session.user.id)
+    console.log(user);
+    res.redirect('/profile')
   },
 
   carrito: (req, res) => {
@@ -39,6 +46,7 @@ module.exports = {
     req.session.loginErrors = '';
     res.render('login', { errors });
   },
+
   loginProcess: (req, res) => {
     if (mainServices.validateUser(req.body.email, req.body['contraseña'])) {
       req.session.log = true;
@@ -63,6 +71,7 @@ module.exports = {
     mainServices.store(req);
     res.redirect('login');
   },
+
   logout: (req, res) => {
     req.session.destroy();
     res.clearCookie('email');

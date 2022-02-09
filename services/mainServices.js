@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const {User} = require('../database/models');
+const req = require('express/lib/request');
 
 module.exports = {
   getUsers: function () {
@@ -54,4 +55,13 @@ module.exports = {
       return false;
     }
   },
+  updateUser: async function(data, id){
+    const {name, email} = data
+    return await User.update({
+      ...(name && {name}),
+      ...(email && {email}),
+    },{
+      where: {id}
+    })
+  }
 };
