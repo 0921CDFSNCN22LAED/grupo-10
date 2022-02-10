@@ -1,0 +1,125 @@
+
+.titulo-micompra {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+  border-bottom: solid 2px rgb(226, 226, 226);
+}
+
+.subtitulo-micompra {
+  text-align: center;
+}
+.tabla-misproductos {
+  width: 100%;
+  margin: auto;
+  font-size: 16px;
+  padding-bottom: 10px;
+  
+}
+th, td {
+  text-align: left;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  padding: 0.3em;
+}
+th {
+  text-align: center;
+}
+
+#id-cantidad-prod {
+  max-width: 40%;
+  margin-right: 5px;
+
+}
+.td-cantidad {
+  text-align: center;
+}
+.td-cantidad i {
+  padding: 2px;
+}
+
+#tacho-tabla {
+  color: #ff2929;
+  font-size: 18px;
+  padding: 3px;
+  display: block;
+  text-align: center;
+}
+
+
+.th-precio, .td-precio {
+  display: none;
+}
+
+.titulo-total-right {
+  text-align: right;
+  font-size: 1.2rem;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0 6px;
+}
+.botones-proceso-compra {
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  margin: 6px;
+  height: 37px;
+  width: 50%;
+  min-width: 125px;
+  max-width: 275px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(31, 134, 182);
+  color: white;
+  font-weight: bolder;
+}
+
+.box-button-entrega {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.btn-carrito-siguienteA {
+  display: flex;
+  justify-content: right;
+}
+.box-label-entrega {
+  margin: 20px 0px;
+  font-size: 16px;
+  text-align: center;
+}
+
+
+#label-Pickup, #label-envio {
+  margin: 0px 3px;
+}
+.box-contenidoMiPago {
+  margin: 15px;
+  text-align: center;
+  font-size: 16px;
+}
+.box-contenidoMiPago div {
+  margin: 7.5px 0;
+}
+
+.box-conf-entrega, .box-conf-precio {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 10px;
+}
+.box-conf-precio p {
+  font-weight: bolder;
+  color: #58ff82;
+}
+
+.titulo-confirmacion-entrega {
+  font-size: 1.2rem;
+}
+.box-conf-entrega p, .box-conf-precio p {
+  place-self: flex-end;
+  padding-left: 3px;
+  font-size: 1.2rem;
+}
+

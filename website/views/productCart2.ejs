@@ -1,0 +1,32 @@
+  <%- include("./partials/head", {title: "Carrito - PC Gamer"}) %>
+  <body>
+  <%- include("./partials/header") %>
+    <main>
+      <h2 class="titulo-micompra">
+        <i class="fas fa-shopping-cart"></i>
+        Mi compra
+      </h2>
+      <h2 class="subtitulo-micompra">
+        <i class="fas fa-truck"></i>
+        Mi entrega
+      </h2>
+      <div class="box-label-entrega">
+      <label for="label-Pickup">
+        <input type="radio" name="label-envio" id="label-Pickup">Pick up point
+      </label>
+      <p>(Retiro por Av. Independencia 3485)</p>
+      </div>
+      <div class="box-label-entrega">
+      <label for="label-envio">
+        <input type="radio" name="label-envio" id="label-envio">Envío a domicilio
+      </label>
+      <p>(Válido para todo el país)</p>
+      <span class="">Calcular envío</span>
+      </div>
+      <div class="box-button-entrega">
+        <a class="botones-proceso-compra" href="/carrito">ANTERIOR</a>
+        <a class="botones-proceso-compra" href="/carrito/pago">SIGUIENTE</a>
+      </div>
+    </main>
+    <%- include("./partials/footer") %>
+  </body>

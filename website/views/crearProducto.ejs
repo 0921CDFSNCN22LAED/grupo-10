@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head", {title: "Página principal - PC Gamer"}) %>
+</head>
+
+<body>
+    <%- include("./partials/header") %>
+    <main>
+        <div>
+            <div>
+                <form class="form-crearProducto" action="/products/store" method="POST" enctype="multipart/form-data">
+                    <h2 class="titulo-micompra">Formulario de creación de productos</h2>
+                    <div>
+                        <div class="box-subtitulosCrearProd">
+                            <label for="name">Nombre del producto:</label>
+                            <input class="input-crearProducto" type="text" id="name" name="name"
+                                placeholder="Teclado Mecánico" value="<%= locals.old && old.name ? old.name : "" %>" />
+                            <% if(locals.errors && errors.name) {%>
+                            <span class="feedback-crearProducto"><%= errors.name.msg%></span>
+                            <% } %>
+                        </div>
+                        <div class="box-subtitulosCrearProd">
+                            <label for="price">Precio del producto:</label>
+                            <div>
+                                <span class="before-symbol">$</span>
+                                <input class="input-crearProducto" type="text" id="price" name="price" min="0"
+                                    placeholder="400.000" value="<%= old && old.price ? old.price:"" %>" />
+                            </div>
+                            <% if(errors && errors.price) {%>
+                            <span class="feedback-crearProducto"><%= errors.price.msg%></span>
+                            <% } %>
+                        </div>
+                        <div class="box-subtitulosCrearProd">
+                            <label for="discount">Descuento:</label>
+                            <div>
+                                <span class="before-symbol">%</span>
+                                <input class="input-crearProducto" type="number" min="0" max="100" id="discount"
+                                    name="discount" placeholder="15"
+                                    value="<%= old && old.discount ? parseInt(old.discount) : ""%>" />
+                            </div>
+                            <% if(errors && errors.discount) {%>
+                            <span class="feedback-crearProducto"><%= errors.discount.msg%></span>
+                            <% } %>
+
+                        </div>
+                        <div class="box-categoria">
+                            <label for="category">Categoría:</label>
+                            <select name="category" id="category">
+                                <option value="">Elegí</option>
+                                <% for(let category in categories) {%>
+                                <option value=<%= categories[category].id %>
+                                    <%= old && old.category == categories[category].id ? "Selected" : ""  %>>
+                                    <%= categories[category].name %>
+                                </option>
+                                <% } %>
+                            </select>
+                            <% if(errors && errors.category) {%>
+                            <span class="feedback-crearProducto"><%= errors.category.msg%></span>
+                            <% } %>
+                        </div>
+                        <div class="box-descripcion">
+                            <label for="description">Descripción:</label>
+                            <textarea name="description" id="description"
+                                rows="10"><%=old && old.description ? old.description : ""%></textarea>
+                        </div>
+                        <div class="box-categoria">
+                            <label for="taxonomy">Taxonomía</label>
+                            <select name="taxonomy" id="taxonomy">
+                                <option value="">Elegí</option>
+                                <option value="Hardware" <%= old && old.taxonomy[0] == "Hardware" ? "selected" : "" %>>
+                                    Hardware
+                                </option>
+                                <option value="Periféricos"
+                                    <%= old && old.taxonomy[0] == "Periféricos" ? "selected" : "" %>>
+                                    Periféricos</option>
+                            </select>
+                            <select class="<%= old && old.taxonomy[0] == "Hardware" ? "d-block" : "d-none" %>"
+                                name="subTaxonomy" id="taxonomyHardware">
+                                <option value="">Elegí</option>
+
+                                <% for(let component of hardware) {%>
+                                <option value=<%= component.id %>
+                                    <%= old && old.taxonomy[1] == component.name ? "selected" : "" %>>
+                                    <%= component.name %></option>
+                                <% } %>
+                            </select>
+                            <select class="<%= old && old.taxonomy[0] == "Periféricos" ? "d-block" : "d-none" %>"
+                                name="subTaxonomy" id="taxonomyPeripherals">
+                                <option value="">Elegí</option>
+                                <% for(let peripheral of peripherals) {%>
+                                <option value=<%= peripheral.id %>
+                                    <%= old && old.taxonomy[1] == peripheral.name ? "selected" : "" %>>
+                                    <%= peripheral.name %></option>
+                                <% } %>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="img-crearProducto">
+                        <img src="/img/products-img/<%=old && old.image ? old.image : "productDefault.png"%>"
+                            alt="product image">
+                        <div>
+                            <label for="image">Cambiar imagen</label>
+                            <div class="img-container">
+                                <input type="file" name="image" id="image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-boton-guardarProducto">
+                        <button class="boton-crearProducto" type="submit">
+                            Crear producto
+                        </button>
+                    </div>
+            </div>
+            </form>
+        </div>
+        </div>
+    </main>
+    <footer><%- include("./partials/footer") %></footer>
+    <script src="/scripts/taxOptions.js"></script>
+</body>
+
+</html>

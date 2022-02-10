@@ -1,0 +1,66 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.body-register {
+  background-color: rgba(244, 244, 245, 0.425);
+}
+.main-register {
+  width: 95%;
+  margin: 15px auto;
+}
+.form-register {
+  margin: 5px;
+  text-align: center;
+  padding: 10px;
+  background-color: rgb(75, 75, 75);
+  box-shadow: 0 0px 20px rgb(19, 18, 18);
+  border-radius: 3px;
+}
+.titulo-register {
+  text-align: center;
+  margin: 10px;
+  color: white;
+  padding-bottom: 15px;
+  border-bottom: solid 2px rgb(226, 226, 226);
+  font-size: 20px;
+}
+.contenedores-register {
+  margin: 15px;
+}
+.input-register1 {
+  padding: 20px;
+  height: 30px;
+  width: 80%;
+  max-width: 400px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: rgb(39, 39, 39);
+}
+.boton-register {
+  height: 37px;
+  width: 80%;
+  min-width: 125px;
+  max-width: 400px;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(31, 134, 182);
+  color: white;
+  font-weight: bolder;
+}
+
+.feedback-crearUsuario {
+  margin: 2px 10px;
+  padding: 6px;
+  width: 80%;
+  max-width: 400px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: red;
+  position: absolute;
+}
