@@ -1,7 +1,7 @@
 module.exports = (sequelize, dataTypes) => {
   const User = sequelize.define(
     'User',
-    
+
     {
       id: {
         type: dataTypes.INTEGER.UNSIGNED,
@@ -24,11 +24,15 @@ module.exports = (sequelize, dataTypes) => {
       profileImage: {
         type: dataTypes.STRING,
       },
+      roleLevel: {
+        type: dataTypes.STRING,
+        defaultValue: 'client',
+      },
       phone: {
         type: dataTypes.INTEGER(14),
       },
     },
-    
+
     {
       timestamps: false,
     }
@@ -41,7 +45,7 @@ module.exports = (sequelize, dataTypes) => {
     User.hasMany(models.Sale, {
       as: 'sale',
       foreignKey: 'user_id',
-    })
-  }
+    });
+  };
   return User;
 };

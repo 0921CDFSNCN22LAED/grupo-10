@@ -24,6 +24,10 @@ module.exports = {
       profileImage: {
         type: dataTypes.STRING,
       },
+      roleLevel: {
+        type: dataTypes.STRING,
+        defaultValue: 'client',
+      },
       phone: {
         type: dataTypes.INTEGER(14),
       },
