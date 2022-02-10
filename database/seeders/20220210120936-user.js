@@ -39,6 +39,24 @@ module.exports = {
         roleLevel: 'admin',
         profileImage: '1644019570246.png',
       },
+      {
+        id: 1642110610473,
+        name: 'Jose',
+        email: 'jose@mail.com',
+        password:
+          '$2a$10$Pz99vQ0UhbpRkLzWdYc5A.5tpFQSE9VZEkBTKxUa5KKNCGiZUMPtO',
+        roleLevel: 'Client',
+        profileImage: 'default-avatar.png',
+      },
+      {
+        id: 1642110635393,
+        name: 'Oriana',
+        email: 'oriana@mail.com',
+        password:
+          '$2a$10$li12N1zGiGvJ9lxZIJC0Se9cCk6KPSi0j/fLqPmMwd/5Eymn5nEt.',
+        roleLevel: 'Client',
+        profileImage: '1642110635362.png',
+      },
     ]);
   },
 
