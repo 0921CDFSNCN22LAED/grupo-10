@@ -23,9 +23,12 @@ MetricsCard.propTypes = {
   color: PropTypes.oneOf(["primary", "success", "warning"]).isRequired,
   cifra: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   icono: PropTypes.string.isRequired
-
-
-
+}
+MetricsCard.defaultProps = {
+  titulo: 'Undefined title',
+  color: 'primary',
+  cifra: 'Undefined number',
+  icono: 'fa-question',
 }
 
 export default MetricsCard
