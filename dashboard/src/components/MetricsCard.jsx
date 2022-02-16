@@ -1,3 +1,4 @@
+import PropTypes from "prop-types" 
 const MetricsCard = (props) =>{
   return (
     <div className="col-md-4 mb-4">
@@ -17,6 +18,15 @@ const MetricsCard = (props) =>{
       </div>
   )
 } 
+MetricsCard.propTypes = {
+  titulo: PropTypes.string.isRequired,
+  color: PropTypes.oneOf(["primary", "success", "warning"]).isRequired,
+  cifra: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  icono: PropTypes.string.isRequired
+
+
+
+}
 
 export default MetricsCard
 
