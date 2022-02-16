@@ -1,5 +1,6 @@
 import React  from "react"
 import ContentRowTop from "./ContentRowTop"
+import Table from "./Table"
 
 const ContentWrapper = () =>{
   return <div id="content-wrapper" className="d-flex flex-column">
@@ -54,6 +55,8 @@ const ContentWrapper = () =>{
   <ContentRowTop/>
   </div>
   {/* <!-- End of MainContent --> */}
+
+  <Table columns={['Título','Duración','Rating','Género','Premios']}/>
 
   {/* <!-- Footer --> */}
   <footer className="sticky-footer bg-white">
