@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
       foreignKey: 'address_id',
     });
     City.belongsTo(models.Country, {
-      as: 'city',
+      as: 'country',
       foreignKey: 'country_id',
     });
   };
