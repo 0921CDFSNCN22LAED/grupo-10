@@ -1,50 +1,64 @@
-import React, {Component} from 'react'
-import SubTaxonomy from './SubTaxonomy'
+import React, { Component } from 'react';
+import SubTaxonomy from './SubTaxonomy';
 
 class SubTaxonomies extends Component {
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
-      subTaxonomiesList: []
-    }
+      hardwareList: [],
+      peripheralsList: [],
+    };
   }
-  async getSubTaxonomies(){
-    const response = await fetch('http://localhost:3001/api/products/subtaxonomies')
-    const subTaxonomies = await response.json()
-    console.log(subTaxonomies)
-    this.setState({
-      subTaxonomiesList: subTaxonomies
-    })
-    console.log(subTaxonomies)
+  async getSubTaxonomies() {
+    const response = await fetch(
+      'http://localhost:3001/api/products/subtaxonomies'
+    );
+    const subTaxonomies = await response.json();
+    this.setState({ hardwareList: subTaxonomies.data.hardware });
+    this.setState({ peripheralsList: subTaxonomies.data.peripherals });
   }
-  componentDidMount(){
-    this.getSubTaxonomies()
+  componentDidMount() {
+    this.getSubTaxonomies();
     // fetch('http://localhost:3001/api/products/subtaxonomies')
+    //   .then((response) => response.json())
+    //   .then((subTaxonomies) => {
+    //     this.setState({ hardwareList: subTaxonomies.data.hardware });
+    //     this.setState({ peripheralsList: subTaxonomies.data.peripherals });
+    //   })
+    //   .catch((error) => console.log(error));
   }
-  render(){
-    return(
-      <div className="col-lg-6 mb-4">						
+  render() {
+    return (
+      <div className="col-lg-6 mb-4">
         <div className="card shadow mb-4">
           <div className="card-header py-3">
-            <h5 className="m-0 font-weight-bold text-gray-800">Sub-Taxonomies</h5>
+            <h5 className="m-0 font-weight-bold text-gray-800">Hardware</h5>
           </div>
           <div className="card-body">
             <div className="row">
-              {
-              // this.state.subTaxonomiesList[0] ?
-              // (this.state.subTaxonomiesList[0].map(subTaxonomy=>{
-              //   return (
-              //     <SubTaxonomy key={subTaxonomy.id} name={subTaxonomy.name}/>
-              //   )
-              // })) 
-              // : <div>Cargando</div>
-              }
+              {this.state.hardwareList.map((subTaxonomy) => {
+                return (
+                  <SubTaxonomy key={subTaxonomy.id} name={subTaxonomy.name} />
+                );
+              })}
+            </div>
+          </div>
+          <div className="card-header py-3">
+            <h5 className="m-0 font-weight-bold text-gray-800">Peripherals</h5>
+          </div>
+          <div className="card-body">
+            <div className="row">
+              {this.state.peripheralsList.map((subTaxonomy) => {
+                return (
+                  <SubTaxonomy key={subTaxonomy.id} name={subTaxonomy.name} />
+                );
+              })}
             </div>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default SubTaxonomies
+export default SubTaxonomies;
