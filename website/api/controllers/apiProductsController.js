@@ -43,4 +43,15 @@ module.exports = {
       data: flattenedProducts,
     });
   },
+  subTaxonomiesList: async (req, res) => {
+    const subTaxonomies = await productServices.getProductsSubTaxonomies()
+    res.json({
+      meta: {
+        status: 200,
+        total: subTaxonomies.length,
+        url: '/api/products/subtaxonomies',
+      },
+      data: subTaxonomies,
+    })
+  }
 };
