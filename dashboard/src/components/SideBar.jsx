@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom"
 import logo from "../assets/images/PC_Gamer_logo.png" 
 
-function Sidebar(){
+function SideBar(){
   return <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
 
   {/* <!-- Sidebar - Brand --> */}
@@ -15,9 +16,10 @@ function Sidebar(){
 
   {/* <!-- Nav Item - Dashboard --> */}
   <li className="nav-item active">
-    <a className="nav-link" href="/">
+    <Link className="nav-link" to="/">
       <i className="fas fa-fw fa-tachometer-alt"></i>
-      <span>Dashboard - PC GAMER</span></a>
+      <span>Dashboard - PC GAMER</span>
+    </Link>
   </li>
 
   {/* <!-- Divider --> */}
@@ -28,24 +30,26 @@ function Sidebar(){
 
   {/* <!-- Nav Item - Pages --> */}
   <li className="nav-item">
-    <a className="nav-link collapsed" href="/">
+    <Link className="nav-link collapsed" to="/lastmovie">
       <i className="fas fa-fw fa-folder"></i>
-      <span>Pages</span>
-    </a>
+      <span>Last Movie</span>
+    </Link>
   </li>
 
   {/* <!-- Nav Item - Charts --> */}
   <li className="nav-item">
-    <a className="nav-link" href="/">
+    <Link className="nav-link" to="/subtaxonomies">
       <i className="fas fa-fw fa-chart-area"></i>
-      <span>Charts</span></a>
+      <span>Sub-Taxonomies</span>
+    </Link>
   </li>
 
   {/* <!-- Nav Item - Tables --> */}
   <li className="nav-item">
-    <a className="nav-link" href="/">
+    <Link className="nav-link" to="/table">
       <i className="fas fa-fw fa-table"></i>
-      <span>Tables</span></a>
+      <span>Table</span>
+    </Link>
   </li>
 
   {/* <!-- Divider --> */}
@@ -53,4 +57,4 @@ function Sidebar(){
 </ul>
 }
 
-export default Sidebar
+export default SideBar
