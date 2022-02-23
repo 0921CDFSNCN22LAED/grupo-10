@@ -19,25 +19,26 @@ module.exports = {
     fs.writeFileSync(usersFilePath, data, 'utf-8');
   },
   store: function (req) {
-    const newUser = {
-      id: new Date().getTime(),
-      name: req.body.name,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 10),
-      roleLevel: 1,
-      profileImage: req.file ? req.file.filename : 'default-avatar.png',
-    };
-    let users = this.getUsers();
-    users.push(newUser);
-    this.saveUsers(users);
+    // const newUser = {
+    //   id: new Date().getTime(),
+    //   name: req.body.name,
+    //   email: req.body.email,
+    //   password: bcrypt.hashSync(req.body.password, 10),
+    //   roleLevel: 1,
+    //   profileImage: req.file ? req.file.filename : 'default-avatar.png',
+    // };
+    // let users = this.getUsers();
+    // users.push(newUser);
+    // this.saveUsers(users);
     // 🢁 JSON
     // 🢃 DB
-    User.create({
+    const user = User.create({
       name: req.body.name,
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 10),
       profileImage: req.file ? req.file.filename : 'default-avatar.png',
     })
+    return user
   },
   getUserbyEmail: function (email) {
     const users = this.getUsers();

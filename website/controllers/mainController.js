@@ -67,8 +67,9 @@ module.exports = {
     res.render('register');
   },
 
-  storeUser: (req, res) => {
-    mainServices.store(req);
+  storeUser: async(req, res) => {
+    const user = await mainServices.store(req);
+    console.log(user);
     res.redirect('login');
   },
 
