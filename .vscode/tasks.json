@@ -1,0 +1,35 @@
+{
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "start",
+      "path": "website/",
+      "problemMatcher": [],
+      "label": "npm: start - website",
+      "detail": "nodemon app",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "path": "dashboard/",
+      "problemMatcher": [],
+      "label": "npm: start - dashboard",
+      "detail": "react-scripts start",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Start",
+      "dependsOn": ["npm: start - website", "npm: start - dashboard"],
+      "problemMatcher": []
+    }
+  ]
+}
