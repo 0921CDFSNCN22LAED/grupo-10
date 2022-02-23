@@ -1,5 +1,18 @@
 {
+  "version": "2.0.0",
   "tasks": [
+    {
+      "type": "npm",
+      "script": "start",
+      "path": "/",
+      "problemMatcher": [],
+      "label": "npm: start - db",
+      "detail": "mysqld",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
     {
       "type": "npm",
       "script": "start",
@@ -7,7 +20,6 @@
       "problemMatcher": [],
       "label": "npm: start - website",
       "detail": "nodemon app",
-      "group": "test",
       "presentation": {
         "reveal": "always",
         "panel": "new"
@@ -20,7 +32,6 @@
       "problemMatcher": [],
       "label": "npm: start - dashboard",
       "detail": "react-scripts start",
-      "group": "test",
       "presentation": {
         "reveal": "always",
         "panel": "new"
@@ -28,7 +39,11 @@
     },
     {
       "label": "Start",
-      "dependsOn": ["npm: start - website", "npm: start - dashboard"],
+      "dependsOn": [
+        "npm: start - db",
+        "npm: start - website",
+        "npm: start - dashboard"
+      ],
       "problemMatcher": []
     }
   ]

@@ -1,0 +1,19 @@
+{
+  "name": "grupo-10",
+  "version": "1.0.0",
+  "description": "Nuestra página web será un e-commerce de computadoras gamer y todo lo relacionado a ellas. Será propiedad de los vendedores (no será un marketplace). Su público objetivo serán justamente los gamers, en su mayoría varones jóvenes, de 10-38 años. Como las computadoras gamer tienen un precio elevado, el público objetivo también requerirá un poder adquisitivo suficiente (ingresos de clase media en adelante).\r ## Integrantes\r ### Sebastián Torn\r Hola, soy Seba, tengo 21 años y mi hobby es jugar videojuegos. Desde que soy chico paso mucho tiempo en la computadora y muchas veces pensé en la posibilidad de estudiar programación, pero nunca empecé hasta hace poco. Ahora estoy maravillado con JavaScript, tengo ganas de saber más y estoy entusiasmado por poder trabajar de esto.\r ### Esteban Ponce\r ¡Hola! Soy Esteban de 30 años. Soy Baterista, tec. en Finanzas y también de RRHH. \r Hace un año me surgió el interés de estudiar algo relacionado con la tecnología y me gustó la parte relacionada al desarrollo web.\r ### Cristian Ramos\r Soy Cristian Ramos, tengo 19 años, mi hobby es jugar en la pc, cuando me toco entrar a la facultad no sabia que carrera seguir, me gustó mucho la programacion con lo poco que aprendí en el colegio y decidí buscar algun curso, para poder trabajar de esto.\r ### Luis Dartayet\r Músico docente con interés en cómo las nuevas tecnologías pueden ayudar en los entornos educativos. Particularmente centrado en la creación de herramientas para mejorar y acercar la educación musical a quienes lo deseen.\r ### Cristian Kwak\r Estudiante en Ing. en sistemas en la UADE, tengo conocimientos básicos de Python pero nunca había programado con JS.\r ## Tablero de Trello\r https://trello.com/b/N3O69dSW/proyecto-integrador-grupo-10\r ## Páginas web de referencia\r https://www.walmart.com.ar/ - Si bien no es específico del rubro que elegimos, tiene un diseño sencillo y ameno para el usuario a la hora de realizar una compra.",
+  "main": "index.js",
+  "scripts": {
+    "start": "mysqld"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0921CDFSNCN22LAED/grupo-10.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0921CDFSNCN22LAED/grupo-10/issues"
+  },
+  "homepage": "https://github.com/0921CDFSNCN22LAED/grupo-10#readme"
+}
