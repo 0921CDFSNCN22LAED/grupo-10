@@ -68,24 +68,27 @@
                         <label for="taxonomy">Taxonomía</label>
                         <select name="taxonomy" id="taxonomy">
                             <option value="">Elegí</option>
-                            <option value="Hardware" <%= product.subTaxonomy.taxonomy_id == 1 ? "selected" : "" %>>Hardware
+                            <option value="Hardware" <%= product.subTaxonomy.taxonomy_id == 1 ? "selected" : "" %>>
+                                Hardware
                             </option>
                             <option value="Periféricos" <%= product.subTaxonomy.taxonomy_id == 2 ? "selected" : "" %>>
                                 Periféricos</option>
                         </select>
                         <select class="<%= product.taxonomy[0] == "Hardware" ? "d-block" : "d-none" %>"
-                            name="taxonomyHardware" id="taxonomyHardware">
+                            name="subTaxonomy" id="taxonomyHardware">
                             <option value="">Elegí</option>
                             <% for(let component of hardware) {%>
-                            <option value=<%= component.id %> <%= product.subTaxonomy.id == component.id ? "selected" : "" %>>
+                            <option value=<%= component.id %>
+                                <%= product.subTaxonomy.id == component.id ? "selected" : "" %>>
                                 <%= component.name %></option>
                             <% } %>
                         </select>
                         <select class="<%= product.taxonomy[0] == "Periféricos" ? "d-block" : "d-none" %>"
-                            name="taxonomyPeripherals" id="taxonomyPeripherals">
+                            name="subTaxonomy" id="taxonomyPeripherals">
                             <option value="">Elegí</option>
                             <% for(let peripheral of peripherals) {%>
-                            <option value=<%= peripheral.id %> <%= product.subTaxonomy.id == peripheral.id ? "selected" : "" %>>
+                            <option value=<%= peripheral.id %>
+                                <%= product.subTaxonomy.id == peripheral.id ? "selected" : "" %>>
                                 <%= peripheral.name %></option>
                             <% } %>
                         </select>

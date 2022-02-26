@@ -90,13 +90,14 @@ module.exports = {
   },
   getProductRaw: async function (id) {
     const product = await this.getProduct(id);
-    const cleanRegEx = new RegExp(/[$\.%]/g);
+    const cleanRegEx = new RegExp(/[$\.% off]/g);
     product.price = product.price
       ? Number(product.price.replace(cleanRegEx, ''))
       : '';
     product.discount = product.discount
-      ? Number(product.discount.replace(cleanRegEx, ''))
+      ? Number(product.discount.replace(cleanRegEx, '')) / 100
       : '';
+
     return product;
   },
   getProductsCategories: async function () {
@@ -155,34 +156,16 @@ module.exports = {
 
     return createdProduct;
   },
-  updateProduct: function (id, body) {
-    let product = this.getProduct(id);
-    editProduct = {
-      id: parseInt(id),
+  updateProduct: async function (id, body) {
+    const subTaxonomy = body.subTaxonomy[0] || body.subTaxonomy[1];
+    const editedProduct = {
       ...body,
-      taxonomy: [
-        body.taxonomy,
-        body.taxonomyHardware
-          ? body.taxonomyHardware
-          : body.taxonomyPeripherals,
-      ],
-      image: product.image,
+      subTaxonomy,
     };
-    editProduct.discount = editProduct.discount
-      ? editProduct.discount + '%'
-      : '';
-    editProduct.price = editProduct.price
-      ? convertToPesos(editProduct.price)
-      : '';
-    let products = this.getProducts();
-    products = products.filter((product) => {
-      return product.id != id;
-    });
-    products.push(editProduct);
-    this.saveProducts(products);
+    await Product.update({ ...editedProduct }, { where: { id } });
   },
-  deleteProduct: function (id) {
-    Product.destroy({
+  deleteProduct: async function (id) {
+    await Product.destroy({
       where: {
         id: id,
       },

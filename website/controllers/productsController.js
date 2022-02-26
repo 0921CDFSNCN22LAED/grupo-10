@@ -32,6 +32,7 @@ module.exports = {
     const { hardware, peripherals } =
       await productServices.getProductsSubTaxonomies();
     let errors = req.session.errors ? req.session.errors : '';
+    console.log('product', product);
     res.render('editarProducto', {
       product,
       categories,
@@ -43,9 +44,7 @@ module.exports = {
   },
   update: (req, res) => {
     productServices.updateProduct(req.params.id, req.body);
-    // res.redirect('/products/' + id);
-    // temp redirect
-    res.redirect('/');
+    res.redirect(`/products/${req.params.id}`);
   },
   delete: (req, res) => {
     productServices.deleteProduct(req.params.id);
