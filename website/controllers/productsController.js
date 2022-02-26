@@ -10,7 +10,6 @@ module.exports = {
   },
   store: async (req, res) => {
     const createdProduct = await productServices.storeProduct(req);
-    console.log(createdProduct);
     res.redirect('/products');
   },
   list: async (req, res) => {
@@ -32,7 +31,6 @@ module.exports = {
     const { hardware, peripherals } =
       await productServices.getProductsSubTaxonomies();
     let errors = req.session.errors ? req.session.errors : '';
-    console.log('product', product);
     res.render('editarProducto', {
       product,
       categories,

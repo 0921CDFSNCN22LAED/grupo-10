@@ -221,6 +221,7 @@ module.exports = {
       raw: true,
       nest: true,
     });
+    //////////////////////////// PREGUNTA: CÓMO MEJORAR EL SEARCH  ////////////////////////////
 
     // const taxonomyProducts = await sequelize.query(
     //   `SELECT

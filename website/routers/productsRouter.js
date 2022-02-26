@@ -29,8 +29,8 @@ router.get('/:id/edit', productsController.edit);
 // Acción de edición
 router.put(
   '/:id/edit',
-  //   productValidations,
-  //   validations,
+  productValidations,
+  validations,
   productsController.update
 );
 // Acción de borrado

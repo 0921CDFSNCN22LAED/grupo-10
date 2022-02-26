@@ -15,14 +15,14 @@ module.exports = {
   },
 
   profile: async (req, res) => {
-    const user = await mainServices.getUser(req.session.user.id)
-    res.render('profile', {user});
+    const user = await mainServices.getUser(req.session.user.id);
+    res.render('profile', { user });
   },
 
   update: async (req, res) => {
-    const user = await mainServices.updateUser(req.body, req.session.user.id)
+    const user = await mainServices.updateUser(req.body, req.session.user.id);
     console.log(user);
-    res.redirect('/profile')
+    res.redirect('/profile');
   },
 
   carrito: (req, res) => {
@@ -67,9 +67,8 @@ module.exports = {
     res.render('register');
   },
 
-  storeUser: async(req, res) => {
+  storeUser: async (req, res) => {
     const user = await mainServices.store(req);
-    console.log(user);
     res.redirect('login');
   },
 
