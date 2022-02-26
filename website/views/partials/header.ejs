@@ -60,12 +60,12 @@
                     </ul>
                 </nav>
             </nav>
-            <div class="pos-search">
-                <input type="text" placeholder="Buscar" />
-                <button class="style-search">
+            <form action="/products/search" method="get" class="pos-search">
+                <input type="text" placeholder="Buscar" name="search" />
+                <button type="submit" class="style-search">
                     <i class="fas fa-search"></i>
                 </button>
-            </div>
+            </form>
         </section>
     </div>
 </header>

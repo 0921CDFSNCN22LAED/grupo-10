@@ -10,6 +10,8 @@ const validations = require('../middleware/validation');
 
 // Listado de productos
 router.get('/', productsController.list);
+
+router.get('/search', productsController.search);
 // Formulario de creación de productos
 router.get('/create', productsController.create);
 // Acción de creación

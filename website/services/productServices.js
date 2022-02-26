@@ -4,9 +4,13 @@ const productsFilePath = path.join(__dirname, '../data/products.json');
 const {
   Product,
   SubTaxonomy,
+  Taxonomy,
   Category,
   ProductsImage,
+  sequelize,
 } = require('../database/models');
+const db = require('../database/models');
+const Op = db.Sequelize.Op;
 
 const convertToPesos = (number) => {
   return new Intl.NumberFormat('es-Ar', {
@@ -32,7 +36,7 @@ module.exports = {
         categoryData: product.category,
         category: product.category.name,
         taxonomy: [product.subTaxonomy.taxonomy.name, product.subTaxonomy.name],
-        image: product.productsImages.location,
+        image: product.productsImages?.location,
       });
     });
     if (!Array.isArray(data)) {
@@ -170,5 +174,77 @@ module.exports = {
         id: id,
       },
     });
+  },
+  searchProduct: async function (searchItem) {
+    let products = await Product.findAll({
+      where: {
+        name: {
+          [Op.substring]: `${searchItem}`,
+        },
+      },
+      include: [
+        { association: 'category' },
+        {
+          model: SubTaxonomy,
+          as: 'subTaxonomy',
+          include: [
+            {
+              association: 'taxonomy',
+            },
+          ],
+        },
+        { association: 'productsImages' },
+      ],
+      raw: true,
+      nest: true,
+    });
+
+    const subTaxonomyProducts = await Product.findAll({
+      include: [
+        { association: 'category' },
+        {
+          model: SubTaxonomy,
+          as: 'subTaxonomy',
+          where: {
+            name: {
+              [Op.substring]: `${searchItem}`,
+            },
+          },
+          include: [
+            {
+              association: 'taxonomy',
+            },
+          ],
+        },
+        { association: 'productsImages' },
+      ],
+      raw: true,
+      nest: true,
+    });
+
+    // const taxonomyProducts = await sequelize.query(
+    //   `SELECT
+    //   *
+    //   FROM
+    //     taxonomies,
+    //     subtaxonomies
+    // WHERE
+    //     taxonomies.name = "Hardware"`
+    // );
+    // console.log('taxonomyProducts', taxonomyProducts);
+    // console.log('aca');
+    const productsId = products.map((product) => product.id);
+    subTaxonomyProducts.forEach((product) => {
+      if (!productsId.includes(product.id)) {
+        products.push(product);
+      }
+    });
+    // taxonomyProducts.forEach((product) => {
+    //   if (!productsId.includes(product.id)) {
+    //     products.push(product);
+    //   }
+    // });
+    products = this.formatProduct(products);
+    return products;
   },
 };

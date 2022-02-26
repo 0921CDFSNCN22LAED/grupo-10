@@ -50,4 +50,10 @@ module.exports = {
     productServices.deleteProduct(req.params.id);
     res.redirect('/');
   },
+  search: async (req, res) => {
+    const search = req.query.search;
+    const products = await productServices.searchProduct(search);
+
+    res.render('productos', { products, search });
+  },
 };
