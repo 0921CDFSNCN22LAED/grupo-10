@@ -47,6 +47,11 @@ formulario.addEventListener("submit", (e)=>{
   }else if(password.value.length < 8){
     errores.push("Tu contraseña deberá tener al menos 8 caracteres")
   }
+  const extension = avatar.value.slice(-4)
+  const allowedExtension = ["jpeg", ".jpg", ".png", ".gif"]
+  if(!allowedExtension.includes(extension)){
+    errores.push("Imagen no valida")
+  }
 
   if(errores.length > 0){
     e.preventDefault();
