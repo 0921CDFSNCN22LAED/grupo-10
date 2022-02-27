@@ -19,14 +19,57 @@ function flattenObject(ob) {
   }
   return toReturn;
 }
+
+function countByGroup(groupName, products) {
+  const group = {};
+  products.forEach((product) => {
+    if (group.hasOwnProperty(product.group[groupName])) {
+      group[product.group[groupName]] = group[product.group[groupName]] + 1;
+    } else {
+      group[product.group[groupName]] = 1;
+    }
+  });
+  return group;
+}
+
 module.exports = {
   list: async (req, res) => {
-    const products = await productServices.getProducts();
+    const page = req.query.page;
+    const pagination = 10;
+    const offset = (page - 1) * pagination;
+    let products = await productServices.getProducts(pagination, offset);
+    products = products.map((product) => {
+      return {
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        group: {
+          taxonomy: product.subTaxonomy.taxonomy.name,
+          subTaxonomy: product.subTaxonomy.name,
+          category: product.category,
+        },
+        url: `/api/products/${product.id}`,
+      };
+    });
+    const prev =
+      page < 1 + 1 ? 'no prev page' : `/api/products?page=${Number(page) - 1}`;
+    const next =
+      page > products.length / pagination
+        ? 'no next page'
+        : `/api/products?page=${Number(page) + 1}`;
+    const subTaxonomies = countByGroup('subTaxonomy', products);
+    const taxonomies = countByGroup('taxonomy', products);
+    const category = countByGroup('category', products);
     res.json({
       meta: {
         status: 200,
         total: products.length,
-        url: '/api/products',
+        subTaxonomies: subTaxonomies,
+        taxonomies: taxonomies,
+        category: category,
+        url: `/api/products?page=${page}`,
+        prev: prev,
+        next: next,
       },
       data: products,
     });
@@ -44,7 +87,7 @@ module.exports = {
     });
   },
   subTaxonomiesList: async (req, res) => {
-    const subTaxonomies = await productServices.getProductsSubTaxonomies()
+    const subTaxonomies = await productServices.getProductsSubTaxonomies();
     res.json({
       meta: {
         status: 200,
@@ -52,6 +95,29 @@ module.exports = {
         url: '/api/products/subtaxonomies',
       },
       data: subTaxonomies,
-    })
-  }
+    });
+  },
+  detail: async (req, res) => {
+    let product = await productServices.getProduct(req.params.id);
+    product = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      description: product.description,
+      discount: product.discount,
+      group: {
+        taxonomy: product.subTaxonomy.taxonomy.name,
+        subTaxonomy: product.subTaxonomy.name,
+        category: product.category,
+      },
+      image: `/img/products-img/${product.image}`,
+    };
+    res.json({
+      meta: {
+        status: 200,
+        url: `/api/products/${product.id}`,
+      },
+      data: product,
+    });
+  },
 };

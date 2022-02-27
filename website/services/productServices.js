@@ -44,8 +44,10 @@ module.exports = {
     }
     return products;
   },
-  getProducts: async function () {
+  getProducts: async function (limit, offset) {
     const data = await Product.findAll({
+      limit: limit,
+      offset: offset,
       raw: true,
       nest: true,
       include: [
@@ -245,6 +247,24 @@ module.exports = {
     //     products.push(product);
     //   }
     // });
+    // console.log('searchItem', searchItem);
+    // let products = await sequelize.query(`SELECT *
+    //                                         FROM products
+    //                                         INNER JOIN categories
+    //                                         ON products.category_id = categories.id
+    //                                         INNER JOIN productsimages
+    //                                         ON productsimages.product_id = product_id
+    //                                         INNER JOIN subtaxonomies
+    //                                         ON products.subTaxonomy_id = subtaxonomies.id
+    //                                         INNER JOIN taxonomies
+    //                                         ON subtaxonomies.taxonomy_id = taxonomies.id
+    //                                         WHERE
+    //                                         products.name LIKE "%${searchItem}%"
+    //                                         OR subtaxonomies.name LIKE "%${searchItem}%"
+    //                                         OR taxonomies.name LIKE "%${searchItem}%"`);
+    // // products = this.formatProduct(products);
+    // console.log('products', products);
+
     products = this.formatProduct(products);
     return products;
   },
