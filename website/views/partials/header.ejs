@@ -41,18 +41,18 @@
                 <nav class="left-nav">
                     <ul class="style-left-nav">
                         <li><a href="">Armá tu PC</a></li>
-                        <li class="wrap-menu"><a href="">Hardware</a>
+                        <li class="wrap-menu"><a href="/products/search?search=hardware">Hardware</a>
                             <ul>
                                 <% for(let tax of locals.taxonomy.hardware) { %>
-                                <li><a href=""><%= tax %></a></li>
+                                <li><a href="/products/search?search=<%= tax %>"><%= tax %></a></li>
                                 <% } %>
 
                             </ul>
                         </li>
-                        <li class="wrap-menu"><a href="">Periféricos</a>
+                        <li class="wrap-menu"><a href="/products/search?search=peripherals">Periféricos</a>
                             <ul>
                                 <% for(let tax of locals.taxonomy.peripherals) { %>
-                                <li><a href=""><%= tax %></a></li>
+                                <li><a href="/products/search?search=<%= tax %>"><%= tax %></a></li>
                                 <% } %>
 
                             </ul>

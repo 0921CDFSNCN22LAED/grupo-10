@@ -179,92 +179,25 @@ module.exports = {
   },
   searchProduct: async function (searchItem) {
     let products = await Product.findAll({
+      raw: true,
+      nest: true,
       where: {
-        name: {
-          [Op.substring]: `${searchItem}`,
+        [Op.or]: {
+          '$product.name$': { [Op.like]: `%${searchItem}%` },
+          '$subTaxonomy.name$': { [Op.like]: `%${searchItem}%` },
+          '$subTaxonomy.taxonomy.name$': { [Op.like]: `%${searchItem}%` },
         },
       },
       include: [
-        { association: 'category' },
         {
           model: SubTaxonomy,
           as: 'subTaxonomy',
-          include: [
-            {
-              association: 'taxonomy',
-            },
-          ],
+          include: [{ model: Taxonomy, as: 'taxonomy' }],
         },
-        { association: 'productsImages' },
-      ],
-      raw: true,
-      nest: true,
-    });
-
-    const subTaxonomyProducts = await Product.findAll({
-      include: [
         { association: 'category' },
-        {
-          model: SubTaxonomy,
-          as: 'subTaxonomy',
-          where: {
-            name: {
-              [Op.substring]: `${searchItem}`,
-            },
-          },
-          include: [
-            {
-              association: 'taxonomy',
-            },
-          ],
-        },
         { association: 'productsImages' },
       ],
-      raw: true,
-      nest: true,
     });
-    //////////////////////////// PREGUNTA: CÓMO MEJORAR EL SEARCH  ////////////////////////////
-
-    // const taxonomyProducts = await sequelize.query(
-    //   `SELECT
-    //   *
-    //   FROM
-    //     taxonomies,
-    //     subtaxonomies
-    // WHERE
-    //     taxonomies.name = "Hardware"`
-    // );
-    // console.log('taxonomyProducts', taxonomyProducts);
-    // console.log('aca');
-    const productsId = products.map((product) => product.id);
-    subTaxonomyProducts.forEach((product) => {
-      if (!productsId.includes(product.id)) {
-        products.push(product);
-      }
-    });
-    // taxonomyProducts.forEach((product) => {
-    //   if (!productsId.includes(product.id)) {
-    //     products.push(product);
-    //   }
-    // });
-    // console.log('searchItem', searchItem);
-    // let products = await sequelize.query(`SELECT *
-    //                                         FROM products
-    //                                         INNER JOIN categories
-    //                                         ON products.category_id = categories.id
-    //                                         INNER JOIN productsimages
-    //                                         ON productsimages.product_id = product_id
-    //                                         INNER JOIN subtaxonomies
-    //                                         ON products.subTaxonomy_id = subtaxonomies.id
-    //                                         INNER JOIN taxonomies
-    //                                         ON subtaxonomies.taxonomy_id = taxonomies.id
-    //                                         WHERE
-    //                                         products.name LIKE "%${searchItem}%"
-    //                                         OR subtaxonomies.name LIKE "%${searchItem}%"
-    //                                         OR taxonomies.name LIKE "%${searchItem}%"`);
-    // // products = this.formatProduct(products);
-    // console.log('products', products);
-
     products = this.formatProduct(products);
     return products;
   },
