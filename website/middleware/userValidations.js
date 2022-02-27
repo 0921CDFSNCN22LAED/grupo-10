@@ -2,7 +2,13 @@ const path = require('path');
 const { check } = require('express-validator');
 
 module.exports = [
-  check('name', 'Ingresá tu nombre y apellido').notEmpty(),
+  check('name', 'Ingresá tu nombre y apellido')
+    .notEmpty()
+    .bail()
+    .isLength({ min: 2 })
+    .withMessage(
+      'El campo de nombre y apellido debe tener como mínimo 2 caracteres.'
+    ),
   check('email')
     .notEmpty()
     .withMessage('Ingresá tu correo electrónico')

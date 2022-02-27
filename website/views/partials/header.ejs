@@ -1,71 +1,77 @@
 <h1 class="logo">
-    <a href="/">
-        <img src="/img/PC_Gamer_logo.png" class="max-w-1200" />
-    </a>
+  <a href="/">
+    <img src="/img/PC_Gamer_logo.png" class="max-w-1200" />
+  </a>
 </h1>
-<header class="bg-color-black ">
-    <div class="max-w-1200">
-        <nav class="right-nav">
-            <div class="row align-items-center width">
-                <div class="col-3 ">Hola <%= locals && locals.loguser ? user.name :"No logeado" %></div>
+<header class="bg-color-black">
+  <div class="max-w-1200">
+    <nav class="right-nav">
+      <div class="row align-items-center width">
+        <div class="col-3">
+          Hola <%= locals && locals.loguser ? user.name :"No logeado" %>
+        </div>
 
-                <% if(locals && locals.loguser){%>
-                <div class="col-3 ">
-                    <a href="/profile">
-                        <img class="w-100" src="img/profiles-img/<%=user.profileImage%>">
-                    </a>
-                </div>
-                <% }else{%>
-                <div class="col-3 ">
-                    <a href="/login" class="style-user">
-                        <i class="fas fa-user-alt"></i>
-                    </a>
-                </div>
-                <%} %>
-                <div class="col-2 ">
-                    <a href="/carrito" class="style-cart">
-                        <i class="fas fa-shopping-cart"></i>
-                    </a>
-                </div>
-                <% if(locals && locals.loguser){%>
-                <div class="col-3 ">
-                    <form action="/logout" method="GET">
-                        <button class="btn btn-warning "> Salir </button>
-                    </form>
-                </div>
+        <% if(locals && locals.loguser){%>
+        <div class="col-3">
+          <a href="/profile">
+            <img class="w-100" src="img/profiles-img/<%=user.profileImage%>" />
+          </a>
+        </div>
+        <% }else{%>
+        <div class="col-3">
+          <a href="/login" class="style-user">
+            <i class="fas fa-user-alt"></i>
+          </a>
+        </div>
+        <%} %>
+        <div class="col-2">
+          <a href="/carrito" class="style-cart">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+        <% if(locals && locals.loguser){%>
+        <div class="col-3">
+          <form action="/logout" method="GET">
+            <button class="btn btn-warning">Salir</button>
+          </form>
+        </div>
+        <% } %>
+      </div>
+    </nav>
+    <section class="style-header">
+      <nav class="navbar-custom">
+        <nav class="left-nav">
+          <ul class="style-left-nav">
+            <li><a href="">Armá tu PC</a></li>
+            <li class="wrap-menu">
+              <a href="/products/search?search=hardware">Hardware</a>
+              <ul>
+                <% for(let tax of locals.taxonomy.hardware) { %>
+                <li>
+                  <a href="/products/search?search=<%= tax %>"><%= tax %></a>
+                </li>
                 <% } %>
-            </div>
+              </ul>
+            </li>
+            <li class="wrap-menu">
+              <a href="/products/search?search=peripherals">Periféricos</a>
+              <ul>
+                <% for(let tax of locals.taxonomy.peripherals) { %>
+                <li>
+                  <a href="/products/search?search=<%= tax %>"><%= tax %></a>
+                </li>
+                <% } %>
+              </ul>
+            </li>
+          </ul>
         </nav>
-        <section class="style-header">
-            <nav class="navbar-custom">
-                <nav class="left-nav">
-                    <ul class="style-left-nav">
-                        <li><a href="">Armá tu PC</a></li>
-                        <li class="wrap-menu"><a href="/products/search?search=hardware">Hardware</a>
-                            <ul>
-                                <% for(let tax of locals.taxonomy.hardware) { %>
-                                <li><a href="/products/search?search=<%= tax %>"><%= tax %></a></li>
-                                <% } %>
-
-                            </ul>
-                        </li>
-                        <li class="wrap-menu"><a href="/products/search?search=peripherals">Periféricos</a>
-                            <ul>
-                                <% for(let tax of locals.taxonomy.peripherals) { %>
-                                <li><a href="/products/search?search=<%= tax %>"><%= tax %></a></li>
-                                <% } %>
-
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </nav>
-            <form action="/products/search" method="get" class="pos-search">
-                <input type="text" placeholder="Buscar" name="search" />
-                <button type="submit" class="style-search">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
-        </section>
-    </div>
+      </nav>
+      <form action="/products/search" method="get" class="pos-search">
+        <input type="text" placeholder="Buscar" name="search" />
+        <button type="submit" class="style-search">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+    </section>
+  </div>
 </header>
