@@ -64,3 +64,10 @@
   background-color: red;
   position: absolute;
 }
+.no-style li{
+  list-style: none;
+  background-color: red;
+  padding: 1px;
+  margin: 1px;
+  width: fit-content;
+}

@@ -21,7 +21,6 @@ module.exports = {
 
   update: async (req, res) => {
     const user = await mainServices.updateUser(req.body, req.session.user.id);
-    console.log(user);
     res.redirect('/profile');
   },
 
@@ -47,10 +46,10 @@ module.exports = {
     res.render('login', { errors });
   },
 
-  loginProcess: (req, res) => {
+  loginProcess: async (req, res) => {
     if (mainServices.validateUser(req.body.email, req.body['contraseña'])) {
       req.session.log = true;
-      const user = mainServices.getUserbyEmail(req.body.email);
+      const user = await mainServices.getUserbyEmail(req.body.email);
       req.session.user = user;
       if (req.body.remember) {
         res.cookie('email', user.email);

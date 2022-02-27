@@ -40,16 +40,15 @@ module.exports = {
     })
     return user
   },
-  getUserbyEmail: function (email) {
-    const users = this.getUsers();
-    const user = users.find((user) => {
-      return user.email == email;
-    });
+  getUserbyEmail: async function (email) {
+    const user = await User.findOne({where:{
+      email
+    },raw:true, nest:true})
     return user;
   },
-  validateUser: function (email, password) {
+  validateUser: async function (email, password) {
     if (this.getUserbyEmail(email)) {
-      const user = this.getUserbyEmail(email);
+      const user = await this.getUserbyEmail(email);
       const checkPassword = bcrypt.compareSync(password, user.password);
       return checkPassword;
     } else {
