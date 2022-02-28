@@ -1,48 +1,85 @@
 <%- include("./partials/head", {title: "Registro - PC Gamer"}) %>
 
 <body>
-    <%- include("./partials/header") %>
-    <main class="main-register">
-        <form class="form-register" action="/" method="POST" enctype="multipart/form-data" id="formulario">
-            <h3 class="titulo-register">Registrate</h3>
-            <div class="contenedores-register">
-                <label for="nombre"></label>
-                <input class="input-register1" type="text" name="name" id="name" placeholder="Nombre y Apellido">
-            </div>
-            <div class="contenedores-register">
-                <label for="email-register"></label>
-                <input class="input-register1" type="text" name="email" id="email" placeholder="Example@hotmail.com">
-            </div>
-            <div class="contenedores-register">
-                <label for="contraseña-register"></label>
-                <input class="input-register1" type="password" name="password" id="password" placeholder="Contraseña">
-            </div>
-            <div class="contenedores-register">
-                <label for="confirmar-contraseña"></label>
-                <input class="input-register1" type="password" name="repassword" id="repassword"
-                    placeholder="Confirmar contraseña">
-            </div>
-            <div>
-                <label class="d-block mx-auto mb-3" for="avatar"><span>
-                        Foto de
-                        Perfil
-                    </span>
-                    <img class="d-block mx-auto border rounded-circle" style="width: 200px; height: 200px;" src="/img/profiles-img/default-avatar.png" alt=""
-                        id="avatarImg">
-                </label>
-                <input class="d-none" type="file" name="profileImage" accept="image/png,image/jpg" id="avatar" />
-            </div>
-            <div class="contenedores-register">
-                <button class="boton-register" type="submit">Registrarse</button>
-            </div>
-            <div class="errores">
-                <ul class="no-style"></ul>
-            </div>
-        </form>
-    </main>
-    <%- include("./partials/footer") %>
-    <script src="/scripts/validationRegister.js"></script>
-    <script src="/scripts/imgInputPreview.js"></script>
+  <%- include("./partials/header") %>
+  <main class="main-register">
+    <form
+      class="form-register"
+      action="/"
+      method="POST"
+      enctype="multipart/form-data"
+      id="formulario"
+    >
+      <h3 class="titulo-register">Registrate</h3>
+      <div class="contenedores-register">
+        <label for="nombre"></label>
+        <input
+          class="input-register1"
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Nombre y Apellido"
+        />
+      </div>
+      <div class="contenedores-register">
+        <label for="email-register"></label>
+        <input
+          class="input-register1"
+          type="text"
+          name="email"
+          id="email"
+          placeholder="Example@hotmail.com"
+        />
+      </div>
+      <div class="contenedores-register">
+        <label for="contraseña-register"></label>
+        <input
+          class="input-register1"
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Contraseña"
+        />
+      </div>
+      <div class="contenedores-register">
+        <label for="confirmar-contraseña"></label>
+        <input
+          class="input-register1"
+          type="password"
+          name="repassword"
+          id="repassword"
+          placeholder="Confirmar contraseña"
+        />
+      </div>
+      <div>
+        <label class="d-block mx-auto mb-3" for="avatar"
+          ><span> Foto de Perfil </span>
+          <img
+            class="d-block mx-auto border rounded-circle"
+            style="width: 200px; height: 200px"
+            src="/img/profiles-img/default-avatar.png"
+            alt=""
+            id="avatarImg"
+          />
+        </label>
+        <input
+          class="d-none"
+          type="file"
+          name="profileImage"
+          accept="image/png,image/jpg"
+          id="avatar"
+        />
+      </div>
+      <div class="contenedores-register">
+        <button class="boton-register" type="submit">Registrarse</button>
+      </div>
+      <div class="errores">
+        <ul class="no-style"></ul>
+      </div>
+    </form>
+  </main>
+  <%- include("./partials/footer") %>
+  <script src="/scripts/validationRegister.js"></script>
+  <script src="/scripts/imgInputPreview.js"></script>
 </body>
-
 </html>
