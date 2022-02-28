@@ -30,11 +30,14 @@ formulario.addEventListener('submit', (e) => {
   //     errores.push("El correo no es valido")
   //   }
   // }
+  const regex = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
 
   if (password.value == '') {
     errores.push('Ingresá tu contraseña');
   } else if (password.value.length < 8) {
     errores.push('Tu contraseña debe tener al menos 8 caracteres');
+  } else if(!regex.test(password.value)){
+    errores.push('Tu contraseña debe tener una mayuscula, minuscula , un numero y un caracter especial')
   }
 
   if (repassword.value == '') {
