@@ -57,9 +57,25 @@ module.exports = {
       page > products.length / pagination
         ? 'no next page'
         : `/api/products?page=${Number(page) + 1}`;
-    const subTaxonomies = countByGroup('subTaxonomy', products);
-    const taxonomies = countByGroup('taxonomy', products);
-    const category = countByGroup('category', products);
+    let allProducts = await productServices.getProducts();
+    allProducts = allProducts.map((product) => {
+      return {
+        id: product.id,
+        name: product.name,
+        description: product.description,
+        group: {
+          taxonomy: product.subTaxonomy.taxonomy.name,
+          subTaxonomy: product.subTaxonomy.name,
+          category: product.category,
+        },
+        url: `/api/products/${product.id}`,
+      };
+    });
+
+    // REARMAR GROUP BY HAVING
+    const subTaxonomies = countByGroup('subTaxonomy', allProducts);
+    const taxonomies = countByGroup('taxonomy', allProducts);
+    const category = countByGroup('category', allProducts);
     res.json({
       meta: {
         status: 200,

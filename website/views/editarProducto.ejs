@@ -94,7 +94,7 @@
                         </select>
                     </div>
                     <div class="img-crearProducto">
-                        <img src="/img/products-img/<%=product.image%>" alt="product image">
+                        <img src="/img/products-img/<%=product.image%>" alt="product image" id="imageImg">
                         <div>
                             <label for="image">Cambiar imagen</label>
                             <div class="img-container">
@@ -108,11 +108,16 @@
                         </button>
                     </div>
                 </div>
+                <div class="errores">
+                    <ul class="no-style"></ul>
+                </div>
             </form>
         </div>
     </main>
     <footer><%- include("./partials/footer") %></footer>
     <script src="/scripts/taxOptions.js"></script>
+    <script src="/scripts/validationProduct.js"></script>
+    <script src="/scripts/imgInputPreview.js"></script>
 </body>
 
 </html>
