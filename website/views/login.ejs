@@ -6,7 +6,7 @@
         <% if(errors){%>
         <div class="text-center bg-danger p-3"><%= errors %> </div>
         <% } %>
-        <form class="form-login" action="/login" method="post">
+        <form class="form-login" action="/login" method="post" id="formulario">
             <h3 class="titulo-login">Ingresá con tu cuenta:</h3>
             <div class="contenedores-login">
                 <label for="email"></label>
@@ -18,6 +18,9 @@
             </div>
             <div class="contenedores-login">
                 <button class="boton-enviar" type="submit">Login</button>
+            </div>
+            <div class="errores">
+                <ul class="no-style"></ul>
             </div>
             <div class="style-recordar">
                 <label>Recordarme</label>
@@ -39,6 +42,7 @@
         </form>
     </main>
     <%- include("./partials/footer") %>
+    <script src="/scripts/validationLogin.js"></script>
 </body>
 
 </html>

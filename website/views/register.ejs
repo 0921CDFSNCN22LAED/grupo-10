@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <%- include("./partials/head", {title: "Registro - PC Gamer"}) %>
 
 <body>
@@ -13,24 +16,20 @@
       <h3 class="titulo-register">Registrate</h3>
       <div class="contenedores-register">
         <label for="nombre"></label>
-        <input
-          class="input-register1"
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Nombre y Apellido"
-        />
-      </div>
-      <div class="contenedores-register">
-        <label for="email-register"></label>
-        <input
-          class="input-register1"
-          type="text"
-          name="email"
-          id="email"
-          placeholder="Example@hotmail.com"
-        />
-      </div>
+        <input class="input-register1" type="text" name="name" id="name" placeholder="Nombre y Apellido"
+          <% if(old && old.name) {%> value="<%=old.name%>" <% } %>>
+        <% if(errors && errors.name) {%>
+        <span class="feedback-crearUsuario"><%= errors.name.msg%></span>
+        <% } %>
+    </div>
+    <div class="contenedores-register">
+      <label for="email-register"></label>
+      <input class="input-register1" type="text" name="email" id="email" placeholder="Example@hotmail.com"
+          <% if(old && old.email) {%> value="<%=old.email%>" <% } %>>
+      <% if(errors && errors.email) {%>
+      <span class="feedback-crearUsuario"><%= errors.email.msg%></span>
+      <% } %>
+    </div>
       <div class="contenedores-register">
         <label for="contraseña-register"></label>
         <input
@@ -40,6 +39,9 @@
           id="password"
           placeholder="Contraseña"
         />
+        <% if(errors?.password) {%>
+        <span class="feedback-crearUsuario"><%= errors.password.msg%></span>
+        <% } %>
       </div>
       <div class="contenedores-register">
         <label for="confirmar-contraseña"></label>
@@ -50,6 +52,9 @@
           id="repassword"
           placeholder="Confirmar contraseña"
         />
+        <% if(errors?.repassword) {%>
+        <span class="feedback-crearUsuario"><%= errors.repassword.msg%></span>
+        <% } %>
       </div>
       <div>
         <label class="d-block mx-auto mb-3" for="avatar"
@@ -69,6 +74,9 @@
           accept="image/png,image/jpg"
           id="avatar"
         />
+        <% if(errors?.profileImage) {%>
+        <span class="feedback-crearUsuario"><%= errors.profileImage.msg%></span>
+        <% } %>
       </div>
       <div class="contenedores-register">
         <button class="boton-register" type="submit">Registrarse</button>
