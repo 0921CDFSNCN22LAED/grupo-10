@@ -1,5 +1,6 @@
 const userServices = require('../../services/userServices');
 const productServices = require('../../services/productServices');
+const mainServices = require('../../services/mainServices');
 
 function flattenObject(ob) {
   var toReturn = {};
@@ -23,7 +24,15 @@ function flattenObject(ob) {
 
 module.exports = {
   list: async (req, res) => {
-    const users = await userServices.getUsers();
+    let users = await userServices.getUsers();
+    users = users.map((user) => {
+      return {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        url: `api/users/${user.id}`,
+      };
+    });
     res.json({
       meta: {
         status: 200,
@@ -43,6 +52,18 @@ module.exports = {
         url: '/api/users/flattened',
       },
       data: flattenedUsers,
+    });
+  },
+  detail: async (req, res) => {
+    let user = await mainServices.getUser(req.params.id);
+    delete user.password;
+    delete user.roleLevel;
+    res.json({
+      meta: {
+        status: 200,
+        url: `/api/users${user.id}`,
+      },
+      data: user,
     });
   },
 };

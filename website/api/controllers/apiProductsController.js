@@ -1,4 +1,11 @@
 const productServices = require('../../services/productServices');
+const {
+  Product,
+  Category,
+  SubTaxonomy,
+  Taxonomy,
+  sequelize,
+} = require('../../database/models');
 
 function flattenObject(ob) {
   var toReturn = {};
@@ -34,7 +41,7 @@ function countByGroup(groupName, products) {
 
 module.exports = {
   list: async (req, res) => {
-    const page = req.query.page;
+    const page = req.query.page || 1;
     const pagination = 10;
     const offset = (page - 1) * pagination;
     let products = await productServices.getProducts(pagination, offset);
@@ -57,38 +64,98 @@ module.exports = {
       page > products.length / pagination
         ? 'no next page'
         : `/api/products?page=${Number(page) + 1}`;
-    let allProducts = await productServices.getProducts();
-    allProducts = allProducts.map((product) => {
-      return {
-        id: product.id,
-        name: product.name,
-        description: product.description,
-        group: {
-          taxonomy: product.subTaxonomy.taxonomy.name,
-          subTaxonomy: product.subTaxonomy.name,
-          category: product.category,
-        },
-        url: `/api/products/${product.id}`,
-      };
-    });
 
-    // REARMAR GROUP BY HAVING
-    const subTaxonomies = countByGroup('subTaxonomy', allProducts);
-    const taxonomies = countByGroup('taxonomy', allProducts);
-    const category = countByGroup('category', allProducts);
-    res.json({
-      meta: {
-        status: 200,
-        total: products.length,
-        subTaxonomies: subTaxonomies,
-        taxonomies: taxonomies,
-        category: category,
-        url: `/api/products?page=${page}`,
-        prev: prev,
-        next: next,
-      },
-      data: products,
-    });
+    const total = await Product.count();
+    try {
+      function mapGroups(groupName, group) {
+        const mappedGroup = {};
+        group.forEach((item) => {
+          mappedGroup[item[`${groupName}.name`]] = item.count;
+        });
+        return mappedGroup;
+      }
+
+      let categoryPromise = Product.findAll({
+        attributes: [
+          [sequelize.fn('COUNT', sequelize.col('Category.id')), 'count'],
+        ],
+        include: [
+          {
+            model: Category,
+            as: 'category',
+            attributes: ['name'],
+          },
+        ],
+        group: ['Category.id'],
+        raw: true,
+      });
+      let subTaxonomyPromise = Product.findAll({
+        attributes: [
+          [sequelize.fn('COUNT', sequelize.col('SubTaxonomy.id')), 'count'],
+        ],
+        include: [
+          {
+            model: SubTaxonomy,
+            as: 'subTaxonomy',
+            attributes: ['name'],
+          },
+        ],
+        group: ['SubTaxonomy.id'],
+        raw: true,
+      });
+      let taxonomyPromise = Product.findAll({
+        attributes: [
+          [
+            sequelize.fn('COUNT', sequelize.col('Subtaxonomy.Taxonomy.id')),
+            'count',
+          ],
+        ],
+        include: [
+          {
+            model: SubTaxonomy,
+            as: 'subTaxonomy',
+            include: [
+              {
+                model: Taxonomy,
+                as: 'taxonomy',
+                attributes: ['name'],
+              },
+            ],
+          },
+        ],
+        group: ['Subtaxonomy.Taxonomy.id'],
+        raw: true,
+      });
+
+      const [categoryUnmapped, subTaxonomyUnmapped, taxonomyUnmapped] =
+        await Promise.all([
+          categoryPromise,
+          subTaxonomyPromise,
+          taxonomyPromise,
+        ]);
+
+      const category = mapGroups('category', categoryUnmapped);
+      const subTaxonomy = mapGroups('subTaxonomy', subTaxonomyUnmapped);
+      const taxonomy = mapGroups('subTaxonomy.taxonomy', taxonomyUnmapped);
+
+      res.json({
+        meta: {
+          status: 200,
+          total: total,
+          group: {
+            category,
+            subTaxonomy,
+            taxonomy,
+          },
+          url: `/api/products?page=${page}`,
+          prev: prev,
+          next: next,
+        },
+        data: products,
+      });
+    } catch (error) {
+      console.log('error', error);
+    }
   },
   flattenedList: async (req, res) => {
     const products = await productServices.getProducts();
