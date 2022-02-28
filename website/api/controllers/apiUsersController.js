@@ -66,4 +66,8 @@ module.exports = {
       data: user,
     });
   },
+  findEmail: async (req, res) => {
+    let user = await mainServices.findEmail(req.params.email);
+    return user;
+  },
 };
