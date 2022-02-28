@@ -47,7 +47,7 @@ module.exports = {
     return user;
   },
   validateUser: async function (email, password) {
-    if (this.getUserbyEmail(email)) {
+    if (email && this.getUserbyEmail(email)&& password) {
       const user = await this.getUserbyEmail(email);
       const checkPassword = bcrypt.compareSync(password, user.password);
       return checkPassword;

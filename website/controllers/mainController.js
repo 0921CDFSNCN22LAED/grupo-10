@@ -47,7 +47,7 @@ module.exports = {
   },
 
   loginProcess: async (req, res) => {
-    if (mainServices.validateUser(req.body.email, req.body['contraseña'])) {
+    if (await mainServices.validateUser(req.body.email, req.body['password'])) {
       req.session.log = true;
       const user = await mainServices.getUserbyEmail(req.body.email);
       req.session.user = user;
