@@ -1,27 +1,35 @@
 const path = require('path');
 const { check } = require('express-validator');
+const mainServices = require('../services/mainServices');
 
 module.exports = [
-  check('name', 'Ingresá tu nombre y apellido')
+  check('name', 'Ingresá tu nombre y apellido.')
     .notEmpty()
     .bail()
     .isLength({ min: 2 })
     .withMessage(
       'El campo de nombre y apellido debe tener como mínimo 2 caracteres.'
     ),
-  check('email')
+  check('email', 'Ingresá tu email.')
     .notEmpty()
-    .withMessage('Ingresá tu correo electrónico')
     .bail()
     .isEmail()
-    .withMessage('Ingresá un correo electrónico valido'),
+    .withMessage('Ingresá un email válido.')
+    .custom(async (value) => {
+      const user = await mainServices.getUserbyEmail(value);
+      if (user) {
+        throw new Error('Ya hay una cuenta asociada al email que ingresaste.');
+      } else {
+        return true;
+      }
+    }),
   check('password')
     .notEmpty()
-    .withMessage('Tenés que ingresar una contraseña')
+    .withMessage('Tenés que ingresar una contraseña.')
     .bail()
     .isLength({ min: 8 })
-    .withMessage('La contraseña debe ser mayor o igual a 8 caracteres'),
-  check('repassword', 'Las contraseñas deben coincidir')
+    .withMessage('La contraseña debe ser mayor o igual a 8 caracteres.'),
+  check('repassword', 'Las contraseñas deben coincidir.')
     .exists()
     .custom((value, { req }) => value === req.body.password),
   check('profileImage').custom((value, { req }) => {
