@@ -1,7 +1,7 @@
 const formulario = document.querySelector('form.form-register');
 // const errores = document.getElementById("errores")
 
-formulario.addEventListener('submit', (e) => {
+formulario.addEventListener('submit', async (e) => {
   const name = document.getElementById('name');
   const email = document.getElementById('email');
   const password = document.getElementById('password');
@@ -17,14 +17,25 @@ formulario.addEventListener('submit', (e) => {
     errores.push('Tu nombre debe tener al menos 2 caracteres');
   }
 
+  const emailIsNotUnique = async function(){
+    const response =  await fetch(`http://localhost:3001/api/users/email?email=${email.value}`)
+    const data = await response.json()
+    if(data){
+      return true
+    }
+    console.log(data);
+  }
   if (email.value == '') {
     errores.push('Ingresá tu email');
   } else if (!validator.isEmail(email.value)) {
     errores.push('Tu email debe ser válido');
+  }else if (await emailIsNotUnique()){
+    errores.push("Ya hay una cuenta asociada al email que ingresaste.")
   }
-  
-  const regex = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
 
+
+
+  const regex = /^(?=.*\d)(?=.*[\u0021-\u002b\u003c-\u0040])(?=.*[A-Z])(?=.*[a-z])\S{8,16}$/
   if (password.value == '') {
     errores.push('Ingresá tu contraseña');
   } else if (password.value.length < 8) {

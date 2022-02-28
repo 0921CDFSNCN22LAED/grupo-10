@@ -4,7 +4,7 @@ const apiUsersController = require('../controllers/apiUsersController');
 
 router.get('/', apiUsersController.list);
 router.get('/flattened', apiUsersController.flattenedList);
+router.get('/email', apiUsersController.findEmail);
 router.get('/:id', apiUsersController.detail);
-router.get('/email:email', apiUsersController.findEmail);
 
 module.exports = router;

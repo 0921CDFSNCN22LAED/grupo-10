@@ -67,7 +67,8 @@ module.exports = {
     });
   },
   findEmail: async (req, res) => {
-    let user = await mainServices.findEmail(req.params.email);
-    return user;
+    let user = await mainServices.getUserbyEmail(req.query.email);
+    console.log(req.query);
+    res.json(user);
   },
 };
