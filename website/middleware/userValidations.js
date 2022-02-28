@@ -28,7 +28,11 @@ module.exports = [
     .withMessage('Tenés que ingresar una contraseña.')
     .bail()
     .isLength({ min: 8 })
-    .withMessage('La contraseña debe ser mayor o igual a 8 caracteres.'),
+    .withMessage('La contraseña debe ser mayor o igual a 8 caracteres.')
+    .isStrongPassword()
+    .withMessage(
+      'La contraseña debe contener al menos una minúscula, una mayúscula, un número y un símbolo.'
+    ),
   check('repassword', 'Las contraseñas deben coincidir.')
     .exists()
     .custom((value, { req }) => value === req.body.password),
