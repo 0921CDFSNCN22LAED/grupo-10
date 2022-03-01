@@ -8,35 +8,35 @@ module.exports = [
     .bail()
     .isLength({ min: 5 })
     .withMessage('El nombre debe tener como mínimo 5 caracteres.'),
-  body('price').notEmpty().withMessage('Ingresá el precio del producto.'),
-  // .bail()
-  // .isNumeric()
-  // .withMessage('El precio debe ser un número'),
-  //buscar validación por porcentaje
-  body('discount')
+  body('price')
     .notEmpty()
-    .withMessage('Ingresá el descuento.')
+    .withMessage('Ingresá el precio del producto.')
     .bail()
     .isNumeric()
-    .withMessage('El precio debe ser un número.'),
-  body('category').notEmpty().withMessage('Tenés que ingresar una categoría.'),
-  //   body('image').custom((value, { req }) => {
-  //     let image = req.files.image;
-  //     let acceptedExtensions = ['jpg', 'png', 'gif'];
-
-  //     if (!image) {
-  //       throw new Error('Subí una imagen');
-  //     } else {
-  //       let fileExtension = path.extname(image[0].originalname);
-  //       if (!acceptedExtensions.includes(fileExtension)) {
-  //         throw new Error(
-  //           `Las extensiones de archivo permitidas son ${acceptedExtensions.join(
-  //             ', '
-  //           )}`
-  //         );
-  //       }
-  //     }
-  //   }),
+    .withMessage('El precio debe ser un número'),
+  //   buscar validación por porcentaje
+  //   body('discount')
+  //     .notEmpty()
+  //     .withMessage('Ingresá el descuento.')
+  //     .bail()
+  //     .isNumeric()
+  //     .withMessage('El precio debe ser un número.'),
+  //   body('category').notEmpty().withMessage('Tenés que ingresar una categoría.'),
+  body('image').custom((value, { req }) => {
+    if (!req.file) return true;
+    let image = req.file;
+    let acceptedExtensions = ['.jpg', '.png', '.gif'];
+    let fileExtension = path.extname(image.originalname);
+    if (!acceptedExtensions.includes(fileExtension)) {
+      throw new Error(
+        `Las extensiones de archivo permitidas son ${acceptedExtensions.join(
+          ', '
+        )}`
+      );
+    } else {
+      return true;
+    }
+  }),
   body('description')
     .notEmpty()
     .withMessage('La descripción no puede quedar vacía.')
