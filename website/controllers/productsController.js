@@ -40,8 +40,8 @@ module.exports = {
     });
     req.session.errors = '';
   },
-  update: (req, res) => {
-    productServices.updateProduct(req.params.id, req.body);
+  update: async (req, res) => {
+    await productServices.updateProduct(req.params.id, req.body, req.file);
     res.redirect(`/products/${req.params.id}`);
   },
   delete: (req, res) => {

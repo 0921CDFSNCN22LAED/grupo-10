@@ -25,8 +25,8 @@ window.onload = () => {
       'image/png',
       'image/gif',
     ];
-    const mimeType = image.files[0].type;
-    if (!allowedMimeType.includes(mimeType)) {
+    const mimeType = image.files[0]?.type;
+    if (image.value != '' && !allowedMimeType.includes(mimeType)) {
       errores.push('Imagen inválida');
     }
 

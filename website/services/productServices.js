@@ -151,24 +151,28 @@ module.exports = {
     const newImage = {
       location: file.filename,
       cover: 1,
-      // Si no creo product_id (ChimeraCase is a thing) no me deja crear la nueva imagen
-      //   product_id: createdProduct.id,
     };
-    // creo la imagen así y no chilla
     const productImage = await ProductsImage.create(newImage);
-    //pero si la creo con setProductImage (add no es una función de las asociaciones 1 a 1 )
-    //me dice que los valores de location y cover no son válidos
     await productImage.setProduct(createdProduct.id);
 
     return createdProduct;
   },
-  updateProduct: async function (id, body) {
+  updateProduct: async function (id, body, file) {
     const subTaxonomy = body.subTaxonomy[0] || body.subTaxonomy[1];
     const editedProduct = {
       ...body,
       subTaxonomy,
     };
     await Product.update({ ...editedProduct }, { where: { id } });
+    if (file) {
+      console.log('fileInner', file);
+      const newImage = {
+        location: file.filename,
+        cover: 1,
+      };
+      const productImage = await ProductsImage.create(newImage);
+      await productImage.setProduct(id);
+    }
   },
   deleteProduct: async function (id) {
     await Product.destroy({

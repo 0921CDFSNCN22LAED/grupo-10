@@ -33,6 +33,7 @@ router.get('/:id/edit', productsController.edit);
 // Acción de edición
 router.put(
   '/:id/edit',
+  fileUpload.single('image'),
   productValidations,
   validations,
   productsController.update
