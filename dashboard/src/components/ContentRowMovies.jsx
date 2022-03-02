@@ -1,26 +1,13 @@
+import { useEffect, useState } from 'react';
 import MetricsCard from './MetricsCard';
 
 const ContentRowMovies = () => {
-  const metrics = [
-    {
-      titulo: 'Movies in Data Base',
-      cifra: 21,
-      color: 'primary',
-      icono: 'fa-film',
-    },
-    {
-      titulo: 'Total awards',
-      cifra: 79,
-      color: 'success',
-      icono: 'fa-award',
-    },
-    {
-      titulo: 'Actors quantity',
-      cifra: 49,
-      color: 'warning',
-      icono: 'fa-user',
-    },
-  ];
+  const [metrics, setMetrics] = useState([]);
+  useEffect(async () => {
+   const responseFetch = await fetch("http://localhost:3001/api/products/totals");
+   const dataJson = await responseFetch.json();
+   setMetrics(dataJson.data)
+  }, [])
 
   return (
     // {/* <!-- Content Row Movies--> */}

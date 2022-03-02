@@ -5,6 +5,7 @@ const {
   SubTaxonomy,
   Taxonomy,
   sequelize,
+  User,
 } = require('../../database/models');
 
 function flattenObject(ob) {
@@ -203,4 +204,65 @@ module.exports = {
       data: product,
     });
   },
+  totals: async (req, res) => {
+    const productsTotal = await Product.count()
+    const usersTotal = await User.count()
+    const subtaxonomiesTotal = await SubTaxonomy.count()
+    res.json({
+      meta: {
+        status: 200,
+        url: `/api/products/totals`,
+      },
+      data: [
+        {
+          titulo: 'Total de productos',
+          cifra: productsTotal,
+          color: 'primary',
+          icono: 'fa-desktop',
+        },
+        {
+          titulo: 'Total de usuarios',
+          cifra: usersTotal,
+          color: 'success',
+          icono: 'fa-user',
+        },
+        {
+          titulo: 'Total de subtaxonomías',
+          cifra: subtaxonomiesTotal,
+          color: 'warning',
+          icono: 'fa-sitemap',
+        },
+      ],
+    });
+  },
+  lastProduct: async (req, res) => {
+    try {
+      let product = await Product.findOne({order: [["createdAt", "DESC"]], raw: true, nest: true});
+    
+    product = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      description: product.description,
+      discount: product.discount,
+      group: {
+        taxonomy: product.subTaxonomy?.taxonomy.name,
+        subTaxonomy: product.subTaxonomy?.name,
+        category: product.category,
+      },
+      image: `/img/products-img/${product.image}`,
+    };
+    res.json({
+      meta: {
+        status: 200,
+        url: `/api/products/last-product/`,
+      },
+      data: product,
+    });
+    } catch (error) {
+      console.log(error)
+    }
+    
+
+  }
 };
