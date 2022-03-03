@@ -24,7 +24,7 @@ function SideBar() {
       <li className="nav-item active">
         <Link className="nav-link" to="/">
           <i className="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard - PC GAMER</span>
+          <span>PC Gamer - Tablero</span>
         </Link>
       </li>
 
@@ -32,13 +32,13 @@ function SideBar() {
       <hr className="sidebar-divider" />
 
       {/* <!-- Heading --> */}
-      <div className="sidebar-heading">Actions</div>
+      <div className="sidebar-heading">Links</div>
 
       {/* <!-- Nav Item - Pages --> */}
       <li className="nav-item">
-        <Link className="nav-link collapsed" to="/lastmovie">
+        <Link className="nav-link collapsed" to="/last-product">
           <i className="fas fa-fw fa-folder"></i>
-          <span>Last Movie</span>
+          <span>Último producto</span>
         </Link>
       </li>
 
@@ -46,7 +46,7 @@ function SideBar() {
       <li className="nav-item">
         <Link className="nav-link" to="/subtaxonomies">
           <i className="fas fa-fw fa-chart-area"></i>
-          <span>Sub-Taxonomies</span>
+          <span>Subtaxonomías</span>
         </Link>
       </li>
 
@@ -54,7 +54,7 @@ function SideBar() {
       <li className="nav-item">
         <Link className="nav-link" to="/table">
           <i className="fas fa-fw fa-table"></i>
-          <span>Table</span>
+          <span>Tabla</span>
         </Link>
       </li>
 

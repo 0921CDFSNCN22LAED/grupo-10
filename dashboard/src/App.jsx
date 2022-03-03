@@ -13,7 +13,7 @@ function App() {
       <SideBar />
       <Routes>
         <Route path="/" element={<ContentWrapper />} />
-        <Route path="/lastmovie" element={<LastProduct />} />
+        <Route path="/last-product" element={<LastProduct />} />
         <Route path="/subtaxonomies" element={<SubTaxonomies />} />
         <Route path="/table" element={<Table />} />
         <Route path="*" element={<NotFound />} />

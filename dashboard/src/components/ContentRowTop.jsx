@@ -12,13 +12,13 @@ const ContentRowTop = () => {
       {/* <!-- End movies in Data Base --> */}
       <ContentRowMovies />
 
-      {/* <!-- Content Row Last Movie in Data Base --> */}
+      {/* <!-- ContentRow LastProduct --> */}
       <div className="row">
-        {/* <!-- Last Movie in DB --> */}
+        {/* <!-- Last Product --> */}
         <LastProduct />
-        {/* <!-- End content row last movie in Data Base --> */}
+        {/* <!-- End of ContentRow LastProduct --> */}
 
-        {/* <!-- Genres in DB --> */}
+        {/* <!-- SubTaxonomies --> */}
         <SubTaxonomies />
       </div>
     </div>
