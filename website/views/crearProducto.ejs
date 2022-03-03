@@ -17,8 +17,8 @@
                         <div class="box-subtitulosCrearProd">
                             <label for="name">Nombre del producto:</label>
                             <input class="input-crearProducto" type="text" id="name" name="name"
-                                placeholder="Teclado Mecánico" value="<%= locals.old && old.name ? old.name : "" %>" />
-                            <% if(locals.errors && errors.name) {%>
+                                placeholder="Teclado Mecánico" value="<%= old?.name ? old.name : "" %>" />
+                            <% if(errors?.name) {%>
                             <span class="feedback-crearProducto"><%= errors.name.msg%></span>
                             <% } %>
                         </div>
@@ -27,9 +27,9 @@
                             <div>
                                 <span class="before-symbol">$</span>
                                 <input class="input-crearProducto" type="number" id="price" name="price" min="0"
-                                    placeholder="400.000" value="<%= old && old.price ? old.price:"" %>" />
+                                    placeholder="400.000" <% if(old?.price) {%> value="<%= old.price %>" <% } %> />
                             </div>
-                            <% if(errors && errors.price) {%>
+                            <% if(errors?.price) {%>
                             <span class="feedback-crearProducto"><%= errors.price.msg%></span>
                             <% } %>
                         </div>
@@ -41,7 +41,7 @@
                                     name="discount" placeholder="15"
                                     value="<%= old && old.discount ? parseInt(old.discount) : 0%>" />
                             </div>
-                            <% if(errors && errors.discount) {%>
+                            <% if(errors?.discount) {%>
                             <span class="feedback-crearProducto"><%= errors.discount.msg%></span>
                             <% } %>
 
@@ -49,28 +49,31 @@
                         <div class="box-categoria">
                             <label for="category">Categoría:</label>
                             <select name="category" id="category">
-                                <option value="1" disabled>Elegí</option>
+                                <option selected disabled>Elegí</option>
                                 <% for(let category in categories) {%>
                                 <option value=<%= categories[category].id %>
-                                    <%= old && old.category == categories[category].id ? "Selected" : ""  %>>
+                                    <%= old?.category == categories[category].id ? "Selected" : ""  %>>
                                     <%= categories[category].name %>
                                 </option>
                                 <% } %>
                             </select>
-                            <% if(errors && errors.category) {%>
+                            <% if(errors?.category) {%>
                             <span class="feedback-crearProducto"><%= errors.category.msg%></span>
                             <% } %>
                         </div>
                         <div class="box-descripcion">
                             <label for="description">Descripción:</label>
                             <textarea name="description" id="description"
-                                rows="10"><%=old && old.description ? old.description : ""%></textarea>
+                                rows="10"><%=old?.description ? old.description : ""%></textarea>
+                            <% if(errors?.description) {%>
+                            <span class="feedback-crearProducto"><%= errors.description.msg%></span>
+                            <% } %>
                         </div>
                         <div class="box-categoria">
                             <label for="taxonomy">Taxonomía</label>
                             <select name="taxonomy" id="taxonomy">
-                                <option value="">Elegí</option>
-                                <option value="Hardware" <%= old && old.taxonomy[0] == "Hardware" ? "selected" : "" %>>
+                                <option selected value="">Elegí</option>
+                                <option value="Hardware" <%=old && old.taxonomy[0] == "Hardware" ? "selected" : "" %>>
                                     Hardware
                                 </option>
                                 <option value="Periféricos"
@@ -78,10 +81,12 @@
                                     Periféricos
                                 </option>
                             </select>
-                            <select class="<%= old && old.taxonomy[0] == "Hardware" ? "d-block" : "d-none" %>"
+                            <% if(errors?.taxonomy) {%>
+                            <span class="feedback-crearProducto"><%= errors.taxonomy.msg%></span>
+                            <% } %>
+                            <select class="<%=  old && old.taxonomy[0] == "Hardware" ? "d-block" : "d-none" %>"
                                 name="subTaxonomy" id="taxonomyHardware">
-                                <option value="">Elegí</option>
-
+                                <option disabled>Elegí</option>
                                 <% for(let component of hardware) {%>
                                 <option value=<%= component.id %>
                                     <%= old && old.taxonomy[1] == component.name ? "selected" : "" %>>
@@ -91,7 +96,7 @@
                             </select>
                             <select class="<%= old && old.taxonomy[0] == "Periféricos" ? "d-block" : "d-none" %>"
                                 name="subTaxonomy" id="taxonomyPeripherals">
-                                <option value="">Elegí</option>
+                                <option>Elegí</option>
                                 <% for(let peripheral of peripherals) {%>
                                 <option value=<%= peripheral.id %>
                                     <%= old && old.taxonomy[1] == peripheral.name ? "selected" : "" %>>
@@ -99,20 +104,28 @@
                                 </option>
                                 <% } %>
                             </select>
+                            <% if(errors?.subTaxonomy) {%>
+                            <span class="feedback-crearProducto"><%= errors.subTaxonomy.msg%></span>
+                            <% } %>
                         </div>
                     </div>
-                    <div class="img-crearProducto">
-                        <label for="image">
-                            <img style="width: 200px;"
-                                src="/img/products-img/<%=old && old.image ? old.image : "productDefault.png"%>"
-                                alt="product image" id="imageImg">
-                            <div>Cambiar imagen</div>
-                        </label>
-                        <div>
-                            <div class="img-container">
-                                <input type="file" accept="image/*" name="image" id="image">
+                    <div class="box-descripcion">
+                        <div class="img-crearProducto">
+                            <label for="image">
+                                <img style="width: 200px;"
+                                    src="/img/products-img/<%=old?.image ? old.image : "productDefault.png"%>"
+                                    alt="product image" id="imageImg">
+                                <div>Cambiar imagen</div>
+                            </label>
+                            <div>
+                                <div class="img-container">
+                                    <input type="file" accept="image/*" name="image" id="image">
+                                </div>
                             </div>
                         </div>
+                        <% if(errors?.image) {%>
+                        <span class="feedback-crearProducto"><%= errors.image.msg%></span>
+                        <% } %>
                     </div>
                     <div class="box-boton-guardarProducto">
                         <button class="boton-crearProducto" type="submit">

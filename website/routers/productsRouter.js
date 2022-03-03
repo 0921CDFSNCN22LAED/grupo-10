@@ -20,6 +20,7 @@ router.get('/create', productsController.create);
 router.post(
   '/store',
   fileUpload.single('image'),
+  tester,
   productValidations,
   validations,
   productsController.store

@@ -4,6 +4,7 @@
     "confirmacion",
     "loguser",
     "repassword",
+    "subtaxonomía",
     "Subtaxonomy",
     "TINYINT"
   ]
