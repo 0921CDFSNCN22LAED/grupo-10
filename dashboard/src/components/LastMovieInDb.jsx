@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 function LastProductInDb() {
   const [lastProduct, setLastProduct] = useState([]);
   useEffect(async () => {
-   const responseFetch = await fetch("http://localhost:3001/api/products/last-product");
-   const dataJson = await responseFetch.json();
-   setLastProduct(dataJson.data)
-  }, [])
+    const responseFetch = await fetch(
+      'http://localhost:3001/api/products/last-product'
+    );
+    const dataJson = await responseFetch.json();
+    setLastProduct(dataJson.data);
+  }, []);
 
   return (
     <div className="col-lg-6 mb-4">
