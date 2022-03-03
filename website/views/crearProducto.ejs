@@ -26,7 +26,7 @@
                             <label for="price">Precio del producto:</label>
                             <div>
                                 <span class="before-symbol">$</span>
-                                <input class="input-crearProducto" type="text" id="price" name="price" min="0"
+                                <input class="input-crearProducto" type="number" id="price" name="price" min="0"
                                     placeholder="400.000" value="<%= old && old.price ? old.price:"" %>" />
                             </div>
                             <% if(errors && errors.price) {%>
@@ -39,7 +39,7 @@
                                 <span class="before-symbol">%</span>
                                 <input class="input-crearProducto" type="number" min="0" max="100" id="discount"
                                     name="discount" placeholder="15"
-                                    value="<%= old && old.discount ? parseInt(old.discount) : ""%>" />
+                                    value="<%= old && old.discount ? parseInt(old.discount) : 0%>" />
                             </div>
                             <% if(errors && errors.discount) {%>
                             <span class="feedback-crearProducto"><%= errors.discount.msg%></span>
@@ -49,7 +49,7 @@
                         <div class="box-categoria">
                             <label for="category">Categoría:</label>
                             <select name="category" id="category">
-                                <option value="">Elegí</option>
+                                <option value="1" disabled>Elegí</option>
                                 <% for(let category in categories) {%>
                                 <option value=<%= categories[category].id %>
                                     <%= old && old.category == categories[category].id ? "Selected" : ""  %>>
@@ -63,8 +63,8 @@
                         </div>
                         <div class="box-descripcion">
                             <label for="description">Descripción:</label>
-                            <textarea name="description" id="description" rows="10"><%=old && old.description ? old.description : ""%>
-              </textarea>
+                            <textarea name="description" id="description"
+                                rows="10"><%=old && old.description ? old.description : ""%></textarea>
                         </div>
                         <div class="box-categoria">
                             <label for="taxonomy">Taxonomía</label>

@@ -20,7 +20,8 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.TEXT,
       },
       discount: {
-        type: dataTypes.DECIMAL(5, 2),
+        type: dataTypes.INTEGER,
+        defaultValue: 0,
       },
       category_id: {
         type: dataTypes.INTEGER.UNSIGNED,

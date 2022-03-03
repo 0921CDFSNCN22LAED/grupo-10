@@ -7,10 +7,14 @@ module.exports = {
     await queryInterface.bulkInsert('Categories', [
       {
         id: 1,
-        name: 'Oferta',
+        name: 'Sin categoría',
       },
       {
         id: 2,
+        name: 'Oferta',
+      },
+      {
+        id: 3,
         name: 'ArtDestacado',
       },
     ]);

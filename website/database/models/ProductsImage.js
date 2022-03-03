@@ -12,6 +12,7 @@ module.exports = (sequelize, dataTypes) => {
       location: {
         type: dataTypes.STRING(30),
         allowNull: false,
+        defaultValue: 'productDefault.png',
       },
       cover: {
         type: dataTypes.TINYINT,
