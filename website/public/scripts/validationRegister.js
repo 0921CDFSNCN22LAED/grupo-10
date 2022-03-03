@@ -1,7 +1,16 @@
 const formulario = document.querySelector('form.form-register');
 // const errores = document.getElementById("errores")
-
-formulario.addEventListener('submit', async (e) => {
+async function emailIsNotUnique() {
+  const response = await fetch(
+    `http://localhost:3001/api/users/email?email=${email.value}`
+  );
+  const data = await response.json();
+  if (data) {
+    return true;
+  }
+}
+formulario.addEventListener('submit', (e) => {
+  e.preventDefault();
   const name = document.getElementById('name');
   const email = document.getElementById('email');
   const password = document.getElementById('password');
@@ -17,16 +26,6 @@ formulario.addEventListener('submit', async (e) => {
     errores.push('Tu nombre debe tener al menos 2 caracteres');
   }
 
-  const emailIsNotUnique = async function () {
-    e.preventDefault();
-    const response = await fetch(
-      `http://localhost:3001/api/users/email?email=${email.value}`
-    );
-    const data = await response.json();
-    if (data) {
-      return true;
-    }
-  };
   if (email.value == '') {
     errores.push('Ingresá tu email');
   } else if (!validator.isEmail(email.value)) {
@@ -60,7 +59,6 @@ formulario.addEventListener('submit', async (e) => {
   }
 
   if (errores.length > 0) {
-    e.preventDefault();
     const ulErrores = document.querySelector('div.errores ul');
     for (let i = 0; i < errores.length; i++) {
       ulErrores.innerHTML += '<li>' + errores[i] + '</li>';
