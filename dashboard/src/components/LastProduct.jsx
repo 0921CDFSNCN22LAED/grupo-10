@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-function LastProductInDb() {
+function LastProduct() {
   const [lastProduct, setLastProduct] = useState([]);
   useEffect(async () => {
     const responseFetch = await fetch(
@@ -45,4 +45,4 @@ function LastProductInDb() {
   );
 }
 
-export default LastProductInDb;
+export default LastProduct;
