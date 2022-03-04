@@ -1,4 +1,4 @@
-import ContentRowMovies from './ContentRowMovies';
+import ContentRowProducts from './ContentRowProducts';
 import LastProduct from './LastProduct';
 import SubTaxonomies from './SubTaxonomies';
 
@@ -10,7 +10,7 @@ const ContentRowTop = () => {
       </div>
 
       {/* <!-- End movies in Data Base --> */}
-      <ContentRowMovies />
+      <ContentRowProducts />
 
       {/* <!-- ContentRow LastProduct --> */}
       <div className="row">

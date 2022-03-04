@@ -30,7 +30,7 @@ formulario.addEventListener('submit', (e) => {
     errores.push('Ingresá tu email');
   } else if (!validator.isEmail(email.value)) {
     errores.push('Tu email debe ser válido');
-  } else if (await emailIsNotUnique()) {
+  } else if (emailIsNotUnique()) {
     errores.push('Ya hay una cuenta asociada al email que ingresaste.');
   }
 

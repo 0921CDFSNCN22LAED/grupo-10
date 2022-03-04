@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import MetricsCard from './MetricsCard';
 
-const ContentRowMovies = () => {
+const ContentRowProducts = () => {
   const [metrics, setMetrics] = useState([]);
   useEffect(async () => {
     const responseFetch = await fetch(
@@ -29,4 +29,4 @@ const ContentRowMovies = () => {
   );
 };
 
-export default ContentRowMovies;
+export default ContentRowProducts;

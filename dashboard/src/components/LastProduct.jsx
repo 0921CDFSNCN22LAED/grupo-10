@@ -18,22 +18,31 @@ function LastProduct() {
             Último producto cargado
           </h5>
         </div>
-        <div className="card-body">
-          <div className="text-center">
-            {/* <img
-              className="img-fluid px-3 px-sm-4 mt-3 mb-4"
-              style={{ width: '40em' }}
-              src="assets/images/mandalorian.jpg"
-              alt=" Star Wars - Mandalorian "
-            /> */}
+        {lastProduct ? (
+          <div className="card-body">
+            <div className="text-center">
+              <img
+                className="img-fluid px-3 px-sm-4 mt-3 mb-4"
+                style={{ width: '40em' }}
+                src={lastProduct.image}
+                alt=" Star Wars - Mandalorian "
+              />
+            </div>
+            <h2>{lastProduct.name}</h2>
+            <p>{lastProduct.description}</p>
+            <p>Precio: ${lastProduct.price}</p>
+            <a
+              className="btn btn-danger"
+              target="_blank"
+              rel="nofollow"
+              href="/"
+            >
+              Detalle de producto
+            </a>
           </div>
-          <h2>{lastProduct.name}</h2>
-          <p>{lastProduct.description}</p>
-          <p>Precio: ${lastProduct.price}</p>
-          <a className="btn btn-danger" target="_blank" rel="nofollow" href="/">
-            Detalle de producto
-          </a>
-        </div>
+        ) : (
+          'cargando...'
+        )}
       </div>
     </div>
   );

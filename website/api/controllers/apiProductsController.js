@@ -49,7 +49,7 @@ module.exports = {
     products = products.map((product) => {
       return {
         id: product.id,
-        name: product.name,
+        nombre: product.name,
         description: product.description,
         group: {
           taxonomy: product.subTaxonomy.taxonomy.name,
@@ -205,9 +205,9 @@ module.exports = {
     });
   },
   totals: async (req, res) => {
-    const productsTotal = await Product.count()
-    const usersTotal = await User.count()
-    const subtaxonomiesTotal = await SubTaxonomy.count()
+    const productsTotal = await Product.count();
+    const usersTotal = await User.count();
+    const subtaxonomiesTotal = await SubTaxonomy.count();
     res.json({
       meta: {
         status: 200,
@@ -237,32 +237,34 @@ module.exports = {
   },
   lastProduct: async (req, res) => {
     try {
-      let product = await Product.findOne({order: [["createdAt", "DESC"]], raw: true, nest: true});
-    
-    product = {
-      id: product.id,
-      name: product.name,
-      price: product.price,
-      description: product.description,
-      discount: product.discount,
-      group: {
-        taxonomy: product.subTaxonomy?.taxonomy.name,
-        subTaxonomy: product.subTaxonomy?.name,
-        category: product.category,
-      },
-      image: `/img/products-img/${product.image}`,
-    };
-    res.json({
-      meta: {
-        status: 200,
-        url: `/api/products/last-product/`,
-      },
-      data: product,
-    });
+      let product = await Product.findOne({
+        order: [['createdAt', 'DESC']],
+        raw: true,
+        nest: true,
+        include: [{ association: 'productsImages' }],
+      });
+      product = {
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        description: product.description,
+        discount: product.discount,
+        group: {
+          taxonomy: product.subTaxonomy?.taxonomy.name,
+          subTaxonomy: product.subTaxonomy?.name,
+          category: product.category,
+        },
+        image: `http://localhost:3001/img/products-img/${product.productsImages.location}`,
+      };
+      res.json({
+        meta: {
+          status: 200,
+          url: `/api/products/last-product/`,
+        },
+        data: product,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
-
-  }
+  },
 };
