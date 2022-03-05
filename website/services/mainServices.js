@@ -2,7 +2,7 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users.json');
-const {User} = require('../database/models');
+const { User } = require('../database/models');
 const req = require('express/lib/request');
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     return users;
   },
   getUser: async function (id) {
-    const user = await User.findByPk(id, {raw:true,nest:true,})
+    const user = await User.findByPk(id, { raw: true, nest: true });
     return user;
   },
   saveUsers: function (users) {
@@ -37,32 +37,40 @@ module.exports = {
       email: req.body.email,
       password: bcrypt.hashSync(req.body.password, 10),
       profileImage: req.file ? req.file.filename : 'default-avatar.png',
-    })
-    return user
+    });
+    return user;
   },
   getUserbyEmail: async function (email) {
-    const user = await User.findOne({where:{
-      email
-    },raw:true, nest:true})
+    const user = await User.findOne({
+      where: {
+        email,
+      },
+      raw: true,
+      nest: true,
+    });
     return user;
   },
   validateUser: async function (email, password) {
-    if (email && this.getUserbyEmail(email)&& password) {
+    if (email && this.getUserbyEmail(email) && password) {
       const user = await this.getUserbyEmail(email);
+      if (!user) return false;
       const checkPassword = bcrypt.compareSync(password, user.password);
       return checkPassword;
     } else {
       return false;
     }
   },
-  updateUser: async function(data, id, reqFile){
-    const {name, email} = data
-    return await User.update({
-      ...(name && {name}),
-      ...(email && {email}),
-      profileImage: reqFile ? reqFile.filename : 'default-avatar.png'
-    },{
-      where: {id}
-    })
-  }
+  updateUser: async function (data, id, reqFile) {
+    const { name, email } = data;
+    return await User.update(
+      {
+        ...(name && { name }),
+        ...(email && { email }),
+        profileImage: reqFile ? reqFile.filename : 'default-avatar.png',
+      },
+      {
+        where: { id },
+      }
+    );
+  },
 };
