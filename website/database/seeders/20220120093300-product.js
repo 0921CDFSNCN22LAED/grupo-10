@@ -49,7 +49,7 @@ module.exports = {
         description:
           'GeForce RTX 3090 VENTUS 3X OC - tarjeta gráfica - GF RTX 3090 - 24 GB - Tipo de dispositivo:Tarjeta gráfica - Tipo de bus:PCI Express 4.0 - Motor gráfico:NVIDIA GeForce RTX 3090 - Memoria:24 GB GDDR6X - Velocidad de la memoria:19.5 Gbps - Núcleos CUDA:10496 - Interfaz de memoria:384-bit - Máxima Resolución:7680 x 4320 - N° máximo de monitores soportados:4 - Interfaces:3 x DisplayPort ¦ HDMI - Apoyado por API:DirectX 12, OpenGL 4.6',
         discount: 0,
-        category_id: 1,
+        category_id: 3,
         subTaxonomy_id: 8,
       },
       {
@@ -59,7 +59,7 @@ module.exports = {
         description:
           'El Teclado HyperX Alloy Fps tiene un diseño ultra minimalista sin llave (TKL) ideal para FPS Pro, tiene switches mecánicos Cherry MX, con teclas retroiluminadas con efectos de ilimunacion dinamicos',
         discount: 10,
-        category_id: 1,
+        category_id: 3,
         subTaxonomy_id: 108,
       },
       {

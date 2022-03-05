@@ -50,7 +50,7 @@
                     <div class="box-categoria">
                         <label for="category">Categoría:</label>
                         <select name="category" id="category">
-                            <option value="1" disabled>Elegí</option>
+                            <option disabled>Elegí</option>
                             <% for(let category in categories) {%>
                             <option value=<%= categories[category].id %>
                                 <%= product.categoryData.id == categories[category].id ? "Selected" : ""  %>>

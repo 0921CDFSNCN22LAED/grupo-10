@@ -163,9 +163,11 @@ module.exports = {
     }
   },
   updateProduct: async function (id, body, file) {
+    console.log(body)
     const subTaxonomy = body.subTaxonomy[0] || body.subTaxonomy[1];
     const editedProduct = {
       ...body,
+      category_id: body.category,
       subTaxonomy,
     };
     await Product.update({ ...editedProduct }, { where: { id } });

@@ -9,7 +9,7 @@ async function emailIsNotUnique() {
     return true;
   }
 }
-formulario.addEventListener('submit', (e) => {
+formulario.addEventListener('submit', async (e) => {
   e.preventDefault();
   const name = document.getElementById('name');
   const email = document.getElementById('email');
@@ -30,7 +30,7 @@ formulario.addEventListener('submit', (e) => {
     errores.push('Ingresá tu email');
   } else if (!validator.isEmail(email.value)) {
     errores.push('Tu email debe ser válido');
-  } else if (emailIsNotUnique()) {
+  } else if (await emailIsNotUnique()) {
     errores.push('Ya hay una cuenta asociada al email que ingresaste.');
   }
 
