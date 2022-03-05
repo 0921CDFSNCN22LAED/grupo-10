@@ -11,7 +11,7 @@ const logUserRedirect = require('../middleware/logUserRedirect');
 
 router.get('/', mainController.index);
 router.get('/profile', unLogUserRedirect, mainController.profile);
-router.put('/profile', fileUpload.none(), mainController.update);
+router.put('/profile', fileUpload.single("profileImage"), mainController.update);
 router.get('/carrito', mainController.carrito);
 router.get(
   '/carrito/entrega',

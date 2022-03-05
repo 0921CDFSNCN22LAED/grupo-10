@@ -55,11 +55,12 @@ module.exports = {
       return false;
     }
   },
-  updateUser: async function(data, id){
+  updateUser: async function(data, id, reqFile){
     const {name, email} = data
     return await User.update({
       ...(name && {name}),
       ...(email && {email}),
+      profileImage: reqFile ? reqFile.filename : 'default-avatar.png'
     },{
       where: {id}
     })
