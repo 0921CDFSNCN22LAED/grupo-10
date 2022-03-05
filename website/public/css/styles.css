@@ -197,9 +197,15 @@ main {
   text-align: end;
   right: 10px;
   padding: 10px;
-  position: absolute;
+  
 }
-
+@media (max-width: 768px) {
+  .right-nav {
+    position: relative;
+    right: 0;
+    width: 100%;
+  }
+}
 .style-left-nav {
   font-size: 11px;
 }
