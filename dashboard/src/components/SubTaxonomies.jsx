@@ -44,7 +44,7 @@ class SubTaxonomies extends Component {
             </div>
           </div>
           <div className="card-header py-3">
-            <h5 className="m-0 font-weight-bold text-gray-800">Peripherals</h5>
+            <h5 className="m-0 font-weight-bold text-gray-800">Periféricos</h5>
           </div>
           <div className="card-body">
             <div className="row">
