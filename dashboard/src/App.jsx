@@ -13,9 +13,9 @@ function App() {
       <SideBar />
       <Routes>
         <Route path="/" element={<ContentWrapper />} />
-        <Route path="/last-product" element={<LastProduct />} />
-        <Route path="/subtaxonomies" element={<SubTaxonomies />} />
-        <Route path="/table" element={<Table />} />
+        <Route path="/ultimo-producto" element={<LastProduct />} />
+        <Route path="/subtaxonomias" element={<SubTaxonomies />} />
+        <Route path="/tabla" element={<Table />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>

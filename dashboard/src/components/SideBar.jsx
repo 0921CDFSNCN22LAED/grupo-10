@@ -36,7 +36,7 @@ function SideBar() {
 
       {/* <!-- Nav Item - Pages --> */}
       <li className="nav-item">
-        <Link className="nav-link collapsed" to="/last-product">
+        <Link className="nav-link collapsed" to="/ultimo-producto">
           <i className="fas fa-fw fa-folder"></i>
           <span>Último producto</span>
         </Link>
@@ -44,7 +44,7 @@ function SideBar() {
 
       {/* <!-- Nav Item - Charts --> */}
       <li className="nav-item">
-        <Link className="nav-link" to="/subtaxonomies">
+        <Link className="nav-link" to="/subtaxonomias">
           <i className="fas fa-fw fa-chart-area"></i>
           <span>Subtaxonomías</span>
         </Link>
@@ -52,7 +52,7 @@ function SideBar() {
 
       {/* <!-- Nav Item - Tables --> */}
       <li className="nav-item">
-        <Link className="nav-link" to="/table">
+        <Link className="nav-link" to="/tabla">
           <i className="fas fa-fw fa-table"></i>
           <span>Tabla</span>
         </Link>
