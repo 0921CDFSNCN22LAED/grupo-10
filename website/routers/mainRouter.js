@@ -10,8 +10,8 @@ const unLogUserRedirect = require('../middleware/unLogUserRedirect');
 const logUserRedirect = require('../middleware/logUserRedirect');
 
 router.get('/', mainController.index);
-router.get('/profile', unLogUserRedirect, mainController.profile);
-router.put('/profile', fileUpload.single("profileImage"), mainController.update);
+router.get('/perfil', unLogUserRedirect, mainController.profile);
+router.put('/perfil', fileUpload.single("profileImage"), mainController.update);
 router.get('/carrito', mainController.carrito);
 router.get(
   '/carrito/entrega',
