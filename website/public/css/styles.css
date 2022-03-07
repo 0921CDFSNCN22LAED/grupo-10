@@ -192,6 +192,9 @@ main {
   position: relative;
   margin: auto;
 }
+.imput-search {
+  text-align: center;
+}
 
 .right-nav {
   text-align: end;
