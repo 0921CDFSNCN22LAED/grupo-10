@@ -195,7 +195,9 @@ main {
 .imput-search {
   text-align: center;
 }
-
+#img-logeado {
+  max-width: 40px;
+}
 .right-nav {
   text-align: end;
   right: 10px;
