@@ -123,7 +123,7 @@ module.exports = {
   getProductsByCategoryOrTaxonomy: async function () {
     const products = await this.getProducts();
     const artDestacadosProducts = await products.filter((prod) => {
-      return prod.category == 'ArtDestacado';
+      return prod.category == 'Artículo destacado';
     });
     const offerProducts = await products.filter((prod) => {
       return prod.category == 'Oferta';
