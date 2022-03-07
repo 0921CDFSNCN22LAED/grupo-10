@@ -188,7 +188,7 @@ main {
   text-align: center;
 }
 .max-w-1200 {
-  max-width: 1200px;
+  max-width: 100%;
   position: relative;
   margin: auto;
 }
