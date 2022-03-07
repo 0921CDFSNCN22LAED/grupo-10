@@ -1,7 +1,7 @@
 'use strict';
 //Categories id
 // 1: Oferta
-// 2: ArtDestacado
+// 2: Artículo destacado
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Categories', [

@@ -2,7 +2,7 @@
 
 //Categories id
 // 1: Oferta
-// 2: ArtDestacado
+// 2: Artículo destacado
 
 // taxonomy id
 //1: Hardware {
