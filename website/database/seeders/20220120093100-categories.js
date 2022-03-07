@@ -15,7 +15,7 @@ module.exports = {
       },
       {
         id: 3,
-        name: 'ArtDestacado',
+        name: 'Artículo destacado',
       },
     ]);
   },
