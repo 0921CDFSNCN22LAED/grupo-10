@@ -21,7 +21,7 @@ module.exports = {
 
   update: async (req, res) => {
     const user = await mainServices.updateUser(req.body, req.session.user.id, req.file);
-    res.redirect('/profile');
+    res.redirect('/perfil');
   },
 
   carrito: (req, res) => {
