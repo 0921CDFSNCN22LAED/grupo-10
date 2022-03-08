@@ -7,7 +7,8 @@ const {
   Taxonomy,
   Category,
   ProductsImage,
-  sequelize,
+  Sale,
+  ProductSale,
 } = require('../database/models');
 const db = require('../database/models');
 const Op = db.Sequelize.Op;
@@ -138,32 +139,26 @@ module.exports = {
     return { artDestacadosProducts, offerProducts, hardware, peripherals };
   },
   storeProduct: async function ({ body, file }) {
-    console.log('req.body', body);
-    try {
-      const newProduct = {
-        ...body,
-        category_id: body.category,
-        subTaxonomy_id: body.subTaxonomy[0] ?? body.subTaxonomy[1],
-      };
+    const newProduct = {
+      ...body,
+      category_id: body.category,
+      subTaxonomy_id: body.subTaxonomy[0] ?? body.subTaxonomy[1],
+    };
 
-      const createdProduct = await Product.create(newProduct, {
-        raw: true,
-        nest: true,
-      });
-      const newImage = {
-        location: file ? file.filename : 'productDefault.png',
-        cover: 1,
-      };
-      const productImage = await ProductsImage.create(newImage);
-      await productImage.setProduct(createdProduct.id);
+    const createdProduct = await Product.create(newProduct, {
+      raw: true,
+      nest: true,
+    });
+    const newImage = {
+      location: file ? file.filename : 'productDefault.png',
+      cover: 1,
+    };
+    const productImage = await ProductsImage.create(newImage);
+    await productImage.setProduct(createdProduct.id);
 
-      return createdProduct;
-    } catch (error) {
-      console.log('error', error);
-    }
+    return createdProduct;
   },
   updateProduct: async function (id, body, file) {
-    console.log(body)
     const subTaxonomy = body.subTaxonomy[0] || body.subTaxonomy[1];
     const editedProduct = {
       ...body,
@@ -172,7 +167,6 @@ module.exports = {
     };
     await Product.update({ ...editedProduct }, { where: { id } });
     if (file) {
-      console.log('fileInner', file);
       const newImage = {
         location: file.filename,
         cover: 1,
@@ -211,5 +205,36 @@ module.exports = {
     });
     products = this.formatProduct(products);
     return products;
+  },
+  addToCart: async function (req) {
+    const {
+      id: productId,
+      price,
+      discount,
+    } = await Product.findByPk(req.params.id, {
+      raw: true,
+      nest: true,
+      attributes: ['id', 'price', 'discount'],
+    });
+    const userId = req.session.user?.id || null;
+    let saleId = req.session.currSale;
+    if (!saleId) {
+      const { id } = await Sale.create(
+        { userId: userId },
+        { raw: true, nest: true }
+      );
+      saleId = id;
+    }
+    await ProductSale.create(
+      {
+        historicPrice: price,
+        historicDiscount: discount,
+        quantity: 1,
+        productId,
+        saleId,
+      },
+      { raw: true, nest: true }
+    );
+    req.session.currSale = saleId;
   },
 };

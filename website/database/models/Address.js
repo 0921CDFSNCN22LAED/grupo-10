@@ -8,7 +8,7 @@ module.exports = (sequelize, dataTypes) => {
         autoIncrement: true,
         allowNull: false,
       },
-      user_id: {
+      userId: {
         type: dataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         onUpdate: 'CASCADE',
@@ -37,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
   Address.associate = (models) => {
     Address.belongsTo(models.User, {
       as: 'user',
-      foreignKey: 'user_id',
+      foreignKey: 'userId',
     });
     Address.belongsTo(models.City, {
       as: 'city',

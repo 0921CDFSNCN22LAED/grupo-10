@@ -26,6 +26,11 @@ router.post(
   productsController.store
 );
 
+// Agregar al carrito
+
+router.post('/addToCart/:id', productsController.addToCart);
+router.post('/addAndGoToCart/:id', productsController.addAndGoToCart);
+
 // Detalle de un producto
 router.get('/:id', productsController.detail);
 

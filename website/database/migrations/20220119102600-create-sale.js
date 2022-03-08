@@ -13,17 +13,16 @@ module.exports = {
         type: dataTypes.TINYINT,
         allowNull: false,
       },
-      created_at: {
+      createdAt: {
         type: dataTypes.DATE,
         allowNull: false,
       },
-      updated_at: {
+      updatedAt: {
         type: dataTypes.DATE,
         allowNull: false,
       },
-      user_id: {
+      userId: {
         type: dataTypes.INTEGER.UNSIGNED,
-        allowNull: false,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         references: { model: 'Users', key: 'id' },

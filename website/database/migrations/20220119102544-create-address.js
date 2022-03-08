@@ -24,7 +24,7 @@ module.exports = {
         onDelete: 'CASCADE',
         references: { model: 'Cities', key: 'id' },
       },
-      user_id: {
+      userId: {
         type: dataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         onUpdate: 'CASCADE',

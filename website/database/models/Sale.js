@@ -11,11 +11,18 @@ module.exports = (sequelize, dataTypes) => {
       },
       sold: {
         type: dataTypes.TINYINT,
+        defaultValue: 0,
+      },
+      createdAt: {
+        type: dataTypes.DATE,
         allowNull: false,
       },
-      user_id: {
-        type: dataTypes.INTEGER.UNSIGNED,
+      updatedAt: {
+        type: dataTypes.DATE,
         allowNull: false,
+      },
+      userId: {
+        type: dataTypes.INTEGER.UNSIGNED,
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         references: { model: 'Users', key: 'id' },
@@ -23,13 +30,17 @@ module.exports = (sequelize, dataTypes) => {
     },
 
     {
-      timestamps: false,
+      timestamps: true,
     }
   );
   Sale.associate = (models) => {
     Sale.belongsTo(models.User, {
       as: 'user',
-      foreignKey: 'user_id',
+      foreignKey: 'userId',
+    });
+    Sale.hasMany(models.ProductSale, {
+      as: 'sale',
+      foreignKey: 'saleId',
     });
   };
   return Sale;

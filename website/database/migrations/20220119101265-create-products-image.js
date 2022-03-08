@@ -17,7 +17,7 @@ module.exports = {
         type: dataTypes.TINYINT,
         allowNull: false,
       },
-      product_id: {
+      productId: {
         type: dataTypes.INTEGER.UNSIGNED,
         allowNull: false,
         onUpdate: 'CASCADE',

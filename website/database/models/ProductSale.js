@@ -1,8 +1,7 @@
-'use strict';
-
-module.exports = {
-  async up(queryInterface, dataTypes) {
-    await queryInterface.createTable('productSales', {
+module.exports = (sequelize, dataTypes) => {
+  const ProductSale = sequelize.define(
+    'ProductSale',
+    {
       id: {
         type: dataTypes.INTEGER.UNSIGNED,
         primaryKey: true,
@@ -17,9 +16,23 @@ module.exports = {
         type: dataTypes.INTEGER,
         defaultValue: 0,
       },
+      productId: {
+        type: dataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: { model: 'Products', key: 'id' },
+      },
       quantity: {
         type: dataTypes.INTEGER,
         defaultValue: 1,
+      },
+      saleId: {
+        type: dataTypes.INTEGER.UNSIGNED,
+        allowNull: false,
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
+        references: { model: 'Sales', key: 'id' },
       },
       createdAt: {
         type: dataTypes.DATE,
@@ -29,23 +42,21 @@ module.exports = {
         type: dataTypes.DATE,
         allowNull: false,
       },
-      productId: {
-        type: dataTypes.INTEGER.UNSIGNED,
-        allowNull: false,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        references: { model: 'Products', key: 'id' },
-      },
-      saleId: {
-        type: dataTypes.INTEGER.UNSIGNED,
-        allowNull: false,
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
-        references: { model: 'Sales', key: 'id' },
-      },
+    },
+
+    {
+      timestamps: true,
+    }
+  );
+  ProductSale.associate = (models) => {
+    ProductSale.belongsTo(models.Product, {
+      as: 'product',
+      foreignKey: 'productId',
     });
-  },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('productSales');
-  },
+    ProductSale.belongsTo(models.Sale, {
+      as: 'productSale',
+      foreignKey: 'saleId',
+    });
+  };
+  return ProductSale;
 };

@@ -42,14 +42,18 @@
                         <p><i class="fas fa-check"></i> Stock disponible</p>
                         <p><i class="fas fa-truck-moving"></i> Envíos a todo el país</p>
                     </div>
-                    <button class="boton-compra" type="button" value="text">
-                        <i class="fas fa-shopping-cart"></i>
-                        COMPRAR
-                    </button>
-                    <button class="boton-carrito" type="button" value="text">
-                        <i class="fas fa-cart-arrow-down"></i>
-                        Agregar al carrito
-                    </button>
+                    <form action="/products/addAndGoToCart/<%= product.id %>" method="post">
+                        <button class="boton-compra" type="submit" value="text">
+                            <i class="fas fa-shopping-cart"></i>
+                            COMPRAR
+                        </button>
+                    </form>
+                    <form action="/products/addToCart/<%= product.id %>" method="post">
+                        <button class="boton-carrito" type="submit" value="text">
+                            <i class="fas fa-cart-arrow-down"></i>
+                            Agregar al carrito
+                        </button>
+                    </form>
                     <div class="admin-buttons">
                         <form action="/products/<%= product.id %>/edit" method="GET">
                             <button class="boton-editar" type="submit" value="text">

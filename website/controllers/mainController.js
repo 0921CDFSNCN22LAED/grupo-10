@@ -20,11 +20,19 @@ module.exports = {
   },
 
   update: async (req, res) => {
-    const user = await mainServices.updateUser(req.body, req.session.user.id, req.file);
+    const user = await mainServices.updateUser(
+      req.body,
+      req.session.user.id,
+      req.file
+    );
     res.redirect('/perfil');
   },
 
   carrito: (req, res) => {
+    // Tomar productos de Sale y Products Sale
+    // Para continuar pedir usuario Logueado
+    // Implementar cambiar cantidad
+    // Implementar borrar producto
     res.render('productCart');
   },
 

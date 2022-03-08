@@ -46,7 +46,7 @@ module.exports = (sequelize, dataTypes) => {
   Product.associate = (models) => {
     Product.hasOne(models.ProductsImage, {
       as: 'productsImages',
-      foreignKey: 'product_id',
+      foreignKey: 'productId',
     });
     Product.belongsTo(models.SubTaxonomy, {
       as: 'subTaxonomy',
@@ -55,6 +55,10 @@ module.exports = (sequelize, dataTypes) => {
     Product.belongsTo(models.Category, {
       as: 'category',
       foreignKey: 'category_id',
+    });
+    Product.hasMany(models.ProductSale, {
+      as: 'productSale',
+      foreignKey: 'productId',
     });
   };
   return Product;

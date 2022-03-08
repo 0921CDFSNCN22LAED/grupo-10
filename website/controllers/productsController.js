@@ -54,4 +54,12 @@ module.exports = {
 
     res.render('productos', { products, search });
   },
+  addToCart: async (req, res) => {
+    await productServices.addToCart(req);
+    res.redirect('/products');
+  },
+  addAndGoToCart: async (req, res) => {
+    await productServices.addToCart(req);
+    res.redirect('/carrito');
+  },
 };
