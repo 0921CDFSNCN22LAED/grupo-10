@@ -9,6 +9,7 @@ const loguser = require('./middleware/loguser.js');
 const taxonomy = require('./middleware/taxonomy.js');
 const flashErrors = require('./middleware/flashErrors');
 const cookieLogger = require('./middleware/cookieLogger.js');
+const notFound = require('./middleware/notFound');
 
 const mainRouter = require('./routers/mainRouter.js');
 const productsRouter = require('./routers/productsRouter.js');
@@ -58,3 +59,4 @@ app.use('/', mainRouter);
 app.use('/api', apiRouter);
 
 app.use('/products', productsRouter);
+app.use(notFound);
