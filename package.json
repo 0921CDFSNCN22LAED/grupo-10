@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/0921CDFSNCN22LAED/grupo-10/issues"
   },
-  "homepage": "https://github.com/0921CDFSNCN22LAED/grupo-10#readme"
+  "homepage": "https://github.com/0921CDFSNCN22LAED/grupo-10#readme",
+  "dependencies": {
+    "ibm-watson": "^6.2.2"
+  }
 }

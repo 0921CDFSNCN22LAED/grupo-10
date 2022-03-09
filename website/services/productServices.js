@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const productsFilePath = path.join(__dirname, '../data/products.json');
+const dictionaryFilePath = path.join(__dirname, '../data/dictionary.json');
 const {
   Product,
   SubTaxonomy,
@@ -183,9 +183,17 @@ module.exports = {
     });
   },
   searchProduct: async function (searchItem) {
-    if (searchItem.toLowerCase() == 'periféricos') {
-      searchItem = 'peripherals'
+    let products = await this.search(searchItem);
+    if (products.length < 1) {
+      const dictionary = JSON.parse(
+        fs.readFileSync(dictionaryFilePath, 'utf-8')
+      );
+      let translation = dictionary[searchItem];
+      products = await this.search(translation);
     }
+    return products;
+  },
+  search: async function (searchItem) {
     let products = await Product.findAll({
       raw: true,
       nest: true,
