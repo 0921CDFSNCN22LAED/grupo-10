@@ -8,12 +8,7 @@ module.exports = async (req, res, next) => {
   if (!errors.isEmpty()) {
     req.session.errors = errors.mapped();
     req.session.old = req.body;
-    try {
-      await unlink(path.resolve(__dirname, `../${req.file.path}`));
-      console.log(`successfully deleted ${req.file.path}`);
-    } catch (error) {
-      console.error('there was an error:', error.message);
-    }
+    await unlink(path.resolve(__dirname, `../${req.file.path}`));
     res.redirect('back');
   } else {
     next();

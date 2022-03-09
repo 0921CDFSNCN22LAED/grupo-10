@@ -10,7 +10,7 @@
     <%- include("./partials/header") %>
     <main>
         <div>
-            <form class="form-crearProducto" action="/products/<%= product.id%>/edit?_method=PUT" method="POST"
+            <form class="form-crearProducto" action="/products/<%= product.id%>/editar?_method=PUT" method="POST"
                 enctype="multipart/form-data">
                 <h2 class="titulo-micompra">
                     Estás editando el producto: <i><%= product.name %></i>

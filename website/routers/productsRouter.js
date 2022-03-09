@@ -12,10 +12,10 @@ const validations = require('../middleware/validation');
 router.get('/', productsController.list);
 
 // Búsqueda
-router.get('/search', productsController.search);
+router.get('/buscar', productsController.search);
 
 // Formulario de creación de productos
-router.get('/create', productsController.create);
+router.get('/crear', productsController.create);
 // Acción de creación
 router.post(
   '/store',
@@ -35,10 +35,10 @@ router.post('/addAndGoToCart/:id', productsController.addAndGoToCart);
 router.get('/:id', productsController.detail);
 
 // Formulario de edición de productos
-router.get('/:id/edit', productsController.edit);
+router.get('/:id/editar', productsController.edit);
 // Acción de edición
 router.put(
-  '/:id/edit',
+  '/:id/editar',
   fileUpload.single('image'),
   productValidations,
   validations,
