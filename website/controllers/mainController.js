@@ -37,14 +37,19 @@ module.exports = {
         price: productServices.convertToPesos(item.historicPrice),
         discount: productServices.convertToPercentage(item.historicDiscount),
         subtotal: productServices.convertToPesos(
-          (item.historicPrice * (100 - item.historicDiscount)) / 100
+          ((item.historicPrice * (100 - item.historicDiscount)) / 100) *
+            item.quantity
         ),
         productSaleId: item.id,
       };
     });
     const total = productServices.convertToPesos(
       cartRaw.reduce((acc, curr) => {
-        return acc + (curr.historicPrice * (100 - curr.historicDiscount)) / 100;
+        return (
+          acc +
+          ((curr.historicPrice * (100 - curr.historicDiscount)) / 100) *
+            curr.quantity
+        );
       }, 0)
     );
     const userLog = req.session.user;

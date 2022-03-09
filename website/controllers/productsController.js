@@ -69,4 +69,13 @@ module.exports = {
     await productServices.removeFromCart(productSaleId);
     res.redirect('/carrito');
   },
+  plusToProduct: async (req, res) => {
+    console.log('aca');
+    await productServices.changeQuantity(req.params.id, 'plus');
+    res.redirect('/carrito');
+  },
+  minusToProduct: async (req, res) => {
+    await productServices.changeQuantity(req.params.id, 'minus');
+    res.redirect('/carrito');
+  },
 };

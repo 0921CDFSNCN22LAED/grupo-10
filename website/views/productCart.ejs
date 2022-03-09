@@ -17,7 +17,7 @@
         <table class="tabla-misproductos">
             <tr class="tr-header1">
                 <th class="th-producto1">Producto</th>
-                <th>Cantidad</th>
+                <th>Cantidad por unidad</th>
                 <th>Precio</th>
                 <th>Descuento</th>
                 <th>subtotal $</th>
@@ -27,10 +27,16 @@
             <tr>
                 <td class="td-nombreproducto "><%= item.name %> </td>
                 <td class="td-cantidad">
-                    <input type="number" name="cantidad" id="id-cantidad-prod" min="1" max="300"
-                        value=<%= item.quantity %>><button class="btn-minus" id="minus-1"><i
-                            class="fas fa-minus"></i></button>
-                    <button class="btn-plus" id="plus-1"><i class="fas fa-plus"></i></button>
+                    <input class="text-center" type="number" name="cantidad" id="id-cantidad-prod" min="1" max="300"
+                        value=<%= item.quantity %>>
+                    <form style="display: inline;" action=<%= `/products/minusToProduct/${item.productSaleId}` %>
+                        method="post">
+                        <button class="btn-minus" id="minus-1"><i class="fas fa-minus"></i></button>
+                    </form>
+                    <form style="display: inline;" action=<%= `/products/plusToProduct/${item.productSaleId}` %>
+                        method="post">
+                        <button class="btn-plus" id="plus-1"><i class="fas fa-plus"></i></button>
+                    </form>
                 </td>
                 <td class="text-center"><%= item.price %> </td>
                 <td class="text-center"><%= item.discount %></td>

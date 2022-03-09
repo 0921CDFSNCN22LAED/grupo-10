@@ -286,4 +286,21 @@ module.exports = {
   removeFromCart: async function (id) {
     await ProductSale.destroy({ where: { id } });
   },
+  changeQuantity: async function (productSaleId, sign) {
+    const productSale = await ProductSale.findByPk(productSaleId, {
+      raw: true,
+      nest: true,
+    });
+    let quantity =
+      sign == 'plus' ? 1 + productSale.quantity : -1 + productSale.quantity;
+    if (quantity == 0) this.removeFromCart(productSaleId);
+    await ProductSale.update(
+      {
+        quantity: quantity,
+      },
+      {
+        where: { id: productSaleId },
+      }
+    );
+  },
 };
