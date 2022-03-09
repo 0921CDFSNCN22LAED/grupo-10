@@ -183,6 +183,9 @@ module.exports = {
     });
   },
   searchProduct: async function (searchItem) {
+    if (searchItem.toLowerCase() == 'periféricos') {
+      searchItem = 'peripherals'
+    }
     let products = await Product.findAll({
       raw: true,
       nest: true,
