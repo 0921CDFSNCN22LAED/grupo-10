@@ -62,4 +62,9 @@ module.exports = {
     await productServices.addToCart(req);
     res.redirect('/carrito');
   },
+  removeFromCart: async (req, res) => {
+    const productSaleId = req.params.id;
+    await productServices.removeFromCart(productSaleId);
+    res.redirect('/carrito');
+  },
 };

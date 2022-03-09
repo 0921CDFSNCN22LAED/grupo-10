@@ -259,5 +259,7 @@ module.exports = {
       console.log('error', error);
     }
   },
-  removeFromCart: function (req) {},
+  removeFromCart: async function (id) {
+    await ProductSale.destroy({ where: { id } });
+  },
 };

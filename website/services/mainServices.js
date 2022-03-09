@@ -75,11 +75,13 @@ module.exports = {
   getCartProducts: async function (req) {
     let currSaleId = req.session.currSale;
     const currSale = await Sale.findByPk(currSaleId);
+    if (!currSale) return [];
     const cart = await currSale.getProductSale({
       raw: true,
       nest: true,
       include: [{ association: 'product' }],
     });
+
     return cart;
   },
 };
