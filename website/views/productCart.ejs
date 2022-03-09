@@ -36,8 +36,8 @@
                 <td class="text-center"><%= item.discount %></td>
                 <td class="text-center"><%= item.subtotal %></td>
                 <td>
-                    <form action="">
-                        <button><i id="tacho-tabla" class="fas fa-trash"></i></button>
+                    <form action=<%= `/products/removeFromCart/${item.productSaleId}?_method=DELETE` %> method="post">
+                        <button class="no-style-button"><i id="tacho-tabla" class="fas fa-trash"></i></button>
                     </form>
                 </td>
             </tr>

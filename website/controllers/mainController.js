@@ -51,6 +51,7 @@ module.exports = {
     req.session.nextPage = '/carrito';
     // Implementar cambiar cantidad
     // Implementar borrar producto
+    if (cart.length < 1) return res.redirect('/products');
     res.render('productCart', { cart, total, userLog });
   },
 

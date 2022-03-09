@@ -1,4 +1,3 @@
-
 .titulo-micompra {
   text-align: center;
   margin-bottom: 20px;
@@ -15,9 +14,9 @@
   margin: auto;
   font-size: 16px;
   padding-bottom: 10px;
-  
 }
-th, td {
+th,
+td {
   text-align: left;
   border: 1px solid #000;
   border-collapse: collapse;
@@ -30,7 +29,6 @@ th {
 #id-cantidad-prod {
   max-width: 40%;
   margin-right: 5px;
-
 }
 .td-cantidad {
   text-align: center;
@@ -47,8 +45,8 @@ th {
   text-align: center;
 }
 
-
-.th-precio, .td-precio {
+.th-precio,
+.td-precio {
   display: none;
 }
 
@@ -91,8 +89,8 @@ th {
   text-align: center;
 }
 
-
-#label-Pickup, #label-envio {
+#label-Pickup,
+#label-envio {
   margin: 0px 3px;
 }
 .box-contenidoMiPago {
@@ -104,7 +102,8 @@ th {
   margin: 7.5px 0;
 }
 
-.box-conf-entrega, .box-conf-precio {
+.box-conf-entrega,
+.box-conf-precio {
   display: flex;
   justify-content: end;
   margin-bottom: 10px;
@@ -117,9 +116,21 @@ th {
 .titulo-confirmacion-entrega {
   font-size: 1.2rem;
 }
-.box-conf-entrega p, .box-conf-precio p {
+.box-conf-entrega p,
+.box-conf-precio p {
   place-self: flex-end;
   padding-left: 3px;
   font-size: 1.2rem;
 }
 
+.no-style-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-align: center;
+  width: 100%;
+}

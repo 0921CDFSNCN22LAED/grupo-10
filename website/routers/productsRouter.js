@@ -30,6 +30,7 @@ router.post(
 
 router.post('/addToCart/:id', productsController.addToCart);
 router.post('/addAndGoToCart/:id', productsController.addAndGoToCart);
+router.delete('/removeFromCart/:id', productsController.removeFromCart);
 
 // Detalle de un producto
 router.get('/:id', productsController.detail);
