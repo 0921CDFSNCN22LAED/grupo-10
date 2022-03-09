@@ -244,16 +244,40 @@ module.exports = {
         );
         saleId = id;
       }
-      await ProductSale.create(
-        {
-          historicPrice: price,
-          historicDiscount: discount,
-          quantity: 1,
-          productId,
-          saleId,
-        },
-        { raw: true, nest: true }
-      );
+      if (
+        req.session.productsInCart &&
+        req.session.productsInCart.includes(productId)
+      ) {
+        const productSale = await ProductSale.findOne({
+          where: { saleId: saleId, productId: productId },
+          raw: true,
+          nest: true,
+        });
+        let quantity = 1 + productSale.quantity;
+        await ProductSale.update(
+          {
+            quantity: quantity,
+          },
+          {
+            where: { saleId: saleId, productId: productId },
+          }
+        );
+      } else {
+        await ProductSale.create(
+          {
+            historicPrice: price,
+            historicDiscount: discount,
+            quantity: 1,
+            productId,
+            saleId,
+          },
+          { raw: true, nest: true }
+        );
+        req.session.productsInCart = req.session.productsInCart
+          ? req.session.productsInCart.push(productId)
+          : [productId];
+      }
+
       req.session.currSale = saleId;
     } catch (error) {
       console.log('error', error);
