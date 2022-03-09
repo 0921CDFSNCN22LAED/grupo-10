@@ -122,12 +122,22 @@ main {
   color: white;
   text-align: center;
 }
+.width33{
+  width: 33%;
+}
 .footer-b {
   padding-top: 15px;
   margin-top: 15px;
 }
 .title-footer {
   text-align: center;
+}
+.listyle-footer{
+  list-style: none;
+}
+.ul-footer{
+  text-align: left;
+  margin-left: 120px;
 }
 .style-contact {
   display: flex;
@@ -157,6 +167,7 @@ main {
 
 .pos-search {
   width: 300px;
+  left: 27rem;
   margin: auto;
   position: relative;
 }
