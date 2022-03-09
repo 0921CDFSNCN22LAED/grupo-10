@@ -19,13 +19,6 @@ class SubTaxonomies extends Component {
   }
   componentDidMount() {
     this.getSubTaxonomies();
-    // fetch('http://localhost:3001/api/products/subtaxonomies')
-    //   .then((response) => response.json())
-    //   .then((subTaxonomies) => {
-    //     this.setState({ hardwareList: subTaxonomies.data.hardware });
-    //     this.setState({ peripheralsList: subTaxonomies.data.peripherals });
-    //   })
-    //   .catch((error) => console.log(error));
   }
   render() {
     return (

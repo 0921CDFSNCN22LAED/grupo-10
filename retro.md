@@ -71,23 +71,23 @@
 
 ### Comenzar a hacer
 
--
+- Comunicarnos más a través de Discord, que es un espacio donde todos nos encontramos.
 
 ### Hacer más
 
--
+- Reuniones (aumentar la frecuencia)
 
 ### Continuar haciendo
 
--
+- Colocar fecha de entrega a las tareas.
 
 ### Hacer menos
 
--
+- Dejar las actividades para el final
 
 ### Dejar de hacer
 
--
+- Ausencia de comunicación.
 
 ## RETRO SPRINT 5
 
@@ -140,37 +140,37 @@
 
 ### Comenzar a hacer
 
--
+- Anotar tareas concretas y concisas en el Trello para completar en menos de una hora.
 
 ### Hacer más
 
--
+- Escribir código de manera asincrónica, individual.
 
 ### Continuar haciendo
 
--
+- Peer review sincrónico de código.
 
 ### Hacer menos
 
--
+- Peer review sincrónico de código
 
 ### Dejar de hacer
 
--
+- Commits muy largos
 
 ## RETRO SPRINT 8
 
 ### Comenzar a hacer
 
--
+- Darle los retoques finales al proyecto.
 
 ### Hacer más
 
--
+- Buscar errores en el proyecto.
 
 ### Continuar haciendo
 
--
+- Anotar tareas concretas y concisas en el Trello para completar en menos de una hora.
 
 ### Hacer menos
 
@@ -178,4 +178,4 @@
 
 ### Dejar de hacer
 
--
+- El proyecto ;)
