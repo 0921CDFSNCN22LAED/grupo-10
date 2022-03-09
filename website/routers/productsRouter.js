@@ -37,6 +37,7 @@ router.get('/:id', productsController.detail);
 
 // Formulario de edición de productos
 router.get('/:id/editar', productsController.edit);
+
 // Acción de edición
 router.put(
   '/:id/editar',

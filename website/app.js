@@ -9,12 +9,14 @@ const loguser = require('./middleware/loguser.js');
 const taxonomy = require('./middleware/taxonomy.js');
 const flashErrors = require('./middleware/flashErrors');
 const cookieLogger = require('./middleware/cookieLogger.js');
+const notFound = require('./middleware/notFound');
 
 const mainRouter = require('./routers/mainRouter.js');
 const productsRouter = require('./routers/productsRouter.js');
 const apiRouter = require('./api/routers/apiRouter.js');
 
 const cors = require('cors');
+const tester = require('./middleware/tester.js');
 var corsOptions = {
   origin: '*',
 };
@@ -49,6 +51,8 @@ app.use(
 );
 app.use(cookieParser());
 
+app.use(tester);
+
 app.use(cookieLogger);
 app.use(flashErrors);
 app.use(taxonomy);
@@ -58,3 +62,4 @@ app.use('/', mainRouter);
 app.use('/api', apiRouter);
 
 app.use('/products', productsRouter);
+app.use(notFound);
