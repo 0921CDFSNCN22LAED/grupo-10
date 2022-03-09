@@ -16,6 +16,7 @@ const productsRouter = require('./routers/productsRouter.js');
 const apiRouter = require('./api/routers/apiRouter.js');
 
 const cors = require('cors');
+const tester = require('./middleware/tester.js');
 var corsOptions = {
   origin: '*',
 };
@@ -49,6 +50,8 @@ app.use(
   session({ secret: 'clave secreta', resave: false, saveUninitialized: false })
 );
 app.use(cookieParser());
+
+app.use(tester);
 
 app.use(cookieLogger);
 app.use(flashErrors);

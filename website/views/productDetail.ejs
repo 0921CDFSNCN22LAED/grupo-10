@@ -1,138 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <%- include("./partials/head", {title: "Detalle de producto - PC Gamer"}) %>
-  </head>
 
-  <body>
+<head>
+    <%- include("./partials/head", {title: "Detalle de producto - PC Gamer"}) %>
+</head>
+
+<body>
     <%- include("./partials/header") %>
     <main>
-      <!-- IMÁGENES PRODUCTO-->
-      <div class="flex-section1y2">
-        <section class="section1">
-          <img
-            class="imagen-principal"
-            src="/img/products-img/<%= product.image %>"
-            alt="imagenPrincipal"
-          />
+        <!-- IMÁGENES PRODUCTO-->
+        <div class="flex-section1y2">
+            <section class="section1">
+                <img class="imagen-principal" src="/img/products-img/<%= product.image %>" alt="imagenPrincipal" />
 
-          <!-- MINTIENDO DETALLES (VER CSS) -->
-          <div class="contenedor-imagenesB">
-            <div class="imagenBContainer">
-              <img
-                class="imagenB"
-                src="/img/products-img/<%= product.image %>"
-                alt="otraImagen"
-              />
-            </div>
-            <div class="imagenBContainer">
-              <img
-                class="imagenB"
-                src="/img/products-img/<%= product.image %>"
-                alt="otraImagen"
-              />
-            </div>
-            <div class="imagenBContainer">
-              <img
-                class="imagenB"
-                src="/img/products-img/<%= product.image %>"
-                alt="otraImagen"
-              />
-            </div>
-          </div>
-        </section>
-        <!-- INFO PRODUCTO-->
-        <section class="section2">
-          <h2 class="nombre-producto"><%= product.name %></h2>
-          <div class="contenedor-info-producto">
-            <ul>
-              <li class="li-caracteristicas"><%= product.price %></li>
-              <h3 class="subtitulo-caracteristicas">CARACTERÍSTICAS</h3>
-              <li class="li-caracteristicas"><%= product.description %></li>
-            </ul>
-            <div class="contenedor-txt-verde">
-              <p><i class="fas fa-shield-alt"></i> Garantía: 36 meses</p>
-              <p><i class="fas fa-check"></i> Stock disponible</p>
-              <p><i class="fas fa-truck-moving"></i> Envíos a todo el país</p>
-            </div>
-            <form
-              action="/products/addAndGoToCart/<%= product.id %>"
-              method="post"
-            >
-              <button class="boton-compra" type="submit" value="text">
-                <i class="fas fa-shopping-cart"></i>
-                COMPRAR
-              </button>
-            </form>
-            <form action="/products/addToCart/<%= product.id %>" method="post">
-              <button class="boton-carrito" type="submit" value="text">
-                <i class="fas fa-cart-arrow-down"></i>
-                Agregar al carrito
-              </button>
-            </form>
-            <div class="admin-buttons">
-              <form action="/products/<%= product.id %>/editar" method="GET">
-                <button class="boton-editar" type="submit" value="text">
-                  <i class="fas fa-edit"></i>
-                  Editar producto
-                </button>
-              </form>
-              <form
-                action="/products/<%= product.id %>?_method=DELETE"
-                method="POST"
-              >
-                <button class="boton-delete" type="submit" value="text">
-                  <i class="fas fa-trash-alt"></i>
-                  Eliminar producto
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
-      </div>
-      <!-- TAMBIÉN PUEDE INTERESARTE-->
-      <div class="section3">
-        <section id="" class="custom-carousel mb-5">
-          <h2 class="subtitulo-intereses">También puede interesarte:</h2>
-          <div
-            class="d-flex align-items-center justify-content-center container-fluid mb-3"
-          >
-            <div
-              class="carousel-control-prev-icon custom"
-              aria-hidden="true"
-            ></div>
-            <div class="hide-overflow">
-              <div class="row my-2 custom-stick">
-                <% for(let item of products) {%>
-                <div class="col-lg-3 col-md-4 col-sm-6 c-card">
-                  <a
-                    href="/products/<%= item.id %>"
-                    class="noLinkStyle p-1 d-flex flex-column h-100 producto"
-                  >
-                    <div
-                      class="d-flex align-items-center justify-content-center img-thumbnail mb-3 h-50 carousel-img-container"
-                    >
-                      <img src="/img/products-img/<%= item.image %>" alt="" />
+                <!-- MINTIENDO DETALLES (VER CSS) -->
+                <div class="contenedor-imagenesB">
+                    <div class="imagenBContainer">
+                        <img class="imagenB" src="/img/products-img/<%= product.image %>" alt="otraImagen" />
                     </div>
-                    <div class="">
-                      <h5><%= item.name %></h5>
-                      <p><%= item.price %></p>
-                      <p class="h-50 cut-long-text"><%= item.description %></p>
+                    <div class="imagenBContainer">
+                        <img class="imagenB" src="/img/products-img/<%= product.image %>" alt="otraImagen" />
                     </div>
-                  </a>
+                    <div class="imagenBContainer">
+                        <img class="imagenB" src="/img/products-img/<%= product.image %>" alt="otraImagen" />
+                    </div>
                 </div>
-                <% } %>
-              </div>
-            </div>
-            <div
-              class="carousel-control-next-icon custom"
-              aria-hidden="true"
-            ></div>
-          </div>
-        </section>
-      </div>
+            </section>
+            <!-- INFO PRODUCTO-->
+            <section class="section2">
+                <h2 class="nombre-producto"><%= product.name %></h2>
+                <div class="contenedor-info-producto">
+                    <ul>
+                        <li class="li-caracteristicas"><%= product.price %></li>
+                        <h3 class="subtitulo-caracteristicas">CARACTERÍSTICAS</h3>
+                        <li class="li-caracteristicas"><%= product.description %></li>
+                    </ul>
+                    <div class="contenedor-txt-verde">
+                        <p><i class="fas fa-shield-alt"></i> Garantía: 36 meses</p>
+                        <p><i class="fas fa-check"></i> Stock disponible</p>
+                        <p><i class="fas fa-truck-moving"></i> Envíos a todo el país</p>
+                    </div>
+                    <form action="/products/addAndGoToCart/<%= product.id %>" method="post">
+                        <button class="boton-compra" type="submit" value="text">
+                            <i class="fas fa-shopping-cart"></i>
+                            COMPRAR
+                        </button>
+                    </form>
+                    <% if(product.id == productsIdInCart) { %>
+                    <form action="/products/addToCart/<%= product.id %>" method="post">
+                        <button class="boton-carrito" type="submit" value="text">
+                            <i class="fas fa-cart-arrow-down"></i>
+                            Agregar uno más
+                        </button>
+                    </form>
+                    <% } else { %>
+                    <form action="/products/addToCart/<%= product.id %>" method="post">
+                        <button class="boton-carrito" type="submit" value="text">
+                            <i class="fas fa-cart-arrow-down"></i>
+                            Agregar al carrito
+                        </button>
+                    </form>
+                    <% } %>
+                    <div class="admin-buttons">
+                        <form action="/products/<%= product.id %>/editar" method="GET">
+                            <button class="boton-editar" type="submit" value="text">
+                                <i class="fas fa-edit"></i>
+                                Editar producto
+                            </button>
+                        </form>
+                        <form action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                            <button class="boton-delete" type="submit" value="text">
+                                <i class="fas fa-trash-alt"></i>
+                                Eliminar producto
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- TAMBIÉN PUEDE INTERESARTE-->
+        <div class="section3">
+            <section id="" class="custom-carousel mb-5">
+                <h2 class="subtitulo-intereses">También puede interesarte:</h2>
+                <div class="d-flex align-items-center justify-content-center container-fluid mb-3">
+                    <div class="carousel-control-prev-icon custom" aria-hidden="true"></div>
+                    <div class="hide-overflow">
+                        <div class="row my-2 custom-stick">
+                            <% for(let item of products) {%>
+                            <div class="col-lg-3 col-md-4 col-sm-6 c-card">
+                                <a href="/products/<%= item.id %>"
+                                    class="noLinkStyle p-1 d-flex flex-column h-100 producto">
+                                    <div
+                                        class="d-flex align-items-center justify-content-center img-thumbnail mb-3 h-50 carousel-img-container">
+                                        <img src="/img/products-img/<%= item.image %>" alt="" />
+                                    </div>
+                                    <div class="">
+                                        <h5><%= item.name %></h5>
+                                        <p><%= item.price %></p>
+                                        <p class="h-50 cut-long-text"><%= item.description %></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="carousel-control-next-icon custom" aria-hidden="true"></div>
+                </div>
+            </section>
+        </div>
     </main>
     <%- include("./partials/footer") %>
     <script src="/scripts/carousel.js"></script>
-  </body>
+</body>
+
 </html>

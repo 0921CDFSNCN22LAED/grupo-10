@@ -20,9 +20,11 @@ module.exports = {
     const product = await productServices.getProduct(req.params.id);
     const randProducts = await productServices.getProductsRandom();
     const products = randProducts.slice(0, 6);
+    const productsIdInCart = req.session.productsInCart;
     res.render('productDetail', {
       product,
       products,
+      productsIdInCart,
     });
   },
   edit: async (req, res) => {
