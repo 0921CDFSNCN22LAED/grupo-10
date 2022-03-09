@@ -54,8 +54,6 @@ module.exports = {
     );
     const userLog = req.session.user;
     req.session.nextPage = '/carrito';
-    // Implementar cambiar cantidad
-    // Implementar borrar producto
     if (cart.length < 1) return res.redirect('/products');
     res.render('productCart', { cart, total, userLog });
   },
@@ -68,8 +66,32 @@ module.exports = {
     res.render('productCart3');
   },
 
-  carritoConfirmacion: (req, res) => {
-    res.render('productCart4');
+  carritoConfirmacion: async (req, res) => {
+    const cartRaw = await mainServices.getCartProducts(req);
+    const cart = cartRaw.map((item) => {
+      return {
+        name: item.product.name,
+        quantity: item.quantity,
+        price: productServices.convertToPesos(item.historicPrice),
+        discount: productServices.convertToPercentage(item.historicDiscount),
+        subtotal: productServices.convertToPesos(
+          ((item.historicPrice * (100 - item.historicDiscount)) / 100) *
+            item.quantity
+        ),
+        productSaleId: item.id,
+      };
+    });
+    const total = productServices.convertToPesos(
+      cartRaw.reduce((acc, curr) => {
+        return (
+          acc +
+          ((curr.historicPrice * (100 - curr.historicDiscount)) / 100) *
+            curr.quantity
+        );
+      }, 0)
+    );
+    if (cart.length < 1) return res.redirect('/products');
+    res.render('productCart4', { cart, total });
   },
 
   login: (req, res) => {
