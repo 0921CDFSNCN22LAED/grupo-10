@@ -19,13 +19,12 @@
 }
 
 .navbar-custom ul {
-  display: block;
+  /* display: block; */
   text-align: center;
 }
 
 .navbar-custom ul li {
   list-style: none;
-  margin: 4px;
   padding: 1rem 2rem;
   font-weight: bold;
   font-size: large;
@@ -76,7 +75,7 @@ body {
   display: inline-flex;
   font-size: 20px;
   color: white;
-  padding: 5px;
+  padding: 1rem;
 }
 /* .style-user img {
   vertical-align: middle;
@@ -172,7 +171,6 @@ main {
 
 .pos-search {
   width: 300px;
-  left: 27rem;
   margin: auto;
   position: relative;
 }

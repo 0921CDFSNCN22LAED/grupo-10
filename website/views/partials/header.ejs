@@ -6,11 +6,10 @@
 <header class="bg-color-black">
   <div class="max-w-1200">
     <section class="style-header">
-      <nav class="navbar-custom">
-        <nav class="left-nav">
-          <ul class="style-left-nav">
-            <li><a href="">Armá tu PC</a></li>
-            <li class="wrap-menu">
+      <nav class="navbar-custom row">
+        <section class="col-12 col-md-6">
+          <ul class="style-left-nav row">
+            <li class="wrap-menu col-6">
               <a href="/products/buscar?search=hardware">Hardware</a>
               <ul>
                 <% for(let tax of locals.taxonomy.hardware) { %>
@@ -20,7 +19,7 @@
                 <% } %>
               </ul>
             </li>
-            <li class="wrap-menu">
+            <li class="wrap-menu col-6">
               <a href="/products/buscar?search=periféricos">Periféricos</a>
               <ul>
                 <% for(let tax of locals.taxonomy.peripherals) { %>
@@ -31,25 +30,8 @@
               </ul>
             </li>
           </ul>
-        </nav>
-      </nav>
-      <div class="row">
-        <form
-          action="/products/buscar"
-          method="get"
-          class="pos-search col-12 col-md-7"
-        >
-          <input
-            type="text"
-            placeholder="Buscar"
-            name="search"
-            class="imput-search"
-          />
-          <button type="submit" class="style-search">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-        <nav class="right-nav col-12 col-md-5">
+        </section>
+        <section class="col-12 col-md-6">
           <div class="row align-items-center justify-content-center">
             <div class="col-4">
               <%= locals && locals.loguser ? `Hola ${user.name}` :"" %>
@@ -85,7 +67,25 @@
             </div>
             <% } %>
           </div>
-        </nav>
+        </section>
+      </nav>
+      <div class="row">
+        <form
+          action="/products/buscar"
+          method="get"
+          class="pos-search col-12 col-md-7"
+        >
+          <input
+            type="text"
+            placeholder="Buscar"
+            name="search"
+            class="imput-search"
+          />
+          <button type="submit" class="style-search">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        
       </div>
     </section>
   </div>
