@@ -16,7 +16,7 @@ module.exports = [
     .isEmail()
     .withMessage('Ingresá un email válido.')
     .custom(async (value) => {
-      const user = await mainServices.getUserbyEmail(value);
+      const user = await mainServices.getUserByEmail(value);
       if (user) {
         throw new Error('Ya hay una cuenta asociada al email que ingresaste.');
       } else {

@@ -2,8 +2,7 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const path = require('path');
 const usersFilePath = path.join(__dirname, '../data/users.json');
-const { User } = require('../database/models');
-const req = require('express/lib/request');
+const { User, Sale, ProductSale } = require('../database/models');
 
 module.exports = {
   getUsers: function () {
@@ -40,7 +39,7 @@ module.exports = {
     });
     return user;
   },
-  getUserbyEmail: async function (email) {
+  getUserByEmail: async function (email) {
     const user = await User.findOne({
       where: {
         email,
@@ -51,8 +50,8 @@ module.exports = {
     return user;
   },
   validateUser: async function (email, password) {
-    if (email && this.getUserbyEmail(email) && password) {
-      const user = await this.getUserbyEmail(email);
+    if (email && this.getUserByEmail(email) && password) {
+      const user = await this.getUserByEmail(email);
       if (!user) return false;
       const checkPassword = bcrypt.compareSync(password, user.password);
       return checkPassword;
@@ -72,5 +71,15 @@ module.exports = {
         where: { id },
       }
     );
+  },
+  getCartProducts: async function (req) {
+    let currSaleId = req.session.currSale;
+    const currSale = await Sale.findByPk(currSaleId);
+    const cart = await currSale.getProductSale({
+      raw: true,
+      nest: true,
+      include: [{ association: 'product' }],
+    });
+    return cart;
   },
 };

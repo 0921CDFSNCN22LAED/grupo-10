@@ -22,18 +22,25 @@ const convertToPesos = (number) => {
     .slice(0, -3);
 };
 
-const convertToPercentage = (number) => {
-  return number == 0 ? '' : parseFloat(number).toFixed(2) + '% off';
-};
-
 module.exports = {
+  convertToPesos: (number) => {
+    return new Intl.NumberFormat('es-Ar', {
+      style: 'currency',
+      currency: 'ARS',
+    })
+      .format(number)
+      .slice(0, -3);
+  },
+  convertToPercentage: (number) => {
+    return number == 0 ? '' : parseFloat(number).toFixed(2) + '% off';
+  },
   formatProduct: function (data) {
     const formableData = !Array.isArray(data) ? Array.of(data) : data;
     let products = formableData.map((product) => {
       return (product = {
         ...product,
-        price: convertToPesos(product.price),
-        discount: convertToPercentage(product.discount),
+        price: this.convertToPesos(product.price),
+        discount: this.convertToPercentage(product.discount),
         categoryData: product.category,
         category: product.category.name,
         taxonomy: [product.subTaxonomy.taxonomy.name, product.subTaxonomy.name],
@@ -218,34 +225,39 @@ module.exports = {
     return products;
   },
   addToCart: async function (req) {
-    const {
-      id: productId,
-      price,
-      discount,
-    } = await Product.findByPk(req.params.id, {
-      raw: true,
-      nest: true,
-      attributes: ['id', 'price', 'discount'],
-    });
-    const userId = req.session.user?.id || null;
-    let saleId = req.session.currSale;
-    if (!saleId) {
-      const { id } = await Sale.create(
-        { userId: userId },
+    try {
+      const {
+        id: productId,
+        price,
+        discount,
+      } = await Product.findByPk(req.params.id, {
+        raw: true,
+        nest: true,
+        attributes: ['id', 'price', 'discount'],
+      });
+      const userId = req.session.user?.id || null;
+      let saleId = req.session.currSale;
+      if (!saleId) {
+        const { id } = await Sale.create(
+          { userId: userId },
+          { raw: true, nest: true }
+        );
+        saleId = id;
+      }
+      await ProductSale.create(
+        {
+          historicPrice: price,
+          historicDiscount: discount,
+          quantity: 1,
+          productId,
+          saleId,
+        },
         { raw: true, nest: true }
       );
-      saleId = id;
+      req.session.currSale = saleId;
+    } catch (error) {
+      console.log('error', error);
     }
-    await ProductSale.create(
-      {
-        historicPrice: price,
-        historicDiscount: discount,
-        quantity: 1,
-        productId,
-        saleId,
-      },
-      { raw: true, nest: true }
-    );
-    req.session.currSale = saleId;
   },
+  removeFromCart: function (req) {},
 };

@@ -28,12 +28,30 @@ module.exports = {
     res.redirect('/perfil');
   },
 
-  carrito: (req, res) => {
-    // Tomar productos de Sale y Products Sale
-    // Para continuar pedir usuario Logueado
+  carrito: async (req, res) => {
+    const cartRaw = await mainServices.getCartProducts(req);
+    const cart = cartRaw.map((item) => {
+      return {
+        name: item.product.name,
+        quantity: item.quantity,
+        price: productServices.convertToPesos(item.historicPrice),
+        discount: productServices.convertToPercentage(item.historicDiscount),
+        subtotal: productServices.convertToPesos(
+          (item.historicPrice * (100 - item.historicDiscount)) / 100
+        ),
+        productSaleId: item.id,
+      };
+    });
+    const total = productServices.convertToPesos(
+      cartRaw.reduce((acc, curr) => {
+        return acc + (curr.historicPrice * (100 - curr.historicDiscount)) / 100;
+      }, 0)
+    );
+    const userLog = req.session.user;
+    req.session.nextPage = '/carrito';
     // Implementar cambiar cantidad
     // Implementar borrar producto
-    res.render('productCart');
+    res.render('productCart', { cart, total, userLog });
   },
 
   carritoEntrega: (req, res) => {
@@ -57,7 +75,7 @@ module.exports = {
   loginProcess: async (req, res) => {
     if (await mainServices.validateUser(req.body.email, req.body['password'])) {
       req.session.log = true;
-      const user = await mainServices.getUserbyEmail(req.body.email);
+      const user = await mainServices.getUserByEmail(req.body.email);
       req.session.user = user;
       if (req.body.remember) {
         res.cookie('email', user.email);
