@@ -54,7 +54,7 @@ formulario.addEventListener('submit', async (e) => {
 
   const allowedMimeType = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'];
   const mimeType = avatar.files[0]?.type;
-  if (avatar.value != ' ' && !allowedMimeType.includes(mimeType)) {
+  if (avatar.value != '' && !allowedMimeType.includes(mimeType)) {
     errores.push('Imagen inválida');
   }
 
