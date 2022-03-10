@@ -109,6 +109,7 @@ module.exports = {
         res.cookie('email', user.email);
       }
       const nextPage = req.session.nextPage ?? '/';
+      req.session.nextPageMessage = `Bienvenido ${req.session.user.name}`;
       return res.redirect(nextPage);
     } else {
       req.session.loginErrors = 'Las credenciales no son correctas';
@@ -122,6 +123,7 @@ module.exports = {
 
   storeUser: async (req, res) => {
     const user = await mainServices.store(req);
+    req.session.nextPageMessage = `Gracias por registrarte ${req.body.name}`;
     res.redirect('login');
   },
 

@@ -6,6 +6,7 @@
 <header class="bg-color-black">
     <div class="max-w-1200">
         <section class="style-header">
+
             <nav class="navbar-custom row">
                 <section class="col-12 col-md-6">
                     <ul class="style-left-nav row">
@@ -32,8 +33,8 @@
                     </ul>
                 </section>
                 <section class="col-12 col-md-6">
-                    <div class="row align-items-center ">
-                        <div class="col-4">
+                    <div class="row align-items-center justify-content-end user-data-header">
+                        <div class="col-4 user-data-header-name">
                             <%= locals && locals.loguser ? `Hola ${user.name}` :"" %>
                         </div>
 
@@ -52,7 +53,7 @@
                         <%} %>
                         <div class="col-2">
                             <a href="/carrito" class="style-cart">
-                                <i class="fas fa-shopping-cart"></i>
+                                <i class="fas fa-shopping-cart fs-4"></i>
                             </a>
                         </div>
                         <% if(locals && locals.loguser){%>
@@ -74,6 +75,12 @@
                 </form>
 
             </div>
+            <% if(locals?.nextPageMessage) {%>
+            <div class="nextPageMessage">
+                <h2><%=locals.nextPageMessage%></h2>
+            </div>
+            <script src="/scripts/removeNextPageMessage.js"></script>
+            <% } %>
         </section>
     </div>
 </header>

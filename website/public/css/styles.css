@@ -121,7 +121,7 @@ main {
   color: white;
   text-align: center;
 }
-.width33{
+.width33 {
   width: 33%;
 }
 .footer-b {
@@ -131,10 +131,10 @@ main {
 .title-footer {
   text-align: center;
 }
-.listyle-footer{
+.listyle-footer {
   list-style: none;
 }
-.ul-footer{
+.ul-footer {
   text-align: center;
 }
 .style-contact {
@@ -143,12 +143,12 @@ main {
 }
 .style-icon-contact {
   background: none;
-    color: inherit;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    outline: inherit;
-    font-size: 1.5rem;
+  color: inherit;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  outline: inherit;
+  font-size: 1.5rem;
 }
 .producto-contenido {
   display: flex;
@@ -201,6 +201,17 @@ main {
   border-bottom: 1px solid;
   text-align: center;
 }
+
+.nextPageMessage {
+  position: absolute;
+  z-index: 99;
+  bottom: 2px;
+  left: 20px;
+  background-color: #dc1e25;
+  padding: 5px 20px;
+  border-radius: 20px;
+}
+
 .max-w-1200 {
   max-width: 97%;
   position: relative;
@@ -217,6 +228,16 @@ main {
   right: 10px;
   padding: 10px;
 }
+.user-data-header {
+  padding-top: 1rem;
+}
+.user-data-header-name {
+  align-self: flex-start;
+  font-size: 18px;
+  text-align: end;
+  margin-top: 2px;
+}
+
 @media (max-width: 768px) {
   .right-nav {
     position: relative;

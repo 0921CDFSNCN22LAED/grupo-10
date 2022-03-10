@@ -58,6 +58,7 @@ module.exports = {
   },
   addToCart: async (req, res) => {
     await productServices.addToCart(req);
+    req.session.nextPageMessage = `Producto agregado correctamente`;
     res.redirect('/products');
   },
   addAndGoToCart: async (req, res) => {
