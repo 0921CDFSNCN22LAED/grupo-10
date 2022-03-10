@@ -228,11 +228,8 @@ main {
   right: 10px;
   padding: 10px;
 }
-.user-data-header {
-  padding-top: 1rem;
-}
+
 .user-data-header-name {
-  align-self: flex-start;
   font-size: 18px;
   text-align: end;
   margin-top: 2px;

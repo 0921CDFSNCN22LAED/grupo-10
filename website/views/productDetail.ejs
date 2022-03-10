@@ -61,6 +61,7 @@
                         </button>
                     </form>
                     <% } %>
+                    <% if(locals?.logUser) {%>
                     <div class="admin-buttons">
                         <form action="/products/<%= product.id %>/editar" method="GET">
                             <button class="boton-editar" type="submit" value="text">
@@ -75,6 +76,7 @@
                             </button>
                         </form>
                     </div>
+                    <% } %>
                 </div>
             </section>
         </div>

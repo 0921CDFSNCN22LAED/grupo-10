@@ -7,7 +7,7 @@ const cookieParser = require('cookie-parser');
 
 const loguser = require('./middleware/loguser.js');
 const taxonomy = require('./middleware/taxonomy.js');
-const flashErrors = require('./middleware/flashErrors');
+const flashMessages = require('./middleware/flashMessages');
 const cookieLogger = require('./middleware/cookieLogger.js');
 const notFound = require('./middleware/notFound');
 
@@ -54,7 +54,7 @@ app.use(cookieParser());
 app.use(tester);
 
 app.use(cookieLogger);
-app.use(flashErrors);
+app.use(flashMessages);
 app.use(taxonomy);
 
 app.use(loguser);

@@ -13,7 +13,8 @@
         </div>
         <div class="footer-b p-5 col-12 col-md-4">
             <h2 class="title-footer">Nosotros</h2>
-            <article>Nos dedicamos a la venta de computadoras, hardware, y periféricos de grandes marcas como Logitech, Corsair, HyperX, Razer, y Redragon, entre otras. </article>
+            <article>Nos dedicamos a la venta de computadoras, hardware, y periféricos de grandes marcas como Logitech,
+                Corsair, HyperX, Razer, y Redragon, entre otras. </article>
         </div>
         <div class="footer-b p-5 col-12 col-md-4">
             <h2 class="title-footer">Contacto</h2>
@@ -31,12 +32,12 @@
                     <i class="fab fa-twitter"></i>
                 </button>
             </article>
+            <% if(locals?.logUser) {%>
             <a class="noLinkStyle" href="/products/crear">Crear producto</a>
+            <% } %>
         </div>
     </section>
 </footer>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-  crossorigin="anonymous"
-></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>

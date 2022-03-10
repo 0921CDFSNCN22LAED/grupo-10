@@ -7,5 +7,7 @@ module.exports = (req, res, next) => {
   res.locals.nextPageMessage = req.session.nextPageMessage;
   req.session.nextPageMessage = '';
 
+  res.locals.logUser = req.session.log ? true : false;
+
   next();
 };

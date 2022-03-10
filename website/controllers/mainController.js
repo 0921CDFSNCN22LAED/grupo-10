@@ -123,8 +123,11 @@ module.exports = {
 
   storeUser: async (req, res) => {
     const user = await mainServices.store(req);
+    req.session.log = true;
+    req.session.user = user;
+    const nextPage = req.session.nextPage ?? '/';
     req.session.nextPageMessage = `Gracias por registrarte ${req.body.name}`;
-    res.redirect('login');
+    res.redirect(nextPage);
   },
 
   logout: (req, res) => {

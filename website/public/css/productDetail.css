@@ -117,6 +117,10 @@ body {
   border-bottom: solid 3px black;
 }
 
+.boton-carrito {
+  background-color: #e7ff0bbd;
+}
+
 .boton-editar {
   color: black;
   background-color: rgba(231, 255, 11, 0.741);
