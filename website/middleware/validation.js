@@ -8,7 +8,7 @@ module.exports = async (req, res, next) => {
   if (!errors.isEmpty()) {
     req.session.errors = errors.mapped();
     req.session.old = req.body;
-    await unlink(path.resolve(__dirname, `../${req.file.path}`));
+    if (req.file) await unlink(path.resolve(__dirname, `../${req.file.path}`));
     res.redirect('back');
   } else {
     next();

@@ -1,92 +1,79 @@
 <h1 class="logo">
-  <a href="/">
-    <img src="/img/PC_Gamer_logo.png" class="max-w-1200" />
-  </a>
+    <a href="/">
+        <img src="/img/PC_Gamer_logo.png" class="max-w-1200" />
+    </a>
 </h1>
 <header class="bg-color-black">
-  <div class="max-w-1200">
-    <section class="style-header">
-      <nav class="navbar-custom row">
-        <section class="col-12 col-md-6">
-          <ul class="style-left-nav row">
-            <li class="wrap-menu col-6">
-              <a href="/products/buscar?search=hardware">Hardware</a>
-              <ul>
-                <% for(let tax of locals.taxonomy.hardware) { %>
-                <li>
-                  <a href="/products/buscar?search=<%= tax %>"><%= tax %></a>
-                </li>
-                <% } %>
-              </ul>
-            </li>
-            <li class="wrap-menu col-6">
-              <a href="/products/buscar?search=periféricos">Periféricos</a>
-              <ul>
-                <% for(let tax of locals.taxonomy.peripherals) { %>
-                <li>
-                  <a href="/products/buscar?search=<%= tax %>"><%= tax %></a>
-                </li>
-                <% } %>
-              </ul>
-            </li>
-          </ul>
-        </section>
-        <section class="col-12 col-md-6">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-4">
-              <%= locals && locals.loguser ? `Hola ${user.name}` :"" %>
-            </div>
+    <div class="max-w-1200">
+        <section class="style-header">
+            <nav class="navbar-custom row">
+                <section class="col-12 col-md-6">
+                    <ul class="style-left-nav row">
+                        <li class="wrap-menu col-6">
+                            <a href="/products/buscar?search=hardware">Hardware</a>
+                            <ul>
+                                <% for(let tax of locals.taxonomy.hardware) { %>
+                                <li>
+                                    <a href="/products/buscar?search=<%= tax %>"><%= tax %></a>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <li class="wrap-menu col-6">
+                            <a href="/products/buscar?search=periféricos">Periféricos</a>
+                            <ul>
+                                <% for(let tax of locals.taxonomy.peripherals) { %>
+                                <li>
+                                    <a href="/products/buscar?search=<%= tax %>"><%= tax %></a>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section class="col-12 col-md-6">
+                    <div class="row align-items-center ">
+                        <div class="col-4">
+                            <%= locals && locals.loguser ? `Hola ${user.name}` :"" %>
+                        </div>
 
-            <% if(locals && locals.loguser){%>
-            <div class="col-2">
-              <a href="/perfil">
-                <img
-                  class="w-100"
-                  src="/img/profiles-img/<%=user.profileImage%>"
-                  id="img-logeado"
-                />
-              </a>
+                        <% if(locals && locals.loguser){%>
+                        <div class="col-2">
+                            <a href="/perfil">
+                                <img class="w-100" src="/img/profiles-img/<%=user.profileImage%>" id="img-logeado" />
+                            </a>
+                        </div>
+                        <% }else{%>
+                        <div class="col-3">
+                            <a href="/login" class="style-user">
+                                <i class="fas fa-user-alt"></i>
+                            </a>
+                        </div>
+                        <%} %>
+                        <div class="col-2">
+                            <a href="/carrito" class="style-cart">
+                                <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </div>
+                        <% if(locals && locals.loguser){%>
+                        <div class="col-3">
+                            <form action="/logout" method="GET">
+                                <button class="btn btn-warning">Salir</button>
+                            </form>
+                        </div>
+                        <% } %>
+                    </div>
+                </section>
+            </nav>
+            <div class="row">
+                <form action="/products/buscar" method="get" class="pos-search col-12 col-md-7">
+                    <input type="text" placeholder="Buscar" name="search" class="imput-search" />
+                    <button type="submit" class="style-search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+
             </div>
-            <% }else{%>
-            <div class="col-3">
-              <a href="/login" class="style-user">
-                <i class="fas fa-user-alt"></i>
-              </a>
-            </div>
-            <%} %>
-            <div class="col-2">
-              <a href="/carrito" class="style-cart">
-                <i class="fas fa-shopping-cart"></i>
-              </a>
-            </div>
-            <% if(locals && locals.loguser){%>
-            <div class="col-3">
-              <form action="/logout" method="GET">
-                <button class="btn btn-warning">Salir</button>
-              </form>
-            </div>
-            <% } %>
-          </div>
         </section>
-      </nav>
-      <div class="row">
-        <form
-          action="/products/buscar"
-          method="get"
-          class="pos-search col-12 col-md-7"
-        >
-          <input
-            type="text"
-            placeholder="Buscar"
-            name="search"
-            class="imput-search"
-          />
-          <button type="submit" class="style-search">
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-        
-      </div>
-    </section>
-  </div>
+    </div>
 </header>

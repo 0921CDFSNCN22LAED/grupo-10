@@ -14,47 +14,53 @@
             <i class="fas fa-shopping-cart"></i>
             Mi compra
         </h2>
-        <table class="tabla-misproductos">
-            <tr class="tr-header1">
-                <th class="th-producto1">Producto</th>
-                <th>Cantidad por unidad</th>
-                <th>Precio</th>
-                <th>Descuento</th>
-                <th>subtotal $</th>
-                <th></th>
-            </tr>
-            <% for(let item of cart) { %>
-            <tr>
-                <td class="td-nombreproducto "><%= item.name %> </td>
-                <td class="td-cantidad">
-                    <input class="text-center" type="number" name="cantidad" id="id-cantidad-prod" min="1" max="300"
-                        value=<%= item.quantity %>>
-                    <form style="display: inline;" action=<%= `/products/minusToProduct/${item.productSaleId}` %>
-                        method="post">
-                        <button class="btn-minus" id="minus-1"><i class="fas fa-minus"></i></button>
-                    </form>
-                    <form style="display: inline;" action=<%= `/products/plusToProduct/${item.productSaleId}` %>
-                        method="post">
-                        <button class="btn-plus" id="plus-1"><i class="fas fa-plus"></i></button>
-                    </form>
-                </td>
-                <td class="text-center"><%= item.price %> </td>
-                <td class="text-center"><%= item.discount %></td>
-                <td class="text-center"><%= item.subtotal %></td>
-                <td>
-                    <form action=<%= `/products/removeFromCart/${item.productSaleId}?_method=DELETE` %> method="post">
-                        <button class="no-style-button"><i id="tacho-tabla" class="fas fa-trash"></i></button>
-                    </form>
-                </td>
-            </tr>
-            <% } %>
-
-
-            <td colspan="4"></td>
-            <th>
-                Total <%= total %>
-            </th>
-        </table>
+        <div class="table-responsive">
+            <table class="tabla-misproductos">
+                <tr class="tr-header1">
+                    <th class="th-producto1">Producto</th>
+                    <th>Cantidad por unidad</th>
+                    <th>Precio</th>
+                    <th>Descuento</th>
+                    <th>subtotal $</th>
+                    <th></th>
+                </tr>
+                <% for(let item of cart) { %>
+                <tr>
+                    <td class="td-nombreproducto "><%= item.name %> </td>
+                    <td class="td-cantidad">
+                        <input class="text-center" type="number" name="cantidad" id="id-cantidad-prod" min="1" max="300"
+                            value=<%= item.quantity %>>
+                        <form style="display: inline;" action=<%= `/products/minusToProduct/${item.productSaleId}` %>
+                            method="post">
+                            <button class="btn-minus" id="minus-1"><i class="fas fa-minus"></i></button>
+                        </form>
+                        <form style="display: inline;" action=<%= `/products/plusToProduct/${item.productSaleId}` %>
+                            method="post">
+                            <button class="btn-plus" id="plus-1"><i class="fas fa-plus"></i></button>
+                        </form>
+                    </td>
+                    <td class="text-center"><%= item.price %> </td>
+                    <td class="text-center"><%= item.discount %></td>
+                    <td class="text-center"><%= item.subtotal %></td>
+                    <td>
+                        <form action=<%= `/products/removeFromCart/${item.productSaleId}?_method=DELETE` %>
+                            method="post">
+                            <button class="no-style-button"><i id="tacho-tabla" class="fas fa-trash"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+                <td colspan="4"></td>
+                <th>
+                    Total <%= total %>
+                </th>
+            </table>
+        </div>
+        <div class="table-responsive-md">
+            <table class="table">
+                ...
+            </table>
+        </div>
         <div class="my-3">
             <% if(userLog) { %>
             <div class="btn-carrito-siguienteA">
