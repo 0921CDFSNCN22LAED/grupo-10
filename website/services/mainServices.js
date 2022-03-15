@@ -38,11 +38,14 @@ module.exports = {
   },
   updateUser: async function (data, id, reqFile) {
     const { name, email } = data;
+    const user = await this.getUser(id);
+    const oldProfileImage = user.profileImage;
+    const defaultProfileImage = oldProfileImage || 'default-avatar.png';
     return await User.update(
       {
         ...(name && { name }),
         ...(email && { email }),
-        profileImage: reqFile ? reqFile.filename : 'default-avatar.png',
+        profileImage: reqFile ? reqFile.filename : defaultProfileImage,
       },
       {
         where: { id },

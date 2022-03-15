@@ -16,6 +16,7 @@ module.exports = {
 
   profile: async (req, res) => {
     const user = await mainServices.getUser(req.session.user.id);
+    console.log('user', user);
     res.render('profile', { user });
   },
 
