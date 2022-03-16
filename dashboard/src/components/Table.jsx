@@ -333,7 +333,7 @@ function Table() {
   let [productKeys, setProductKeys] = useState('');
 
   useEffect(() => {
-    const url = 'http://localhost:3001/api/products/flattened';
+    const url = 'https://pc-gamer-website.herokuapp.com/api/products/flattened';
 
     const fetchData = async () => {
       try {

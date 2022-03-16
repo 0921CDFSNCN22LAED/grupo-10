@@ -1,5 +1,4 @@
 const bcrypt = require('bcryptjs');
-const path = require('path');
 const { User, Sale } = require('../database/models');
 
 module.exports = {

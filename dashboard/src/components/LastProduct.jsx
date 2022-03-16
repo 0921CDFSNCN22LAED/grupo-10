@@ -4,7 +4,7 @@ function LastProduct() {
   const [lastProduct, setLastProduct] = useState([]);
   useEffect(async () => {
     const responseFetch = await fetch(
-      'http://localhost:3001/api/products/last-product'
+      'https://pc-gamer-website.herokuapp.com/api/products/last-product'
     );
     const dataJson = await responseFetch.json();
     setLastProduct(dataJson.data);

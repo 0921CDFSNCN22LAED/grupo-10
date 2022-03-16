@@ -2,7 +2,7 @@ const formulario = document.querySelector('form.form-register');
 // const errores = document.getElementById("errores")
 async function emailIsNotUnique() {
   const response = await fetch(
-    `http://localhost:3001/api/users/email?email=${email.value}`
+    `https://pc-gamer-website.herokuapp.com/api/users/email?email=${email.value}`
   );
   const data = await response.json();
   if (data) {

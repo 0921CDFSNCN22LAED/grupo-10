@@ -11,7 +11,7 @@ class SubTaxonomies extends Component {
   }
   async getSubTaxonomies() {
     const response = await fetch(
-      'http://localhost:3001/api/products/subtaxonomies'
+      'https://pc-gamer-website.herokuapp.com/api/products/subtaxonomies'
     );
     const subTaxonomies = await response.json();
     this.setState({ hardwareList: subTaxonomies.data.hardware });

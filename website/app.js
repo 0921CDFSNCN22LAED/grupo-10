@@ -38,9 +38,11 @@ app.use(allowCrossDomain);
 const publicPath = path.resolve(__dirname, 'public');
 app.use(express.static(publicPath));
 
-app.listen(3001, () => {
-  console.log('Server running on port 3001.');
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Escuchando puerto ${PORT}`);
 });
+
 app.set('view engine', 'ejs');
 
 app.use(express.urlencoded({ extended: false }));

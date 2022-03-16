@@ -5,7 +5,7 @@ const ContentRowProducts = () => {
   const [metrics, setMetrics] = useState([]);
   useEffect(async () => {
     const responseFetch = await fetch(
-      'http://localhost:3001/api/products/totals'
+      'https://pc-gamer-website.herokuapp.com/api/products/totals'
     );
     const dataJson = await responseFetch.json();
     setMetrics(dataJson.data);

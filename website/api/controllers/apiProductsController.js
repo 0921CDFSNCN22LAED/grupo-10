@@ -254,7 +254,7 @@ module.exports = {
           subTaxonomy: product.subTaxonomy?.name,
           category: product.category,
         },
-        image: `http://localhost:3001/img/products-img/${product.productsImages.location}`,
+        image: `https://pc-gamer-website.herokuapp.com/img/products-img/${product.productsImages.location}`,
       };
       res.json({
         meta: {
